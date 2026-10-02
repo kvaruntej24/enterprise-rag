@@ -2,3 +2,4 @@ pydantic-settings
 psycopg[binary]
 pgvector
 numpy
+pymupdf
