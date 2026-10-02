@@ -14,8 +14,9 @@ engineering documents used for the Enterprise RAG project.
 | Pdf/NIST.SP.800-40r4.pdf | https://csrc.nist.gov/pubs/sp/800/40/r4/final | U.S. Government publication |
 | Pdf/NIST.SP.800-61r3.pdf | https://csrc.nist.gov/pubs/sp/800/61/r3/final | U.S. Government publication |
 | Pdf/OWASP-Top-10-for-LLMs-v2025.pdf | https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/ | OWASP terms |
-| HTML/OWASP API Security Top 10.html | https://owasp.org/API-Security/ | CC BY-SA 4.0 |
-| HTML/OWASP Top 10_2025.html | https://owasp.org/www-project-top-ten/ | OWASP terms |
+| A03 Injection - OWASP Top 10_2021.html | https://owasp.org/Top10/2021/A03_2021-Injection/ | OWASP terms |
+| Mitigating malware and ransomware attacks _ National Cyber Security Centre.html | https://www.ncsc.gov.uk/guidance/mitigating-malware-and-ransomware-attacks | NCSC site |
+| CISA_StopRansomware_Guide.html | https://www.cisa.gov/stopransomware/ransomware-guide | US government site CISA |
 | MARKDOWN/Authentication_Cheat_Sheet.md | https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Authentication_Cheat_Sheet.md | CC BY-SA 4.0 |
 | MARKDOWN/Authorization_Cheat_Sheet.md | https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Authorization_Cheat_Sheet.md | CC BY-SA 4.0 |
 | MARKDOWN/Deserialization_Cheat_Sheet.md | https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md | CC BY-SA 4.0 |
