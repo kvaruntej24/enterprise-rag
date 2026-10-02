@@ -24,7 +24,7 @@ def load_pdf(path: Path) -> list[Document]:
                 }))
     return docs
 
-
+INLINE_TAGS = ["a", "strong", "b", "em", "i", "span", "code", "abbr", "small", "sup", "sub"]
 def load_html(path: Path) -> list[Document]:
     html = path.read_text(encoding="utf-8", errors="ignore")
     soup = BeautifulSoup(html, "html.parser")
@@ -37,12 +37,12 @@ def load_html(path: Path) -> list[Document]:
     for tag in root(["script", "style", "noscript", "svg", "nav", "header", "footer", "aside"]):
         tag.decompose()
 
+    for tag in root.find_all(INLINE_TAGS):
+        tag.unwrap()
+    root.smooth()
+
     text = root.get_text(separator="\n")
-    return [Document(text, {
-        "source": path.name,
-        "doc_type": "html",
-        "title": title,
-    })]
+    return [Document(text, {"source": path.name, "doc_type": "html"})]
 
 
 def load_markdown(path: Path) -> list[Document]:
