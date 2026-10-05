@@ -4,3 +4,5 @@ pgvector
 numpy
 pymupdf
 beautifulsoup4
+pytest
+sentence-transformers
