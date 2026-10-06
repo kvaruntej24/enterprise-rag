@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     embedding_model: str = "BAAI/bge-small-en-v1.5"
     chunk_size: int = 1000
     chunk_overlap: int = 150
+    embedding_dim: int = 384
 
 
 settings = Settings()
