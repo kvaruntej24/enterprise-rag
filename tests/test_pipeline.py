@@ -12,7 +12,7 @@ def fake_results(n: int = 3) -> list[SearchResult]:
 
 
 def patch_pipeline(monkeypatch, results, llm_text):
-    monkeypatch.setattr("app.generation.pipeline.semantic_search", lambda q, k=5: results)
+    monkeypatch.setattr("app.generation.pipeline.retrieve", lambda q, k=5: results)
     monkeypatch.setattr(
         "app.generation.pipeline.generate",
         lambda system, user: LLMResponse(llm_text, 10, 5, 0.1),
@@ -56,7 +56,7 @@ def test_refusal_is_detected(monkeypatch):
 
 
 def test_no_results_refuses_without_calling_llm(monkeypatch):
-    monkeypatch.setattr("app.generation.pipeline.semantic_search", lambda q, k=5: [])
+    monkeypatch.setattr("app.generation.pipeline.retrieve", lambda q, k=5: [])
 
     def fail(*args, **kwargs):
         raise AssertionError("LLM must not be called")

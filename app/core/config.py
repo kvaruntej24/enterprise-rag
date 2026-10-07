@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     llm_model: str = "openai/gpt-oss-120b"
     llm_timeout_seconds: float = 30.0
     llm_max_tokens: int = 700
+    reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 
 settings = Settings()

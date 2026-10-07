@@ -5,7 +5,8 @@ from dataclasses import dataclass, field
 from app.generation.context import build_context
 from app.generation.llm import generate
 from app.generation.prompts import NO_ANSWER_MESSAGE, SYSTEM_PROMPT, build_user_prompt
-from app.retrieval.semantic import SearchResult, semantic_search
+from app.retrieval.retriever import retrieve
+from app.retrieval.semantic import SearchResult
 
 CITATION_PATTERN = re.compile(r"[\[【](\d{1,2}(?:\s*,\s*\d{1,2})*)(?:†[^\]】]*)?[\]】]")
 
@@ -41,7 +42,7 @@ def normalize_citations(text: str) -> str:
 
 def answer(question: str, k: int = 5) -> Answer:
     start = time.perf_counter()
-    results = semantic_search(question, k=k)
+    results = retrieve(question, k=k)
     retrieval_seconds = time.perf_counter() - start
 
     context, used = build_context(results)
@@ -58,7 +59,7 @@ def answer(question: str, k: int = 5) -> Answer:
 
     return Answer(
         question=question,
-        text=text,
+        text = normalize_citations(response.text.strip()),
         refused=refused,
         cited={} if refused else cited,
         invalid_citations=invalid,
