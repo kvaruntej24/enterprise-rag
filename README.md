@@ -3,7 +3,7 @@
 A retrieval-augmented generation system that answers cybersecurity questions
 from a fixed set of public documents, with cited sources.
 
-**Status:** work in progress (Day 1 of 10: foundation complete).
+**Status:** work in progress (Day 3 of 10: ingestion, chunking, embedding complete).
 
 ## Architecture
 See [docs/architecture.md](docs/architecture.md).
@@ -41,9 +41,15 @@ The documents are not stored in this repository. See
 [data/SOURCES.md](data/SOURCES.md) for sources and licenses.
 
 ## Roadmap
-- [x] Project foundation, database, corpus
-- [ ] Ingestion and chunking
-- [ ] Retrieval (semantic, BM25, hybrid, reranking)
+- [X] Project foundation, database, corpus
+- [X] Retrieval (semantic, BM25, hybrid, reranking)
 - [ ] Generation with citations
 - [ ] Evaluation
 - [ ] Observability, Docker, CI, deployment
+
+Run ingestion: data\processed\chunks.jsonl
+Run order: python -m scripts.ingest,
+           python -m scripts.init_db, 
+           python -m scripts.load_chunks, 
+           python -m scripts.search "your question"
+My observations are here: docs/retrieval_notes.md
