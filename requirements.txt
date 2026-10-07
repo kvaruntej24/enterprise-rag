@@ -6,3 +6,5 @@ pymupdf
 beautifulsoup4
 pytest
 sentence-transformers
+openai
+rank-bm25
