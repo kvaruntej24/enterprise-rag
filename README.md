@@ -53,3 +53,6 @@ Run order: python -m scripts.ingest,
            python -m scripts.load_chunks, 
            python -m scripts.search "your question"
 My observations are here: docs/retrieval_notes.md
+no relevance gate yet (out-of-corpus questions still send irrelevant chunks to the LLM); the model sometimes drifts from the citation format (we normalize it);
+a table question was falsely refused; 
+there's no evaluation set yet.
