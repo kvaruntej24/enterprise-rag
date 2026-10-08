@@ -7,7 +7,7 @@ result = answer(sys.argv[1])
 print(result.text)
 print()
 if result.refused:
-    print("(refused: not enough information in the documents)")
+    print(f"(refused: {result.refusal_reason}, top score {result.top_score:.2f})")
 else:
     print("Sources:")
     for n, source in sorted(result.cited.items()):

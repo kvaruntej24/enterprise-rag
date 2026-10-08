@@ -1,7 +1,7 @@
 import re
 import time
 from dataclasses import dataclass, field
-
+from app.core.config import settings
 from app.generation.context import build_context
 from app.generation.llm import generate
 from app.generation.prompts import NO_ANSWER_MESSAGE, SYSTEM_PROMPT, build_user_prompt
@@ -19,10 +19,13 @@ class Answer:
     cited: dict[int, SearchResult] = field(default_factory=dict)
     invalid_citations: list[int] = field(default_factory=list)
     uncited: bool = False
+    refusal_reason: str = ""
+    top_score: float = 0.0
     input_tokens: int = 0
     output_tokens: int = 0
     retrieval_seconds: float = 0.0
     llm_seconds: float = 0.0
+
 
 
 def extract_citations(text: str) -> list[int]:
@@ -44,13 +47,19 @@ def answer(question: str, k: int = 5) -> Answer:
     start = time.perf_counter()
     results = retrieve(question, k=k)
     retrieval_seconds = time.perf_counter() - start
+    top_score = results[0].score if results else 0.0
+
+    if not results:
+        return Answer(question, NO_ANSWER_MESSAGE, True, refusal_reason="no_results",
+                      retrieval_seconds=retrieval_seconds)
+    if top_score < settings.relevance_threshold:
+        return Answer(question, NO_ANSWER_MESSAGE, True,
+                      refusal_reason="below_relevance_threshold", top_score=top_score,
+                      retrieval_seconds=retrieval_seconds)
 
     context, used = build_context(results)
-    if not used:
-        return Answer(question, NO_ANSWER_MESSAGE, True, retrieval_seconds=retrieval_seconds)
-
     response = generate(SYSTEM_PROMPT, build_user_prompt(question, context))
-    text = response.text.strip()
+    text = normalize_citations(response.text.strip())
 
     refused = NO_ANSWER_MESSAGE.lower() in text.lower()
     numbers = extract_citations(text)
@@ -59,11 +68,13 @@ def answer(question: str, k: int = 5) -> Answer:
 
     return Answer(
         question=question,
-        text = normalize_citations(response.text.strip()),
+        text=text,
         refused=refused,
         cited={} if refused else cited,
         invalid_citations=invalid,
         uncited=not refused and not cited,
+        refusal_reason="model_refused" if refused else "",
+        top_score=top_score,
         input_tokens=response.input_tokens,
         output_tokens=response.output_tokens,
         retrieval_seconds=retrieval_seconds,

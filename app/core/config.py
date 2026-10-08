@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     llm_timeout_seconds: float = 30.0
     llm_max_tokens: int = 700
     reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    relevance_threshold: float = 1.0
 
 
 settings = Settings()

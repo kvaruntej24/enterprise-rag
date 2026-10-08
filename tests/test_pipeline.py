@@ -6,11 +6,23 @@ from app.retrieval.semantic import SearchResult
 
 def fake_results(n: int = 3) -> list[SearchResult]:
     return [
-        SearchResult(f"id{i}", f"content {i}", f"doc{i}.pdf", "pdf", i, 0.9)
+        SearchResult(f"id{i}", f"content {i}", f"doc{i}.pdf", "pdf", i, 5.0)
         for i in range(1, n + 1)
     ]
 
+def test_below_threshold_refuses_without_calling_llm(monkeypatch):
+    low = [SearchResult("a", "content", "d.pdf", "pdf", 1, -3.0)]
+    monkeypatch.setattr("app.generation.pipeline.retrieve", lambda q, k=5: low)
 
+    def fail(*args, **kwargs):
+        raise AssertionError("LLM must not be called")
+
+    monkeypatch.setattr("app.generation.pipeline.generate", fail)
+    result = answer("q")
+    assert result.refused
+    assert result.refusal_reason == "below_relevance_threshold"
+
+    
 def patch_pipeline(monkeypatch, results, llm_text):
     monkeypatch.setattr("app.generation.pipeline.retrieve", lambda q, k=5: results)
     monkeypatch.setattr(
