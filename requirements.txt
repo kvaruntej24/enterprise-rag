@@ -8,3 +8,5 @@ pytest
 sentence-transformers
 openai
 rank-bm25
+fastapi
+uvicorn
