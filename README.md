@@ -3,7 +3,7 @@
 A retrieval-augmented generation system that answers cybersecurity questions
 from a fixed set of public documents, with cited sources.
 
-**Status:** work in progress (Day 3 of 10: ingestion, chunking, embedding complete).
+**Status:** work in progress (Day 5 of 10: relevance gate, FastAPI, logging, and error handling. complete).
 
 ## Architecture
 See [docs/architecture.md](docs/architecture.md).
@@ -43,7 +43,7 @@ The documents are not stored in this repository. See
 ## Roadmap
 - [X] Project foundation, database, corpus
 - [X] Retrieval (semantic, BM25, hybrid, reranking)
-- [ ] Generation with citations
+- [X] Generation with citations
 - [ ] Evaluation
 - [ ] Observability, Docker, CI, deployment
 
@@ -52,7 +52,18 @@ Run order: python -m scripts.ingest,
            python -m scripts.init_db, 
            python -m scripts.load_chunks, 
            python -m scripts.search "your question"
+
+Run the API: python -m uvicorn app.api.main:app --port 8000, then open /docs.
+
 My observations are here: docs/retrieval_notes.md
 no relevance gate yet (out-of-corpus questions still send irrelevant chunks to the LLM); the model sometimes drifts from the citation format (we normalize it);
 a table question was falsely refused; 
 there's no evaluation set yet.
+models load at startup; the endpoint is def because the pipeline blocks; request IDs and logs; the question text isn't logged.
+
+
+Known limitations: 
+the gate threshold of 1.0 is provisional, based on a 15-question probe; 
+the table question is still refused; 
+there's no evaluation set yet; 
+and the API runs as a single process.
