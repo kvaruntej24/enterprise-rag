@@ -1,0 +1,43 @@
+
+{
+  "q001": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q005": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q006": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q007": {
+    "faithfulness": "partially_faithful",
+    "correctness": "partially_correct"
+  },
+  "q014": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q015": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q020": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q029": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q033": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  },
+  "q037": {
+    "faithfulness": "faithful",
+    "correctness": "correct"
+  }
+}

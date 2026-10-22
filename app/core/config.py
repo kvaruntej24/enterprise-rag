@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     llm_max_tokens: int = 700
     reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
     relevance_threshold: float = 0.0
+    judge_model: str = ""
 
 
 settings = Settings()

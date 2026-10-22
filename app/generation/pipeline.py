@@ -25,6 +25,7 @@ class Answer:
     output_tokens: int = 0
     retrieval_seconds: float = 0.0
     llm_seconds: float = 0.0
+    context: str = ""
 
 
 
@@ -79,4 +80,5 @@ def answer(question: str, k: int = 5) -> Answer:
         output_tokens=response.output_tokens,
         retrieval_seconds=retrieval_seconds,
         llm_seconds=response.latency_seconds,
+        context=context,
     )

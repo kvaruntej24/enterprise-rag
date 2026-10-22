@@ -25,10 +25,10 @@ def get_client() -> OpenAI:
     )
 
 
-def generate(system: str, user: str) -> LLMResponse:
+def generate(system: str, user: str, model: str | None = None) -> LLMResponse:
     start = time.perf_counter()
     completion = get_client().chat.completions.create(
-        model=settings.llm_model,
+        model=model or settings.llm_model,
         max_tokens=settings.llm_max_tokens,
         temperature=0,
         messages=[
