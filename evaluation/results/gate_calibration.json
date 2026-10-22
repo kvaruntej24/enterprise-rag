@@ -1,0 +1,112 @@
+{
+  "current_threshold": 1.0,
+  "n_answerable": 27,
+  "n_unanswerable": 10,
+  "table": [
+    {
+      "threshold": -4.0,
+      "false_refusal": 0.0,
+      "false_accept": 0.4
+    },
+    {
+      "threshold": -3.5,
+      "false_refusal": 0.0,
+      "false_accept": 0.3
+    },
+    {
+      "threshold": -3.0,
+      "false_refusal": 0.0,
+      "false_accept": 0.3
+    },
+    {
+      "threshold": -2.5,
+      "false_refusal": 0.0,
+      "false_accept": 0.2
+    },
+    {
+      "threshold": -2.0,
+      "false_refusal": 0.0,
+      "false_accept": 0.1
+    },
+    {
+      "threshold": -1.5,
+      "false_refusal": 0.0,
+      "false_accept": 0.1
+    },
+    {
+      "threshold": -1.0,
+      "false_refusal": 0.0,
+      "false_accept": 0.1
+    },
+    {
+      "threshold": -0.5,
+      "false_refusal": 0.0,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 0.0,
+      "false_refusal": 0.0,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 0.5,
+      "false_refusal": 0.0,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 1.0,
+      "false_refusal": 0.037037037037037035,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 1.5,
+      "false_refusal": 0.037037037037037035,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 2.0,
+      "false_refusal": 0.037037037037037035,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 2.5,
+      "false_refusal": 0.037037037037037035,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 3.0,
+      "false_refusal": 0.037037037037037035,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 3.5,
+      "false_refusal": 0.037037037037037035,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 4.0,
+      "false_refusal": 0.07407407407407407,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 4.5,
+      "false_refusal": 0.1111111111111111,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 5.0,
+      "false_refusal": 0.2222222222222222,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 5.5,
+      "false_refusal": 0.2962962962962963,
+      "false_accept": 0.0
+    },
+    {
+      "threshold": 6.0,
+      "false_refusal": 0.3333333333333333,
+      "false_accept": 0.0
+    }
+  ]
+}

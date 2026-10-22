@@ -1,0 +1,524 @@
+{
+  "label": "v1_1",
+  "config": {
+    "k": 5,
+    "candidates": 20,
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  },
+  "n_answerable": 27,
+  "summary": {
+    "semantic": {
+      "evidence": {
+        "n": 27,
+        "hit@1": 0.6666666666666666,
+        "hit@3": 0.7407407407407407,
+        "hit@5": 0.7777777777777778,
+        "mrr@5": 0.7129629629629629
+      },
+      "page": {
+        "n": 27,
+        "hit@1": 0.9629629629629629,
+        "hit@3": 0.9629629629629629,
+        "hit@5": 1.0,
+        "mrr@5": 0.9722222222222222
+      },
+      "sec_per_query": 0.38658653333334736
+    },
+    "bm25": {
+      "evidence": {
+        "n": 27,
+        "hit@1": 0.6666666666666666,
+        "hit@3": 0.8518518518518519,
+        "hit@5": 0.8888888888888888,
+        "mrr@5": 0.7685185185185185
+      },
+      "page": {
+        "n": 27,
+        "hit@1": 0.8148148148148148,
+        "hit@3": 0.9629629629629629,
+        "hit@5": 0.9629629629629629,
+        "mrr@5": 0.8888888888888888
+      },
+      "sec_per_query": 0.014282600000013999
+    },
+    "hybrid": {
+      "evidence": {
+        "n": 27,
+        "hit@1": 0.7407407407407407,
+        "hit@3": 0.8148148148148148,
+        "hit@5": 0.9259259259259259,
+        "mrr@5": 0.7975308641975309
+      },
+      "page": {
+        "n": 27,
+        "hit@1": 0.9629629629629629,
+        "hit@3": 0.9629629629629629,
+        "hit@5": 0.9629629629629629,
+        "mrr@5": 0.9629629629629629
+      },
+      "sec_per_query": 0.23080864444444968
+    },
+    "hybrid+rerank": {
+      "evidence": {
+        "n": 27,
+        "hit@1": 0.7777777777777778,
+        "hit@3": 0.9259259259259259,
+        "hit@5": 0.9259259259259259,
+        "mrr@5": 0.8395061728395062
+      },
+      "page": {
+        "n": 27,
+        "hit@1": 0.9629629629629629,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "mrr@5": 0.9814814814814815
+      },
+      "sec_per_query": 5.485019151851854
+    }
+  },
+  "ranks": {
+    "semantic": {
+      "q001": {
+        "page": 4,
+        "evidence": 4
+      },
+      "q004": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q005": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q006": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q007": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q009": {
+        "page": 1,
+        "evidence": null
+      },
+      "q010": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q014": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q015": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q016": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q017": {
+        "page": 1,
+        "evidence": null
+      },
+      "q018": {
+        "page": 1,
+        "evidence": null
+      },
+      "q019": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q020": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q021": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q022": {
+        "page": 1,
+        "evidence": null
+      },
+      "q023": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q024": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q025": {
+        "page": 1,
+        "evidence": null
+      },
+      "q026": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q028": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q029": {
+        "page": 1,
+        "evidence": 2
+      },
+      "q031": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q032": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q033": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q037": {
+        "page": 1,
+        "evidence": 2
+      },
+      "h001": {
+        "page": 1,
+        "evidence": null
+      }
+    },
+    "bm25": {
+      "q001": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q004": {
+        "page": 2,
+        "evidence": 2
+      },
+      "q005": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q006": {
+        "page": 2,
+        "evidence": 2
+      },
+      "q007": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q009": {
+        "page": null,
+        "evidence": null
+      },
+      "q010": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q014": {
+        "page": 2,
+        "evidence": 2
+      },
+      "q015": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q016": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q017": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q018": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q019": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q020": {
+        "page": 1,
+        "evidence": 2
+      },
+      "q021": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q022": {
+        "page": 1,
+        "evidence": 2
+      },
+      "q023": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q024": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q025": {
+        "page": 2,
+        "evidence": null
+      },
+      "q026": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q028": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q029": {
+        "page": 1,
+        "evidence": null
+      },
+      "q031": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q032": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q033": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q037": {
+        "page": 1,
+        "evidence": 1
+      },
+      "h001": {
+        "page": 1,
+        "evidence": 4
+      }
+    },
+    "hybrid": {
+      "q001": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q004": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q005": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q006": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q007": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q009": {
+        "page": null,
+        "evidence": null
+      },
+      "q010": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q014": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q015": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q016": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q017": {
+        "page": 1,
+        "evidence": 2
+      },
+      "q018": {
+        "page": 1,
+        "evidence": 5
+      },
+      "q019": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q020": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q021": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q022": {
+        "page": 1,
+        "evidence": 3
+      },
+      "q023": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q024": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q025": {
+        "page": 1,
+        "evidence": null
+      },
+      "q026": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q028": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q029": {
+        "page": 1,
+        "evidence": 4
+      },
+      "q031": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q032": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q033": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q037": {
+        "page": 1,
+        "evidence": 1
+      },
+      "h001": {
+        "page": 1,
+        "evidence": 4
+      }
+    },
+    "hybrid+rerank": {
+      "q001": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q004": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q005": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q006": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q007": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q009": {
+        "page": 2,
+        "evidence": 3
+      },
+      "q010": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q014": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q015": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q016": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q017": {
+        "page": 1,
+        "evidence": 2
+      },
+      "q018": {
+        "page": 1,
+        "evidence": 2
+      },
+      "q019": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q020": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q021": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q022": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q023": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q024": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q025": {
+        "page": 1,
+        "evidence": null
+      },
+      "q026": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q028": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q029": {
+        "page": 1,
+        "evidence": 3
+      },
+      "q031": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q032": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q033": {
+        "page": 1,
+        "evidence": 1
+      },
+      "q037": {
+        "page": 1,
+        "evidence": 1
+      },
+      "h001": {
+        "page": 1,
+        "evidence": null
+      }
+    }
+  }
+}
