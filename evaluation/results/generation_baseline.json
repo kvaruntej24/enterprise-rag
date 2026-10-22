@@ -1,0 +1,789 @@
+{
+  "label": "baseline",
+  "config": {
+    "relevance_threshold": 0.0,
+    "llm_model": "openai/gpt-oss-120b",
+    "chunk_size": 1000,
+    "k": 5
+  },
+  "summary": {
+    "answerable": 27,
+    "unanswerable": 10,
+    "errors": 0,
+    "false_refusals": 2,
+    "correct_refusals": 10,
+    "missed_refusals": 0,
+    "answered_with_valid_citations": 25,
+    "answered_with_correct_source": 25,
+    "answered": 25,
+    "llm_calls": 27,
+    "avg_input_tokens_per_llm_call": 1299.2222222222222,
+    "avg_llm_seconds": 1.5943975666666574
+  },
+  "records": [
+    {
+      "id": "q001",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How should an organization make secure software component configurations available to developers?",
+      "answer": "The organization should determine secure configurations for its software components and provide them to developers in a readily usable form\u2014such as configuration\u2011as\u2011code\u2014so developers can easily apply the secure settings [1][2].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.531279563903809,
+      "cited_sources": [
+        "NIST.SP.800-218.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1348,
+      "output_tokens": 189,
+      "retrieval_seconds": 16.07058219999999,
+      "llm_seconds": 2.1900799000000006
+    },
+    {
+      "id": "q004",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How should organizations group assets for software maintenance?",
+      "answer": "Organizations should place each asset into a \u201cmaintenance group\u201d \u2013 a collection of assets that share similar characteristics and therefore have the same software\u2011maintenance requirements.  Groups are defined using the organization\u2019s software inventories together with technical, business/mission, and risk\u2011response attributes (e.g., patch schedule, testing needs, outage restrictions, impact if compromised) and can also be based on factors such as personnel role or asset importance\u202f[1][2].  The granularity of the groups is chosen by the organization and reviewed periodically, and even assets that cannot be patched should be assigned to an appropriate group rather than treated as exceptions\u202f[3][5].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.025835990905762,
+      "cited_sources": [
+        "NIST.SP.800-40r4.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1291,
+      "output_tokens": 367,
+      "retrieval_seconds": 10.374401900000066,
+      "llm_seconds": 1.4028545000001031
+    },
+    {
+      "id": "q005",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What types of updates are considered security-relevant?",
+      "answer": "Security\u2011relevant updates include patches, service packs, hot fixes, and anti\u2011virus signatures [1].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.688996315002441,
+      "cited_sources": [
+        "NIST.SP.800-171r3.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1170,
+      "output_tokens": 134,
+      "retrieval_seconds": 4.6861831999999595,
+      "llm_seconds": 0.7845011999997951
+    },
+    {
+      "id": "q006",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What type of cryptography is recommended for protecting Controlled Unclassified Information (CUI)?",
+      "answer": "FIPS\u2011validated cryptography is recommended for protecting CUI\u202f[1][2]",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.79273796081543,
+      "cited_sources": [
+        "NIST.SP.800-171r3.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1298,
+      "output_tokens": 126,
+      "retrieval_seconds": 6.395906199999899,
+      "llm_seconds": 0.9209943000000749
+    },
+    {
+      "id": "q007",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What additional incident-response training may system administrators need?",
+      "answer": "System administrators may require additional incident\u2011response training on how to handle incidents, which can include instruction in data\u2011collection techniques, forensics, reporting, system recovery, and system restoration [1].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.0693998336792,
+      "cited_sources": [
+        "NIST.SP.800-171r3.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1294,
+      "output_tokens": 301,
+      "retrieval_seconds": 4.4938710999999785,
+      "llm_seconds": 1.3906799999999748
+    },
+    {
+      "id": "q009",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What does integrity protect against in information security?",
+      "answer": "Integrity protects against improper information modification or destruction and includes ensuring information non\u2011repudiation and authenticity [1][3].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 5.844350814819336,
+      "cited_sources": [
+        "NIST.FIPS.199.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1310,
+      "output_tokens": 157,
+      "retrieval_seconds": 4.682028500000115,
+      "llm_seconds": 0.9941992999999911
+    },
+    {
+      "id": "q010",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Why might an asset be considered unpatchable?",
+      "answer": "An asset can be deemed unpatchable when it cannot receive updates for reasons such as the vendor no longer providing patches (e.g., the product is end\u2011of\u2011life), the asset\u2019s design does not support updates, or the asset must remain continuously operational for mission\u2011critical functions, making routine patching impractical[1].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.127684593200684,
+      "cited_sources": [
+        "NIST.SP.800-40r4.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1286,
+      "output_tokens": 192,
+      "retrieval_seconds": 10.268115500000022,
+      "llm_seconds": 1.1461965999999393
+    },
+    {
+      "id": "q014",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What is one benefit of defining secure software development practices at a high level?",
+      "answer": "One benefit is that high\u2011level practices can be used by organizations in any sector or community, regardless of size or cybersecurity sophistication [1].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.27786111831665,
+      "cited_sources": [
+        "NIST.SP.800-218.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1261,
+      "output_tokens": 131,
+      "retrieval_seconds": 4.970966600000111,
+      "llm_seconds": 0.7052331999998387
+    },
+    {
+      "id": "q015",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How can an organization use its Current Profile with external stakeholders?",
+      "answer": "An organization can use its Current Profile to document and convey its existing cybersecurity capabilities and any known opportunities for improvement to external stakeholders\u2014such as business partners or prospective customers\u2014so they understand the organization\u2019s security posture. [1]",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.2745890617370605,
+      "cited_sources": [
+        "NIST.CSWP.29.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1249,
+      "output_tokens": 167,
+      "retrieval_seconds": 4.478202700000111,
+      "llm_seconds": 0.998411299999816
+    },
+    {
+      "id": "q016",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "When is using a client TLS certificate useful for website access?",
+      "answer": "Using a client TLS certificate is useful when the site needs an extra layer of security and is typically limited to a controlled environment\u2014for example, an intranet or internal application where users access the site from a single, managed computer or browser (or have IT support to install the certificate). It is appropriate when users are comfortable (or assisted) with installing certificates and when the organization wants to restrict access to that specific client certificate\u202f[1][2].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 4.94649600982666,
+      "cited_sources": [
+        "Authentication_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1222,
+      "output_tokens": 250,
+      "retrieval_seconds": 5.8563804999998865,
+      "llm_seconds": 1.149934900000062
+    },
+    {
+      "id": "q017",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Which vulnerability ranked as the most concerning web security issue in OWASP's 2021 Top 10?",
+      "answer": "Broken Access Control was ranked as the most concerning web security vulnerability in OWASP\u2019s 2021\u202fTop\u202f10\u202f[1][2]",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 9.074748039245605,
+      "cited_sources": [
+        "Authorization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1265,
+      "output_tokens": 219,
+      "retrieval_seconds": 10.617924599999924,
+      "llm_seconds": 0.9993655999999191
+    },
+    {
+      "id": "q018",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What method can be added to a Serializable class to prevent it from being deserialized?",
+      "answer": "Add a `private final void readObject(ObjectInputStream in) throws IOException` method that always throws an exception (e.g., `throw new IOException(\"Cannot be deserialized\");`) to block deserialization of the class.\u202f[2]",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.384971618652344,
+      "cited_sources": [
+        "Deserialization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1426,
+      "output_tokens": 171,
+      "retrieval_seconds": 5.668223699999999,
+      "llm_seconds": 0.9299788000000717
+    },
+    {
+      "id": "q019",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Which versions of the fastjson library are considered unsafe for deserializing untrusted input?",
+      "answer": "Versions of fastjson earlier than\u202fv1.2.68 (i.e.,\u202ffastjson\u202f<\u202fv1.2.68) are considered unsafe for deserializing untrusted input\u202f[1][2].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.798874855041504,
+      "cited_sources": [
+        "Deserialization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1456,
+      "output_tokens": 223,
+      "retrieval_seconds": 5.793344100000013,
+      "llm_seconds": 1.1160836999999901
+    },
+    {
+      "id": "q020",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What type of authentication model is recommended for high-risk actions such as changing payment details?",
+      "answer": "Adaptive Authentication is recommended for high\u2011risk actions such as changing payment details [1][2].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.670926094055176,
+      "cited_sources": [
+        "Authentication_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1391,
+      "output_tokens": 213,
+      "retrieval_seconds": 7.7614719000000605,
+      "llm_seconds": 0.9882373000000371
+    },
+    {
+      "id": "q021",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What type of storage should be used to protect cryptographic keys?",
+      "answer": "Use a secure storage mechanism such as a hardware security module (HSM) or virtual HSM, a cloud\u2011based key vault (e.g., Amazon\u202fKMS or Azure\u202fKey\u202fVault), an external secrets\u2011management service (e.g., Conjur or HashiCorp\u202fVault), or the secure storage APIs provided by the platform (such as the .NET\u202fProtectedData class) to protect cryptographic keys [1][4].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.3067216873168945,
+      "cited_sources": [
+        "Cryptographic_Storage_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1308,
+      "output_tokens": 258,
+      "retrieval_seconds": 4.988839299999881,
+      "llm_seconds": 1.9180605000001378
+    },
+    {
+      "id": "q022",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What happens to a session cookie when the browser is closed?",
+      "answer": "A session cookie that is non\u2011persistent is removed when the browser instance is closed, causing the session to disappear from the client. [1][4]",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 5.367068290710449,
+      "cited_sources": [
+        "Session_Management_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1256,
+      "output_tokens": 219,
+      "retrieval_seconds": 4.938437499999964,
+      "llm_seconds": 1.0464029999998274
+    },
+    {
+      "id": "q023",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How can you restrict which classes java.io.ObjectInputStream is allowed to deserialize?",
+      "answer": "You can limit deserialization by providing a custom\u202f`ObjectInputStream` that overrides its class\u2011resolution step.\u202fSubclass\u202f`java.io.ObjectInputStream` and implement\u202f`resolveClass(ObjectStreamClass desc)` so that it checks the incoming class name against an allow\u2011list (or deny\u2011list) and throws an exception for any disallowed type. Because this check occurs before `readObject()` is invoked, only the classes you explicitly permit will ever be instantiated during deserialization\u202f[1][3].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.967174053192139,
+      "cited_sources": [
+        "Deserialization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1379,
+      "output_tokens": 233,
+      "retrieval_seconds": 5.814731500000107,
+      "llm_seconds": 1.0927873999999065
+    },
+    {
+      "id": "q024",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What security problem can occur if a web application does not verify both pre-authentication and post-authentication cookies?",
+      "answer": "If the application fails to verify both the pre\u2011authentication (HTTP) cookie and the post\u2011authentication (HTTPS) cookie, an attacker can reuse the unprotected pre\u2011auth cookie to gain access to the user\u2019s authenticated session, effectively enabling a session\u2011fixation/hijack attack [1][3].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.806038856506348,
+      "cited_sources": [
+        "Session_Management_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1224,
+      "output_tokens": 326,
+      "retrieval_seconds": 4.789615200000071,
+      "llm_seconds": 1.401863800000001
+    },
+    {
+      "id": "q025",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How does the logging schema represent the severity of an event?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "top_score": 0.7688164710998535,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1211,
+      "output_tokens": 142,
+      "retrieval_seconds": 4.588647300000048,
+      "llm_seconds": 0.8833286999999928
+    },
+    {
+      "id": "q026",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Are users permitted to log in to the front end utilizing sensitive internal accounts?",
+      "answer": "No. Users must not be allowed to log in to the front\u2011end using sensitive internal accounts that are intended for backend, middleware, or database access [1][3].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 3.6107282638549805,
+      "cited_sources": [
+        "Authentication_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1286,
+      "output_tokens": 241,
+      "retrieval_seconds": 5.439216600000009,
+      "llm_seconds": 1.1608865000000606
+    },
+    {
+      "id": "q028",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Why are non-persistent cookies recommended for session management?",
+      "answer": "Non\u2011persistent (session) cookies are advised because they are automatically removed when the browser instance is closed, causing the session ID to disappear from the client and preventing it from remaining in the web client\u2019s cache for long periods where an attacker could obtain it [1][2].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.380331039428711,
+      "cited_sources": [
+        "Session_Management_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1267,
+      "output_tokens": 253,
+      "retrieval_seconds": 5.117621099999951,
+      "llm_seconds": 1.0844432999999754
+    },
+    {
+      "id": "q029",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Why is a salt added when storing passwords?",
+      "answer": "A salt is a unique, randomly\u2011generated value added to each password before hashing so that every stored hash is different. This forces an attacker to attack each hash individually (rather than computing one hash and reusing it), defeats pre\u2011computed attacks such as rainbow tables, and prevents anyone from seeing whether two users share the same password\u202f[1][3].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 5.13561487197876,
+      "cited_sources": [
+        "Password_Storage_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1312,
+      "output_tokens": 286,
+      "retrieval_seconds": 5.700972899999897,
+      "llm_seconds": 1.1950944000000163
+    },
+    {
+      "id": "q031",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Who must review and approve the incident response plan and communications plan in writing?",
+      "answer": "The incident response plan and communications plan must be reviewed and approved in writing by the CEO (or an equivalent senior leader)[1]",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.41168737411499,
+      "cited_sources": [
+        "CISA_StopRansomware_Guide.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1201,
+      "output_tokens": 112,
+      "retrieval_seconds": 4.525882899999942,
+      "llm_seconds": 2.7900195000001986
+    },
+    {
+      "id": "q032",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How should Windows systems be configured to protect lateral SMB communications?",
+      "answer": "Windows systems should be hardened for lateral SMB traffic by:\n\n* Requiring Kerberos\u2011based IPsec for SMB communications between hosts\u202f[1]  \n* Enforcing SMB\u202fv3.1.1 (or at least SMB\u202fv3) and disabling SMB\u202f1.0\u202f[5]  \n* Enabling SMB encryption (or, if encryption cannot be used, requiring SMB signing on both client and server)\u202f[1][3]  \n* Disabling the \u201cServer\u201d (SMB Server) service on machines that do not need to share files or named\u2011pipe APIs\u202f[1]  \n* Blocking unnecessary SMB ports \u2013 TCP\u202f445 inbound/outbound at the",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.317628860473633,
+      "cited_sources": [
+        "CISA_StopRansomware_Guide.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1303,
+      "output_tokens": 700,
+      "retrieval_seconds": 4.811117499999909,
+      "llm_seconds": 5.170306900000014
+    },
+    {
+      "id": "q033",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What application-execution control is recommended to help prevent malware from running on devices?",
+      "answer": "Use application\u2011allowlisting (e.g., centrally managing devices so only trusted applications can run, such as via AppLocker or trusted app stores)\u202f[1]",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 4.9425554275512695,
+      "cited_sources": [
+        "Mitigating malware and ransomware attacks _ National Cyber Security Centre.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1307,
+      "output_tokens": 143,
+      "retrieval_seconds": 4.590316900000062,
+      "llm_seconds": 7.229693600000019
+    },
+    {
+      "id": "q037",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Which Active Directory group should be used to help protect privileged accounts from pass-the-hash attacks?",
+      "answer": "The\u202fProtected\u202fUsers\u202fActive\u202fDirectory group should be used to help protect privileged accounts from pass\u2011the\u2011hash attacks [1][2].",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 4.99619197845459,
+      "cited_sources": [
+        "CISA_StopRansomware_Guide.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1289,
+      "output_tokens": 158,
+      "retrieval_seconds": 5.892968500000052,
+      "llm_seconds": 1.1174570000000585
+    },
+    {
+      "id": "h001",
+      "type": "answerable",
+      "tags": [
+        "handwritten",
+        "table"
+      ],
+      "question": "In the NIST patching guide's mitigation table, what share of critical vulnerabilities on high-importance assets were fixed by the deadline?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "top_score": 4.03082799911499,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1469,
+      "output_tokens": 243,
+      "retrieval_seconds": 6.883615199999895,
+      "llm_seconds": 1.2416390999999294
+    },
+    {
+      "id": "u001",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "What is the best pizza topping?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -10.974884033203125,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 6.458600499999875,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u002",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I configure AWS IAM roles?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -0.5891976952552795,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 6.189902400000165,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u102",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "Who won the 2022 football World Cup?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -8.449503898620605,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 6.947405200000048,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u103",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "How do I bake sourdough bread at home?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -11.0759916305542,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 5.705001300000049,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u104",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "What is the capital city of Australia?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -10.975796699523926,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.947703199999978,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u105",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "Who wrote the play Hamlet?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -10.843388557434082,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 6.1593624999998156,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u106",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I configure AWS IAM roles for an EC2 instance?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -4.463117599487305,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 6.631402700000081,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u107",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I write a Splunk query to detect failed logins?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -2.2691195011138916,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.889463000000205,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u109",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I configure Kubernetes network policies?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -3.60040283203125,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 5.9265989999998965,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u110",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "What are the GDPR breach notification deadlines?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -2.6427161693573,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.6982126000000335,
+      "llm_seconds": 0.0
+    }
+  ]
+}
