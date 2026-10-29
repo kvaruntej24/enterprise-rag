@@ -1,4 +1,5 @@
 from evaluation.compare_runs import regressions
+from evaluation.compare_runs import judge_rates
 
 REF = {
     "false_refusal_rate": 0.05,
@@ -22,5 +23,14 @@ def test_lower_is_better_metrics_flag_increases():
     assert any("missed_refusal_rate" in p for p in problems)
 
 
-def test_missing_metrics_are_skipped():
-    assert regressions(REF, {"faithful_rate": None}, 0.10) == []
+def test_judge_errors_are_excluded_from_rates_but_counted():
+    judgments = {
+        "a": {"faithfulness": "faithful", "correctness": "correct"},
+        "b": {"faithfulness": "judge_error", "correctness": "correct"},
+        "c": {"faithfulness": "partially_faithful", "correctness": "correct"},
+        "d": {"faithfulness": "faithful", "correctness": "correct"},
+    }
+    r = judge_rates(judgments)
+    assert abs(r["faithful_rate"] - 2 / 3) < 1e-9
+    assert r["correct_rate"] == 1.0
+    assert r["judge_error_rate"] == 0.25
