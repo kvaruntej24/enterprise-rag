@@ -13,11 +13,23 @@ METRICS = [
     ("source_correct_rate", True),
     ("faithful_rate", True),
     ("correct_rate", True),
+    ("judge_error_rate", False),
 ]
 
 
 def rate(n: int, d: int) -> float | None:
     return n / d if d else None
+
+def judge_rates(judgments: dict) -> dict:
+    faith = [v for v in judgments.values() if v["faithfulness"] != "judge_error"]
+    corr = [v for v in judgments.values() if v["correctness"] != "judge_error"]
+    errored = [v for v in judgments.values()
+               if "judge_error" in (v["faithfulness"], v["correctness"])]
+    return {
+        "faithful_rate": rate(sum(1 for v in faith if v["faithfulness"] == "faithful"), len(faith)),
+        "correct_rate": rate(sum(1 for v in corr if v["correctness"] == "correct"), len(corr)),
+        "judge_error_rate": rate(len(errored), len(judgments)),
+    }
 
 
 def load_metrics(label: str) -> dict:
@@ -32,15 +44,12 @@ def load_metrics(label: str) -> dict:
         "correct_rate": None,
         "avg_input_tokens": s["avg_input_tokens_per_llm_call"],
         "avg_llm_seconds": s["avg_llm_seconds"],
+        "judge_error_rate": None,
     }
     judge_path = RESULTS / f"judge_{label}.json"
     if judge_path.exists():
         judgments = json.loads(judge_path.read_text(encoding="utf-8"))["judgments"]
-        n = len(judgments)
-        faithful = sum(1 for v in judgments.values() if v["faithfulness"] == "faithful")
-        correct = sum(1 for v in judgments.values() if v["correctness"] == "correct")
-        metrics["faithful_rate"] = rate(faithful, n)
-        metrics["correct_rate"] = rate(correct, n)
+        metrics.update(judge_rates(judgments))
     return metrics
 
 

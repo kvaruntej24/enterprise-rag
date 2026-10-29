@@ -1,0 +1,163 @@
+{
+  "label": "baseline",
+  "answer_model": "openai/gpt-oss-120b",
+  "judge_model": "openai/gpt-oss-120b",
+  "same_model": true,
+  "n_judged": 25,
+  "judgments": {
+    "q001": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference: determine secure configurations, provide them as configuration-as-code, and make them readily usable for developers. No contradictions or missing key points."
+    },
+    "q004": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference point that assets should be placed into maintenance groups defined by inventories, characteristics, and risk\u2011response scenarios, and adds compatible elaboration without contradicting the reference."
+    },
+    "q005": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer lists exactly the same types of updates\u2014patches, service packs, hot fixes, and anti-virus signatures\u2014as the reference, with no contradictions."
+    },
+    "q006": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer directly states that FIPS-validated cryptography is recommended for protecting CUI, matching the reference answer exactly and providing no contradictory information."
+    },
+    "q007": {
+      "faithfulness": "partially_faithful",
+      "unsupported_claims": [
+        "System administrators may require additional incident\u2011response training that includes instruction in data\u2011collection techniques, forensics, reporting, system recovery, and system restoration"
+      ],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference that system administrators need additional training on handling incidents and expands with relevant details without contradicting the reference."
+    },
+    "q009": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference points: it mentions protection against improper modification or destruction and includes non\u2011repudiation and authenticity, matching the reference without contradiction."
+    },
+    "q010": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates both key reasons from the reference: lack of vendor patches (e.g., end\u2011of\u2011life or no update support) and the need for continuous operation for mission\u2011critical functions. It matches the reference without contradiction."
+    },
+    "q014": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference answer verbatim, capturing the key benefit that high\u2011level practices are applicable across sectors, sizes, and cybersecurity maturity levels."
+    },
+    "q015": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference\u2019s key points\u2014using the Current Profile to document and communicate cybersecurity capabilities and improvement opportunities to external stakeholders\u2014without contradiction."
+    },
+    "q016": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly identifies that client TLS certificates are useful in controlled, internal environments such as an intranet, matching the reference, and adds consistent details without contradiction."
+    },
+    "q017": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly states that Broken Access Control was the most concerning web security issue in OWASP's 2021 Top 10, matching the reference answer."
+    },
+    "q018": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer matches the reference: it specifies adding a private final readObject method that always throws an IOException to block deserialization."
+    },
+    "q019": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly states that fastjson versions earlier than 1.2.68 are unsafe, matching the reference answer."
+    },
+    "q020": {
+      "faithfulness": "partially_faithful",
+      "unsupported_claims": [
+        "Adaptive Authentication is recommended for high\u2011risk actions such as changing payment details"
+      ],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference by identifying adaptive (risk\u2011based) authentication that adapts to user behavior and context as the recommended model for high\u2011risk actions."
+    },
+    "q021": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer lists appropriate secure storage mechanisms (HSMs, cloud key vaults, platform APIs) which align with the reference\u2019s recommendation to use OS, framework, or cloud provider secure storage. It adds examples but does not contradict the reference."
+    },
+    "q022": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer states that a non\u2011persistent session cookie is deleted when the browser is closed, causing the session to disappear from the client, which matches the reference answer."
+    },
+    "q023": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer matches the reference by stating that you restrict deserialization by subclassing ObjectInputStream and overriding its resolveClass method, and adds correct additional detail without contradicting the reference."
+    },
+    "q024": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference's key point that an attacker can exploit an unprotected pre\u2011authentication cookie to gain the authenticated session, adding compatible detail without contradiction."
+    },
+    "q026": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer states \"No\" and expands with consistent explanation, matching the reference answer without contradiction."
+    },
+    "q028": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference points: non\u2011persistent cookies are removed on browser close, causing the session ID to disappear and preventing it from staying in client cache where an attacker could obtain it."
+    },
+    "q029": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer includes the key point that a salt prevents attackers from using pre\u2011computed rainbow tables or database lookups, matching the reference, and adds accurate supporting details without contradiction."
+    },
+    "q031": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly states that the CEO or an equivalent senior leader must review and approve the plans in writing, matching the reference."
+    },
+    "q032": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer includes the required configuration of Kerberos\u2011based IPsec for lateral SMB communications, matching the reference. It adds extra details but does not contradict the core requirement."
+    },
+    "q033": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference recommendation, describing centrally managing devices to allow only trusted applications (application whitelisting) and adds examples, which aligns with the reference."
+    },
+    "q037": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "correctness": "correct",
+      "correctness_reason": "The answer exactly matches the reference, stating that the Protected Users AD group should be used to protect privileged accounts from pass\u2011the\u2011hash attacks."
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "label": "current",
+  "answer_model": "openai/gpt-oss-120b",
+  "judge_model": "openai/gpt-oss-120b",
+  "same_model": true,
+  "n_judged": 25,
+  "judgments": {
+    "q001": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference's key points: determining secure configurations, providing them in a readily usable form such as configuration-as-code, and making them available to developers. No contradictions or missing information."
+    },
+    "q004": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference point: assets are placed into maintenance groups using inventories, technical/mission characteristics, and risk\u2011response scenarios, matching the key facts without contradiction."
+    },
+    "q005": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer lists exactly the same types of updates\u2014patches, service packs, hot fixes, and anti-virus signatures\u2014as the reference, with no contradictions."
+    },
+    "q006": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer states exactly that FIPS-validated cryptography is recommended for protecting CUI, matching the reference answer."
+    },
+    "q007": {
+      "faithfulness": "partially_faithful",
+      "unsupported_claims": [
+        "System administrators may receive training that includes data\u2011collection techniques, forensics, reporting, system recovery, and system restoration"
+      ],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer includes the key fact from the reference that system administrators need additional training on how to handle incidents, and expands with relevant details without contradicting the reference."
+    },
+    "q009": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference points exactly: it mentions protection against improper modification or destruction and includes non\u2011repudiation and authenticity, matching the reference without contradiction."
+    },
+    "q010": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer includes both key reasons from the reference \u2013 lack of vendor patches (e.g., end\u2011of\u2011life or no update support) and the need for continuous operation for mission\u2011critical functions \u2013 and adds no contradictory information."
+    },
+    "q014": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference answer verbatim, capturing the key benefit that high\u2011level practices are applicable to any organization regardless of sector, size, or cybersecurity maturity."
+    },
+    "q015": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference\u2019s key points: using the Current Profile to document and communicate cybersecurity capabilities and improvement opportunities to external stakeholders, adding clarifying examples without contradiction."
+    },
+    "q016": {
+      "faithfulness": "judge_error",
+      "unsupported_claims": [],
+      "faithfulness_error": "ValueError: no JSON in reply: ''",
+      "correctness": "correct",
+      "correctness_reason": "The answer includes the key fact that client TLS certificates are useful for internal/intranet or controlled environments, matching the reference, and adds consistent elaboration without contradiction."
+    },
+    "q017": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly identifies Broken Access Control as the most concerning web security issue in OWASP's 2021 Top 10, matching the reference."
+    },
+    "q018": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer matches the reference: it specifies adding a private final readObject method that always throws an IOException to prevent deserialization."
+    },
+    "q019": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer exactly matches the reference, stating that fastjson versions earlier than 1.2.68 are unsafe for deserializing untrusted input."
+    },
+    "q020": {
+      "faithfulness": "partially_faithful",
+      "unsupported_claims": [
+        "Adaptive Authentication is recommended for high\u2011risk actions such as changing payment details."
+      ],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference, describing a risk\u2011based (adaptive) authentication model that adapts to user behavior and context for high\u2011risk actions."
+    },
+    "q021": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer aligns with the reference by recommending secure storage mechanisms provided by the operating system or cloud provider, and expands with appropriate examples without contradicting the reference."
+    },
+    "q022": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly states that a session (non\u2011persistent) cookie is deleted when the browser is closed, causing the session to disappear from the client, matching the reference."
+    },
+    "q023": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly states that you restrict deserialization by providing a custom ObjectInputStream that overrides resolveClass, matching the reference. It adds extra details but does not contradict the core solution."
+    },
+    "q024": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference point that an attacker can exploit the unprotected pre\u2011authentication cookie to gain the authenticated session, adding only clarifying details without contradiction."
+    },
+    "q026": {
+      "faithfulness": "faithful",
+      "unsupported_claims": [],
+      "faithfulness_error": "",
+      "correctness": "correct",
+      "correctness_reason": "The answer states 'No' and adds a supporting explanation, which aligns with the reference answer of 'No' without contradiction."
+    },
+    "q028": {
+      "faithfulness": "judge_error",
+      "unsupported_claims": [],
+      "faithfulness_error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198877, Requested 1778. Please try again in 4m42.96s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference\u2019s key points: non\u2011persistent cookies are removed on browser close, causing the session ID to disappear and preventing it from lingering in client cache where an attacker could steal it. No contradictions or missing essential facts."
+    },
+    "q029": {
+      "faithfulness": "judge_error",
+      "unsupported_claims": [],
+      "faithfulness_error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199304, Requested 1955. Please try again in 9m3.888s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "correctness": "correct",
+      "correctness_reason": "The answer includes the key point that a salt defeats pre\u2011computed attacks such as rainbow tables, matching the reference, and adds accurate supporting details without contradiction."
+    },
+    "q031": {
+      "faithfulness": "judge_error",
+      "unsupported_claims": [],
+      "faithfulness_error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199492, Requested 1796. Please try again in 9m16.416s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "correctness": "judge_error",
+      "correctness_reason": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199459, Requested 794. Please try again in 1m49.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    "q032": {
+      "faithfulness": "judge_error",
+      "unsupported_claims": [],
+      "faithfulness_error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199427, Requested 2104. Please try again in 11m1.392s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "correctness": "judge_error",
+      "correctness_reason": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199391, Requested 1002. Please try again in 2m49.776s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    "q033": {
+      "faithfulness": "judge_error",
+      "unsupported_claims": [],
+      "faithfulness_error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199359, Requested 1784. Please try again in 8m13.775999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "correctness": "correct",
+      "correctness_reason": "The answer restates the reference recommendation, describing centrally managing devices to allow only trusted applications (application whitelisting) and adds examples, which aligns with the reference."
+    },
+    "q037": {
+      "faithfulness": "judge_error",
+      "unsupported_claims": [],
+      "faithfulness_error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4a15zp2e9ftd2fak2c0hp5y` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199558, Requested 1637. Please try again in 8m36.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "correctness": "correct",
+      "correctness_reason": "The answer correctly identifies the Protected Users AD group as the one to use for protecting privileged accounts from pass\u2011the\u2011hash attacks, matching the reference answer."
+    }
+  }
+}

@@ -32,16 +32,32 @@ CORRECTNESS_SYSTEM = (
 )
 
 
-def ask_judge(system: str, user: str) -> dict:
-    try:
-        reply = generate(system, user, model=settings.judge_model or None)
-        return json.loads(re.search(r"\{.*\}", reply.text, re.S).group(0))
-    except Exception as exc:
-        return {"verdict": "judge_error", "reason": f"{type(exc).__name__}: {exc}"}
+def ask_judge(system: str, user: str, attempts: int = 4) -> dict:
+    last_error = ""
+    for attempt in range(attempts):
+        try:
+            reply = generate(system, user, model=settings.judge_model or None, max_tokens=1500)
+            match = re.search(r"\{.*\}", reply.text, re.S)
+            if not match:
+                raise ValueError(f"no JSON in reply: {reply.text[:80]!r}")
+            data = json.loads(match.group(0))
+            if "verdict" not in data:
+                raise ValueError("reply has no verdict field")
+            return data
+        except Exception as exc:
+            last_error = f"{type(exc).__name__}: {exc}"
+            time.sleep(5 * (attempt + 1))
+    return {"verdict": "judge_error", "reason": last_error}
 
 
 def main() -> None:
-    label = sys.argv[1] if len(sys.argv) > 1 else "baseline"
+    retry_only = "--retry-errors" in sys.argv
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    label = args[0] if args else "baseline"
+    previous = {}
+    previous_path = RESULTS_DIR / f"judge_{label}.json"
+    if retry_only and previous_path.exists():
+        previous = json.loads(previous_path.read_text(encoding="utf-8"))["judgments"]
     generated = json.loads(
         (RESULTS_DIR / f"generation_{label}.json").read_text(encoding="utf-8")
     )
@@ -58,20 +74,25 @@ def main() -> None:
 
     judgments = {}
     for rec in targets:
+        old = previous.get(rec["id"])
+        if old and "judge_error" not in (old["faithfulness"], old["correctness"]):
+            judgments[rec["id"]] = old
+            continue
         q = questions[rec["id"]]
         faith = ask_judge(
             FAITHFULNESS_SYSTEM, f"SOURCES:\n{rec['context']}\n\nANSWER:\n{rec['answer']}"
         )
-        time.sleep(1)
+        time.sleep(4)
         corr = ask_judge(
             CORRECTNESS_SYSTEM,
             f"QUESTION: {q['question']}\nREFERENCE ANSWER: {q['reference_answer']}\n"
             f"ANSWER: {rec['answer']}",
         )
-        time.sleep(1)
+        time.sleep(4)
         judgments[rec["id"]] = {
             "faithfulness": faith.get("verdict", "judge_error"),
             "unsupported_claims": faith.get("unsupported_claims", []),
+            "faithfulness_error": faith.get("reason", "") if faith.get("verdict") == "judge_error" else "",
             "correctness": corr.get("verdict", "judge_error"),
             "correctness_reason": corr.get("reason", ""),
         }
@@ -82,8 +103,19 @@ def main() -> None:
     faith_counts = Counter(j["faithfulness"] for j in judgments.values())
     corr_counts = Counter(j["correctness"] for j in judgments.values())
     print(f"\nJudged {n} answered questions")
-    print(f"Faithfulness: {dict(faith_counts)}  -> faithful: {faith_counts['faithful']}/{n}")
-    print(f"Correctness:  {dict(corr_counts)}  -> correct: {corr_counts['correct']}/{n}")
+    faith_errors = faith_counts["judge_error"]
+    corr_errors = corr_counts["judge_error"]
+    print(f"Faithfulness: {dict(faith_counts)} -> faithful: "
+          f"{faith_counts['faithful']}/{n - faith_errors} (judge errors excluded: {faith_errors})")
+    print(f"Correctness:  {dict(corr_counts)} -> correct: "
+          f"{corr_counts['correct']}/{n - corr_errors} (judge errors excluded: {corr_errors})")
+    failed = [(q, j["faithfulness_error"] or j["correctness_reason"])
+              for q, j in judgments.items()
+              if "judge_error" in (j["faithfulness"], j["correctness"])]
+    if failed:
+        print("\nJudge errors (why):")
+        for q, why in failed:
+            print(f"  {q}: {why[:160]}")
 
     print("\nNot fully faithful:")
     for qid, j in judgments.items():
