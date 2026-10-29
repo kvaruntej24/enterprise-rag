@@ -1,0 +1,826 @@
+{
+  "label": "current",
+  "config": {
+    "relevance_threshold": 0.0,
+    "llm_model": "openai/gpt-oss-120b",
+    "chunk_size": 1000,
+    "k": 5
+  },
+  "summary": {
+    "answerable": 27,
+    "unanswerable": 10,
+    "errors": 0,
+    "false_refusals": 2,
+    "correct_refusals": 10,
+    "missed_refusals": 0,
+    "answered_with_valid_citations": 25,
+    "answered_with_correct_source": 25,
+    "answered": 25,
+    "llm_calls": 27,
+    "avg_input_tokens_per_llm_call": 1299.2222222222222,
+    "avg_llm_seconds": 2.556052529629664
+  },
+  "records": [
+    {
+      "id": "q001",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How should an organization make secure software component configurations available to developers?",
+      "answer": "The organization should determine secure configurations for its software components and provide them to developers in a readily usable form\u2014such as configuration\u2011as\u2011code\u2014so developers can easily apply the secure settings [1][2].",
+      "context": "[1] (NIST.SP.800-218.pdf, page 21)\nview and evaluate third-party software components in the context\nof their expected use. If a component is to be used in a substantially different way\nin the future, perform the review and evaluation again with that new context in\nmind.\nExample 2: Determine secure configurations for software components, and make\nthese available (e.g., as configuration-as-code) so developers can readily use the\nconfigurations.\nExample 3: Obtain provenance information (e.g., SBOM, source composition\nanalysis, binary software composition analysis) for each software component, and\nanalyze that information to better assess the risk that the component may\nintroduce.\nExample 4: Establish one or more software repositories to host sanctioned and\nvetted open-source components.\nExample 5: Maintain a list of organization-approved commercial software\ncomponents and component versions along with their provenance data.\nExample 6: Designate which components must be included in software to be\ndeveloped.\n\n[2] (NIST.SP.800-218.pdf, page 21)\ngrity Controls\nSCTPC: MAINTAIN\nSP80053: SA-4, SA-5, SA-8(3), SA-10(6), SR-3, SR-4\nSP800161: SA-4, SA-5, SA-8(3), SA-10(6), SR-3, SR-4\nSP800181: K0039\nPW.4.2: Create and maintain well-secured software\ncomponents in-house following SDLC processes to\nmeet common internal software development needs\nthat cannot be better met by third-party software\ncomponents.\nExample 1: Follow organization-established security practices for secure\nsoftware development when creating and maintaining the components.\nExample 2: Determine secure configurations for software components, and make\nthese available (e.g., as configuration-as-code) so developers can readily use the\nconfigurations.\nExample 3: Maintain one or more software repositories for these components.\nExample 4: Designate which components must be included in software to be\ndeveloped.\nExample 5: Implement processes to update deployed software components to\nnewer versions, and maintain older versions of software components until all\n\n[3] (NIST.SP.800-218.pdf, page 8)\nvi\nExecutive Summary\nThis document describes a set of fundamental, sound practices for secure software development\ncalled the Secure Software Development Framework (SSDF). Organizations should integrate the\nSSDF throughout their existing software development practices, express their secure software\ndevelopment requirements to third-party suppliers using SSDF conventions, and acquire\nsoftware that meets the practices described in the SSDF. Using the SSDF helps organizations to\nmeet the following secure software development recommendations:\n\u2022 Organizations should ensure that their people, processes, and technology are prepared to\nperform secure software development.\n\u2022 Organizations should protect all components of their software from tampering and\nunauthorized access.\n\u2022 Organizations should produce well-secured software with minimal security\nvulnerabilities in its releases.\n\u2022 Organizations should identify residual vulnerabilities in their software releases and\n\n[4] (NIST.SP.800-171r3.pdf, page 38)\n28\nsubsequently derive specific configuration settings for the system. The established\nsettings become part of the system\u2019s configuration baseline.\nCommon secure configurations (also referred to as security configuration checklists,\nlockdown and hardening guides, security reference guides, and security technical\nimplementation guides) provide recognized, standardized, and established\nbenchmarks that stipulate secure configuration settings for specific information\ntechnology platforms/products and instructions for configuring those system\ncomponents to meet operational requirements. Common secure configurations can\nbe developed by a variety of organizations, including information technology\nproduct developers, manufacturers, vendors, consortia, academia, industry, federal\nagencies, and other organizations in the public and private sectors.\nSource Control: CM-06\nSupporting Publications: SP 800-70 [44], SP 800-126 [45], SP 800-128 [41]\n03.04.03    Configuration Change Control\na.\n\n[5] (NIST.SP.800-218.pdf, page 13)\n4\n2\nThe Secure Software Development Framework\nThis document defines version 1.1 of the Secure Software Development Framework (SSDF)\nwith fundamental, sound, and secure recommended practices based on established secure\nsoftware development practice documents. The practices are organized into four groups:\n1. Prepare the Organization (PO): Organizations should ensure that their people,\nprocesses, and technology are prepared to perform secure software development at the\norganization level. Many organizations will find some PO practices to also be applicable\nto subsets of their software development, like individual development groups or projects.\n2. Protect the Software (PS): Organizations should protect all components of their\nsoftware from tampering and unauthorized access.\n3. Produce Well-Secured Software (PW): Organizations should produce well-secured\nsoftware with minimal security vulnerabilities in its releases.\n4.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.531279563903809,
+      "cited_sources": [
+        "NIST.SP.800-218.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1348,
+      "output_tokens": 189,
+      "retrieval_seconds": 12.506488100000752,
+      "llm_seconds": 1.7326788000000306
+    },
+    {
+      "id": "q004",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How should organizations group assets for software maintenance?",
+      "answer": "Organizations should place each asset into a \u201cmaintenance group\u201d \u2013 a collection of assets that share similar technical, business/mission and risk\u2011response characteristics and therefore have the same software\u2011maintenance needs.  Groups are created using software inventories and the assets\u2019 technical and mission profiles, and can also be based on factors such as personnel role (e.g., developer workstations) or asset importance (e.g., low\u2011impact IoT vs. life\u2011safety OT) [1][2].  The grouping should be defined at the level of granularity that best fits the organization, periodically reviewed, and used to avoid treating assets as \u201cexceptions\u201d by ensuring even unpatchable or special\u2011case assets belong to an appropriate group (e.g., mobile workforce laptops) [3].",
+      "context": "[1] (NIST.SP.800-40r4.pdf, page 19)\ne a\nnew vulnerability in an asset might necessitate a change in the methods needed to\nmitigate its risk.\n3.4\nAssign Each Asset to a Maintenance Group\nOrganizations should use the software inventories, technical and business/mission\ncharacteristics, and risk response scenarios to assign each asset to a maintenance group. A\nmaintenance group is a set of assets with similar characteristics that generally have the same\nsoftware maintenance needs for each risk response scenario. Maintenance needs include not only\npatching (e.g., patch schedule, patch testing needs, outage restrictions, level of impact if\nvulnerable software is compromised) but also any other appropriate forms of mitigation and risk\nresponse, such as temporary mitigations used when patches are not yet available. Organizations\nshould define their maintenance groups at whatever they decide the best level of granularity is,\nthen periodically reassess their maintenance group definitions and adjust them as needed.\n\n[2] (NIST.SP.800-40r4.pdf, page 21)\n14\nMaintenance groups can also be defined based on other characteristics, like personnel roles (e.g.,\nsoftware developer workstations, system administrator workstations) or asset importance (e.g.,\nlow-impact IoT consumer assets, OT and IoT assets with life-safety impact).\n3.5\nDefine Maintenance Plans for Each Maintenance Group\nOrganizations should define a maintenance plan for each maintenance group for each\napplicable risk response scenario. A maintenance plan defines the actions to be taken when a\nscenario occurs for a maintenance group, including the timeframes for beginning and ending\neach action, along with any other pertinent information. Along with the maintenance plans,\norganizations should define a risk assessment process for determining which plan should be used\nat any given time and for deciding when to switch from one plan to another as the understanding\nof risk changes.\nThe following subsections discuss what the maintenance plan for each scenario might involve.\n\n[3] (NIST.SP.800-40r4.pdf, page 19)\ns at whatever they decide the best level of granularity is,\nthen periodically reassess their maintenance group definitions and adjust them as needed.\nInstead of denoting certain assets or types of assets as \u201cexceptions,\u201d there should be maintenance\ngroups for them. If an asset cannot be patched or should not be patched, there is one less option\nfor addressing its vulnerabilities. It still has software maintenance needs, so it should belong to a\nmaintenance group.\nHere are a few simplified examples of possible maintenance groups:\n\u2022 Mobile workforce laptops for standard end users\no Software to patch: Firmware, operating systems, and client applications for end\nuser devices\no Outage restrictions: Tolerant to downtime\n\n[4] (NIST.SP.800-40r4.pdf, page 22)\nh time may be lost, and vulnerable assets may be compromised.\nOrganizations should plan to replace emergency mitigations with permanent fixes. Once a\npermanent fix, such as a patch, is available, the patch will need to be deployed and the mitigation\nremoved. Schedules should be set and enforced for both patch deployment and mitigation\nremoval.\n3.5.4 Maintenance Plans for Scenario 4, Unpatchable Assets\nOrganizations should plan to implement multiple types of long-term risk mitigation\nmethods besides patching to protect vulnerable assets. There should be an approved set of\nmethods for each maintenance group, and these methods should have been reviewed and\nanalyzed in advance by security architects/engineers to determine their adequacy in mitigating\nrisk. For example, Section 3 of NIST SP 800-207 [6] describes the use of micro-segmentation,\nsoftware-defined perimeters, and other risk mitigation methods for isolating assets based on a\ndefined policy.\n\n[5] (NIST.SP.800-40r4.pdf, page 23)\n16\npatching are still sufficiently effective at mitigating risk. The other is conducting a cost-benefit\nanalysis to see if the assets provide sufficient value to the organization compared with the\nadditional costs of mitigating, transferring, or accepting the risk of unpatchable assets.\n3.5.5 Exceptions to Maintenance Plans\nOrganizations should closely track and monitor all exceptions to maintenance plans. As\nexplained in Section 3.4, maintenance groups should be defined to minimize assets considered\n\u201cexceptions.\u201d However, having some exceptions is inevitable. All exceptions to maintenance\nplans should be reviewed regularly to determine if the maintenance plan can be implemented\nnow. Assets with similar long-term exceptions might need to be moved to a separate\nmaintenance group with its own maintenance plan.\n3.6\nChoose Actionable Enterprise-Level Patching Metrics\nMetrics play several roles in patch management and vulnerability management. A common",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.025835990905762,
+      "cited_sources": [
+        "NIST.SP.800-40r4.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1291,
+      "output_tokens": 360,
+      "retrieval_seconds": 10.23503939999955,
+      "llm_seconds": 1.4631510999997772
+    },
+    {
+      "id": "q005",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What types of updates are considered security-relevant?",
+      "answer": "Security\u2011relevant updates include patches, service packs, hot fixes, and anti\u2011virus signatures [1].",
+      "context": "[1] (NIST.SP.800-171r3.pdf, page 74)\n64\nresponsibilities. Security-relevant updates include patches, service packs, hot fixes,\nand anti-virus signatures. Organizations address the flaws discovered during security\nassessments, continuous monitoring, incident response activities, and system error\nhandling. Organizations can take advantage of available resources (e.g., CWE or CVE\ndatabases) when remediating system flaws. Organization-defined time periods for\nupdating security-relevant software and firmware may vary based on a variety of\nfactors, including the criticality of the update (i.e., severity of the vulnerability\nrelated to the discovered flaw). Some types of flaw remediation may require more\ntesting than other types.\nSource Control: SI-02\nSupporting Publications: SP 800-39 [60], SP 800-40 [56], SP 800-128 [41]\n03.14.02    Malicious Code Protection\na. Implement malicious code protection mechanisms at system entry and exit\npoints to detect and eradicate malicious code.\nb.\n\n[2] (NIST.SP.800-171r3.pdf, page 73)\nrawn\nIncorporated into 03.13.08.\n3.14. System and Information Integrity\n03.14.01    Flaw Remediation\na. Identify, report, and correct system flaws.\nb. Install security-relevant software and firmware updates within [Assignment:\norganization-defined time period] of the release of the updates.\nOrganizations identify systems that are affected by announced software and\nfirmware flaws, including potential vulnerabilities that result from those flaws, and\nreport this information to designated personnel with information security\n\n[3] (NIST.SP.800-171r3.pdf, page 25)\nnformation. Security-relevant information is information that\ncan potentially impact the operation of security functions or the provision of security\nservices in a manner that could result in failure to enforce the system security policy\nor maintain isolation of code and data. Privileged commands give individuals the\nability to execute sensitive, security-critical, or security-relevant system functions.\nSource Controls: AC-17, AC-17(03), AC-17(04)\nSupporting Publications: SP 800-46 [14], SP 800-77 [18], SP 800-113 [19], SP 800-114\n[20], SP 800-121 [21], IR 7966 [26]\n03.01.13    Withdrawn\nAddressed by 03.13.08.\n03.01.14    Withdrawn\nIncorporated into 03.01.12.\n03.01.15    Withdrawn\nIncorporated into 03.01.12.\n03.01.16    Wireless Access\na. Establish usage restrictions, configuration requirements, and connection\nrequirements for each type of wireless access to the system.\nb. Authorize each type of wireless access to the system prior to establishing such\nconnections.\nc.\n\n[4] (NIST.SP.800-171r3.pdf, page 20)\nementation, and operation of the system. Organizations consider\ncreating additional processes, roles, and system accounts to achieve least privilege.\nSecurity functions include establishing system accounts and assigning privileges,\ninstalling software, configuring access authorizations, configuring settings for events\nto be audited, establishing vulnerability scanning parameters, establishing intrusion\ndetection parameters, and managing audit information. Security-relevant\ninformation includes threat and vulnerability information, filtering rules for routers\nor firewalls, configuration parameters for security services, security architecture,\ncryptographic key management information, access control lists, and audit\ninformation.\n\n[5] (NIST.SP.800-61r3.pdf, page 31)\nity, and changes in security\nposture should involve the following types\nof assets at all times: networks and\nnetwork services; computing hardware and\nsoftware, runtime environments, and their\ndata; the physical environment; personnel\nactivity and technology usage; and external\nservice provider activities.\nC1: Consider using cyber threat information\nwith continuous monitoring to help identify\npotentially malicious activities that may\nhave otherwise been considered benign.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.688996315002441,
+      "cited_sources": [
+        "NIST.SP.800-171r3.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1170,
+      "output_tokens": 155,
+      "retrieval_seconds": 4.366934700000456,
+      "llm_seconds": 1.2272032000000763
+    },
+    {
+      "id": "q006",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What type of cryptography is recommended for protecting Controlled Unclassified Information (CUI)?",
+      "answer": "FIPS\u2011validated cryptography is recommended for protecting CUI\u202f[1][2][3]",
+      "context": "[1] (NIST.SP.800-171r3.pdf, page 71)\n[73], SP 800-56B [74], SP 800-\n56C [75], SP 800-57-1 [15], SP 800-57-2 [16], SP 800-57-3 [17], SP 800-63-3 [27]\n03.13.11    Cryptographic Protection\nImplement the following types of cryptography to protect the confidentiality of CUI:\n[Assignment: organization-defined types of cryptography].\nCryptography is implemented in accordance with applicable laws, Executive Orders,\ndirectives, regulations, policies, standards, and guidelines. FIPS-validated\ncryptography is recommended for the protection of CUI.\nSource Control: SC-13\nSupporting Publications: FIPS 140-3 [38]\n\n[2] (NIST.SP.800-171r3.pdf, page 15)\n5\ncontrols15\n15 With few exceptions, the security controls in SP 800-53 are policy-, technology-, and sector-neutral, meaning that the controls focus on the\nfundamental measures necessary to protect information across the information life cycle.\nfrom SP 800-53 and a list of NIST Special Publications with additional information on\nthe topic described in the security requirement. The structure and content of a typical security\nrequirement is provided in the example below.\n03.13.11      Cryptographic Protection\nImplement the following types of cryptography when used to protect the confidentiality of\nCUI: [Assignment: organization-defined types of cryptography].\nCryptography is implemented in accordance with applicable laws, Executive Orders,\ndirectives, policies, regulations, standards, and guidelines. FIPS-validated cryptography is\nrecommended for the protection of CUI.\nSource Control: SC-13\nSupporting Publications: FIPS 140-3 [38]\n\n[3] (NIST.SP.800-171r3.pdf, page 15)\nand guidelines. FIPS-validated cryptography is\nrecommended for the protection of CUI.\nSource Control: SC-13\nSupporting Publications: FIPS 140-3 [38]\nThe term organization is used in many security requirements, and its meaning depends on\ncontext. For example, in a security requirement with an ODP, an organization can refer to either\nthe federal agency or the nonfederal organization establishing the parameter values for the\nrequirement.\nAppendix C describes the security control tailoring criteria used to develop the security\nrequirements and the results of the tailoring process. The appendix provides a list of controls\nfrom SP 800-53 that support the requirements and the controls that have been eliminated from\nthe moderate baseline in accordance with the tailoring criteria.\n\nASSESSING SECURITY REQUIREMENTS\nSP 800-171A [84] provides a set of procedures to assess the security requirements described in\nthis publication.\n\n[4] (NIST.SP.800-171r3.pdf, page 5)\ni\nAbstract\nThe protection of Controlled Unclassified Information (CUI) is of paramount importance to\nfederal agencies and can directly impact the ability of the Federal Government to successfully\nconduct its essential missions and functions. This publication provides federal agencies with\nrecommended security requirements for protecting the confidentiality of CUI when the\ninformation is resident in nonfederal systems and organizations. The requirements apply to\ncomponents of nonfederal systems that process, store, or transmit CUI or that provide\nprotection for such components. The security requirements are intended for use by federal\nagencies in contractual vehicles or other agreements established between those agencies and\nnonfederal organizations. This publication can be used in conjunction with its companion\npublication, NIST Special Publication 800-171A, which provides a comprehensive set of\nprocedures to assess the security requirements.\nKeywords\n\n[5] (NIST.SP.800-171r3.pdf, page 100)\n90\nnonlocal maintenance\nMaintenance activities conducted by individuals communicating through an external network (e.g., the internet) or\nan internal network.\nNSA-approved cryptography\nCryptography that consists of an approved algorithm, an implementation that has been approved for the\nprotection of classified information and/or controlled unclassified information in a specific environment, and a\nsupporting key management infrastructure. [8]\non behalf of (an agency)\nA situation that occurs when: (i) a non-executive branch entity uses or operates an information system or\nmaintains or collects information for the purpose of processing, storing, or transmitting Federal information; and\n(ii) those activities are not incidental to providing a service or product to the government. [5]\norganization\nAn entity of any size, complexity, or positioning within an organizational structure. [7, adapted]\norganization-defined parameter",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.79273796081543,
+      "cited_sources": [
+        "NIST.SP.800-171r3.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1298,
+      "output_tokens": 100,
+      "retrieval_seconds": 8.199460499999986,
+      "llm_seconds": 2.170324800000344
+    },
+    {
+      "id": "q007",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What additional incident-response training may system administrators need?",
+      "answer": "System administrators may require additional incident\u2011response training on how to handle incidents, which can include instruction in data\u2011collection techniques, forensics, reporting, system recovery, and system restoration [1].",
+      "context": "[1] (NIST.SP.800-171r3.pdf, page 51)\n41\nIncident response training is associated with the assigned roles and responsibilities\nof organizational personnel to ensure that the appropriate content and level of\ndetail are included in such training. For example, users may only need to know how\nto recognize an incident or whom to call; system administrators may require\nadditional training on how to handle incidents; and incident responders may receive\nspecific training on data collection techniques, forensics, reporting, system recovery,\nand system restoration. Incident response training includes user training in\nidentifying and reporting suspicious activities from external and internal sources.\nIncident response training for users may be provided as part of 03.02.02. Events that\nmay cause an update to incident response training content include incident\nresponse plan testing, response to an actual incident, audit or assessment findings,\nor changes in applicable laws, Executive Orders, policies, directives, regulations,\n\n[2] (NIST.SP.800-171r3.pdf, page 50)\nts, walk-through or tabletop exercises, and simulations. Incident\nresponse testing can include a determination of the effects of incident response on\norganizational operations, organizational assets, and individuals. Qualitative and\nquantitative data can help determine the effectiveness of incident response\nprocesses.\nSource Control: IR-03\nSupporting Publications: SP 800-84 [48]\n03.06.04    Incident Response Training\na. Provide incident response training to system users consistent with assigned roles\nand responsibilities:\n1. Within [Assignment: organization-defined time period] of assuming an\nincident response role or responsibility or acquiring system access,\n2. When required by system changes, and\n3. [Assignment: organization-defined frequency] thereafter.\nb. Review and update incident response training content [Assignment:\norganization-defined frequency] and following [Assignment: organization-defined\nevents].\n\n[3] (NIST.SP.800-171r3.pdf, page 29)\nns provide basic and advanced levels of security literacy training to\nsystem users (including managers, senior executives, system administrators, and\ncontractors) and measures to test the knowledge level of users. Organizations\ndetermine the content of literacy training based on specific organizational\nrequirements, the systems to which personnel have authorized access, and work\nenvironments (e.g., telework). The content includes an understanding of the need\nfor security and the actions required of users to maintain security and respond to\nincidents. The content also addresses the need for operations security and the\nhandling of CUI.\nSecurity awareness techniques include displaying posters, offering supplies inscribed\nwith security reminders, generating email advisories or notices from organizational\nofficials, displaying logon screen messages, and conducting awareness events using\npodcasts, videos, and webinars. Security literacy training is conducted at a frequency\n\n[4] (NIST.SP.800-61r3.pdf, page 15)\nss the organization and that information is\nshared among teams.\n\u2022 Technology professionals. Cybersecurity, privacy, system, network, cloud, and other\ntechnology architects, engineers, and administrators, as well as software developers,\nmay be involved in incident response and recovery efforts.\n\u2022 Legal. Legal experts can review incident response plans, policies, and procedures to\nensure compliance with applicable laws and regulations, including the right to privacy.\nLegal experts can also review contracts with technology suppliers and other third parties\nwhen there are incident response implications. In addition, incident responders can seek\nguidance from their organization\u2019s legal department if a particular incident may have\nlegal ramifications, such as the prosecution of a suspect, lawsuits, or situations that\nrequire a memorandum of understanding (MOU) or other binding agreement.\n\u2022 Public affairs and media relations. Depending on the nature and impact of an incident,\n\n[5] (NIST.SP.800-171r3.pdf, page 49)\n39\n3.6. Incident Response\n03.06.01    Incident Handling\nImplement an incident-handling capability that is consistent with the incident\nresponse plan and includes preparation, detection and analysis, containment,\neradication, and recovery.\nIncident-related information can be obtained from a variety of sources, including\naudit monitoring, network monitoring, physical access monitoring, user and\nadministrator reports, and reported supply chain events. An effective incident\nhandling capability involves coordination among many organizational entities,\nincluding mission and business owners, system owners, human resources offices,\nphysical and personnel security offices, legal departments, operations personnel,\nand procurement offices.\nSource Controls: IR-04\nSupporting Publications: SP 800-50 [32], SP 800-61 [47], SP 800-161 [33]\n03.06.02    Incident Monitoring, Reporting, and Response Assistance\na. Track and document system security incidents.\nb.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.0693998336792,
+      "cited_sources": [
+        "NIST.SP.800-171r3.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1294,
+      "output_tokens": 301,
+      "retrieval_seconds": 3.9621205999992526,
+      "llm_seconds": 2.6397871999997733
+    },
+    {
+      "id": "q009",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What does integrity protect against in information security?",
+      "answer": "Integrity protects against improper information modification or destruction and includes ensuring information non\u2011repudiation and authenticity [1][3].",
+      "context": "[1] (NIST.FIPS.199.pdf, page 6)\nSecurity Objectives\nThe FISMA defines three security objectives for information and information systems:\nCONFIDENTIALITY\n\u201cPreserving authorized restrictions on information access and disclosure, including means for\nprotecting personal privacy and proprietary information\u2026\u201d [44 U.S.C., Sec. 3542]\nA loss of confidentiality is the unauthorized disclosure of information.\nINTEGRITY\n\u201cGuarding against improper information modification or destruction, and includes ensuring\ninformation non-repudiation and authenticity\u2026\u201d [44 U.S.C., Sec. 3542]\nA loss of integrity is the unauthorized modification or destruction of information.\nAVAILABILITY\n\u201cEnsuring timely and reliable access to and use of information\u2026\u201d [44 U.S.C., SEC. 3542]\nA loss of availability is the disruption of access to or use of information or an information system.\nPotential Impact on Organizations and Individuals\nFIPS Publication 199 defines three levels of potential impact on organizations or individuals should\n\n[2] (NIST.FIPS.199.pdf, page 10)\nTable 1 summarizes the potential impact definitions for each security objective\u2014confidentiality,\nintegrity, and availability.\n\nPOTENTIAL IMPACT\nSecurity Objective\nLOW\nMODERATE\nHIGH\nConfidentiality\nPreserving authorized\nrestrictions on information\naccess and disclosure,\nincluding means for\nprotecting personal\nprivacy and proprietary\ninformation.\n[44 U.S.C., SEC. 3542]\nThe unauthorized\ndisclosure of information\ncould be expected to have\na limited adverse effect on\norganizational operations,\norganizational assets, or\nindividuals.\nThe unauthorized\ndisclosure of information\ncould be expected to have\na serious adverse effect on\norganizational operations,\norganizational assets, or\nindividuals.\nThe unauthorized\ndisclosure of information\ncould be expected to have\na severe or catastrophic\nadverse effect on\norganizational operations,\norganizational assets, or\nindividuals.\nIntegrity\nGuarding against improper\ninformation modification\nor destruction, and\nincludes ensuring\ninformation non-\n\n[3] (NIST.FIPS.199.pdf, page 10)\nizational assets, or\nindividuals.\nIntegrity\nGuarding against improper\ninformation modification\nor destruction, and\nincludes ensuring\ninformation non-\nrepudiation and\nauthenticity.\n[44 U.S.C., SEC. 3542]\nThe unauthorized\nmodification or\ndestruction of information\ncould be expected to have\na limited adverse effect on\norganizational operations,\norganizational assets, or\nindividuals.\nThe unauthorized\nmodification or\ndestruction of information\ncould be expected to have\na serious adverse effect on\norganizational operations,\norganizational assets, or\nindividuals.\nThe unauthorized\nmodification or\ndestruction of information\ncould be expected to have\na severe or catastrophic\nadverse effect on\norganizational operations,\norganizational assets, or\nindividuals.\nAvailability\nEnsuring timely and\nreliable access to and use\nof information.\n[44 U.S.C., SEC. 3542]\nThe disruption of access to\nor use of information or an\ninformation system could\nbe expected to have a\nlimited adverse effect on\n\n[4] (NIST.FIPS.199.pdf, page 11)\nt services), and related resources. [40 U.S.C., SEC. 1401]\nINFORMATION TYPE: A specific category of information (e.g., privacy, medical, proprietary,\nfinancial, investigative, contractor sensitive, security management), defined by an organization, or in\nsome instances, by a specific law, Executive Order, directive, policy, or regulation.\nINTEGRITY: Guarding against improper information modification or destruction, and includes\nensuring information non-repudiation and authenticity. [44 U.S.C., SEC. 3542]\nNATIONAL SECURITY SYSTEM: Any information system (including any telecommunications system)\nused or operated by an agency or by a contractor of an agency, or other organization on behalf of an\nagency\u2014 (i) the function, operation, or use of which involves intelligence activities; involves\ncryptologic activities related to national security; involves command and control of military forces;\n\n[5] (NIST.FIPS.199.pdf, page 12)\nSECURITY CATEGORY: The characterization of information or an information system based on an\nassessment of the potential impact that a loss of confidentiality, integrity, or availability of such\ninformation or information system would have on organizational operations, organizational assets, or\nindividuals.\nSECURITY CONTROLS: The management, operational, and technical controls (i.e., safeguards or\ncountermeasures) prescribed for an information system to protect the confidentiality, integrity, and\navailability of the system and its information.\nSECURITY OBJECTIVE: Confidentiality, integrity, or availability.\n8",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 5.844350814819336,
+      "cited_sources": [
+        "NIST.FIPS.199.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1310,
+      "output_tokens": 157,
+      "retrieval_seconds": 6.604016999999658,
+      "llm_seconds": 1.8797397999996974
+    },
+    {
+      "id": "q010",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Why might an asset be considered unpatchable?",
+      "answer": "An asset may be deemed unpatchable when it cannot receive updates from its vendor\u2014such as when the product is at end\u2011of\u2011life or simply does not support patching\u2014and/or when it must remain continuously operational for mission\u2011critical functions, preventing the downtime required for patch installation. These conditions require the asset to be handled with alternative risk\u2011mitigation strategies rather than routine patching [1].",
+      "context": "[1] (NIST.SP.800-40r4.pdf, page 19)\n, a patch might be flawed and not actually correct a\nvulnerability, or a patch might inadvertently disrupt the operation of other software or\nsystems. A patch could even be compromised.\n\u2022 Unpatchable assets. This is the implementation of isolation or other methods to mitigate\nthe risk of systems that cannot be easily patched. This is typically required if routine\npatching is not able to accommodate these systems within a reasonable time frame.\nExamples of why an asset may be unpatchable include the vendor not providing patches\n(e.g., asset is at end-of-life, asset does not support updates) or an asset needing to run\nuninterrupted for an extended period of time because it provides mission-critical\nfunctions. Unpatchable assets need to be included in risk response planning because a\nnew vulnerability in an asset might necessitate a change in the methods needed to\nmitigate its risk.\n3.4\nAssign Each Asset to a Maintenance Group\n\n[2] (NIST.SP.800-40r4.pdf, page 23)\n16\npatching are still sufficiently effective at mitigating risk. The other is conducting a cost-benefit\nanalysis to see if the assets provide sufficient value to the organization compared with the\nadditional costs of mitigating, transferring, or accepting the risk of unpatchable assets.\n3.5.5 Exceptions to Maintenance Plans\nOrganizations should closely track and monitor all exceptions to maintenance plans. As\nexplained in Section 3.4, maintenance groups should be defined to minimize assets considered\n\u201cexceptions.\u201d However, having some exceptions is inevitable. All exceptions to maintenance\nplans should be reviewed regularly to determine if the maintenance plan can be implemented\nnow. Assets with similar long-term exceptions might need to be moved to a separate\nmaintenance group with its own maintenance plan.\n3.6\nChoose Actionable Enterprise-Level Patching Metrics\nMetrics play several roles in patch management and vulnerability management. A common\n\n[3] (NIST.SP.800-40r4.pdf, page 24)\n17\nthen not patching them might be a major problem. If they are the least important assets, then not\npatching them might indicate reasonable prioritization of limited resources. To look at the assets\nanother way, what is the relative severity of the unpatched vulnerabilities versus the patched\nvulnerabilities?\nMetrics that are too simple are generally not actionable because they do not provide enough\ninformation. They do not offer the insights into the performance of vulnerability management\nthat are needed to identify the nature of problems and the improvements necessary to address\nthose problems and improve the organization\u2019s vulnerability management performance. Table 1\nshows a notional example of actionable performance metrics. Each cell provides mitigation\nmetrics based on the relative importance of the assets (low, moderate, or high) and the\nvulnerabilities (low, medium, high, or critical), with the categories defined by the organization.\n\n[4] (NIST.SP.800-40r4.pdf, page 22)\nscribes the use of micro-segmentation,\nsoftware-defined perimeters, and other risk mitigation methods for isolating assets based on a\ndefined policy.\nOrganizations should plan to implement multiple types of mitigations to protect vulnerable\nunpatchable assets. In addition to using long-term risk mitigation methods for unpatchable\nassets, organizations should also implement mitigations as needed to prevent exploitation of\nspecific vulnerabilities that the long-term risk mitigation methods don\u2019t adequately address.\nOrganizations should plan on periodically reevaluating their alternatives to patching. There\nare two main aspects to this. One is conducting a risk assessment to see if the alternatives to\n\n[5] (NIST.SP.800-40r4.pdf, page 22)\nh time may be lost, and vulnerable assets may be compromised.\nOrganizations should plan to replace emergency mitigations with permanent fixes. Once a\npermanent fix, such as a patch, is available, the patch will need to be deployed and the mitigation\nremoved. Schedules should be set and enforced for both patch deployment and mitigation\nremoval.\n3.5.4 Maintenance Plans for Scenario 4, Unpatchable Assets\nOrganizations should plan to implement multiple types of long-term risk mitigation\nmethods besides patching to protect vulnerable assets. There should be an approved set of\nmethods for each maintenance group, and these methods should have been reviewed and\nanalyzed in advance by security architects/engineers to determine their adequacy in mitigating\nrisk. For example, Section 3 of NIST SP 800-207 [6] describes the use of micro-segmentation,\nsoftware-defined perimeters, and other risk mitigation methods for isolating assets based on a\ndefined policy.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.127684593200684,
+      "cited_sources": [
+        "NIST.SP.800-40r4.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1286,
+      "output_tokens": 223,
+      "retrieval_seconds": 24.611796299999696,
+      "llm_seconds": 1.2224113000002035
+    },
+    {
+      "id": "q014",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What is one benefit of defining secure software development practices at a high level?",
+      "answer": "One benefit is that high\u2011level practices can be used by organizations in any sector or community, regardless of size or cybersecurity sophistication [1].",
+      "context": "[1] (NIST.SP.800-218.pdf, page 11)\n2\nthe tools, techniques, and mechanisms used to do so. Advantages of specifying the practices at a\nhigh level include the following:\n\u2022 Can be used by organizations in any sector or community, regardless of size or\ncybersecurity sophistication\n\u2022 Can be applied to software developed to support information technology (IT), industrial\ncontrol systems (ICS), cyber-physical systems (CPS), or the Internet of Things (IoT)\n\u2022 Can be integrated into any existing software development workflow and automated\ntoolchain; should not negatively affect organizations that already have robust secure\nsoftware development practices in place\n\u2022 Makes the practices broadly applicable, not specific to particular technologies, platforms,\nprogramming languages, SDLC models, development environments, operating\nenvironments, tools, etc.\n\u2022 Can help an organization document its secure software development practices today and\ndefine its future target practices as part of its continuous improvement process\n\n[2] (NIST.SP.800-218.pdf, page 10)\nsecurity and resiliency.\nThere are many existing documents on secure software development practices, including those\nlisted in the References section. This document does not introduce new practices or define new\nterminology. Instead, it describes a set of high-level practices based on established standards,\nguidance, and secure software development practice documents. These practices, collectively\ncalled the Secure Software Development Framework (SSDF), are intended to help the target\naudiences achieve secure software development objectives. Many of the practices directly\ninvolve the software itself, while others indirectly involve it (e.g., securing the development\nenvironment).\nFuture work may expand on this publication and potentially cover topics such as how the SSDF\nmay apply to and vary for particular software development methodologies and associated\npractices like DevOps, how an organization can transition from their current software\n\n[3] (NIST.SP.800-218.pdf, page 4)\nand outreach efforts in information system security, and its collaborative activities\nwith industry, government, and academic organizations.\nAbstract\nFew software development life cycle (SDLC) models explicitly address software security in\ndetail, so secure software development practices usually need to be added to each SDLC model\nto ensure that the software being developed is well-secured. This document recommends the\nSecure Software Development Framework (SSDF) \u2013 a core set of high-level secure software\ndevelopment practices that can be integrated into each SDLC implementation. Following such\npractices should help software producers reduce the number of vulnerabilities in released\nsoftware, reduce the potential impact of the exploitation of undetected or unaddressed\nvulnerabilities, and address the root causes of vulnerabilities to prevent future recurrences.\nBecause the framework provides a common vocabulary for secure software development,\n\n[4] (NIST.SP.800-218.pdf, page 13)\n4\n2\nThe Secure Software Development Framework\nThis document defines version 1.1 of the Secure Software Development Framework (SSDF)\nwith fundamental, sound, and secure recommended practices based on established secure\nsoftware development practice documents. The practices are organized into four groups:\n1. Prepare the Organization (PO): Organizations should ensure that their people,\nprocesses, and technology are prepared to perform secure software development at the\norganization level. Many organizations will find some PO practices to also be applicable\nto subsets of their software development, like individual development groups or projects.\n2. Protect the Software (PS): Organizations should protect all components of their\nsoftware from tampering and unauthorized access.\n3. Produce Well-Secured Software (PW): Organizations should produce well-secured\nsoftware with minimal security vulnerabilities in its releases.\n4.\n\n[5] (NIST.SP.800-218.pdf, page 11)\nsoftware development is not required to understand the\npractices. The common language helps facilitate communications about secure software practices\namong both internal and external organizational stakeholders, such as:\n\u2022 Business owners, software developers, project managers and leads, cybersecurity\nprofessionals, and operations and platform engineers within an organization who need to\nclearly communicate with each other about secure software development\n\u2022 Software acquirers, including federal agencies and other organizations, that want to\ndefine required or desired characteristics for software in their acquisition processes in\norder to have higher-quality software (particularly with fewer significant security\nvulnerabilities)3\n\n2\nThe SSDF practices may help support the NIST Cybersecurity Framework Functions, Categories, and Subcategories, but the\nSSDF practices do not map to them and are typically the responsibility of different parties. Developers can adopt SSDF",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.27786111831665,
+      "cited_sources": [
+        "NIST.SP.800-218.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1261,
+      "output_tokens": 131,
+      "retrieval_seconds": 4.9855835999997,
+      "llm_seconds": 7.7145695000008345
+    },
+    {
+      "id": "q015",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How can an organization use its Current Profile with external stakeholders?",
+      "answer": "An organization can use its Current Profile to document and convey its existing cybersecurity capabilities and any known opportunities for improvement to external stakeholders\u2014such as business partners or prospective customers\u2014so they understand the organization\u2019s security posture. [1]",
+      "context": "[1] (NIST.CSWP.29.pdf, page 12)\nw the action\nplan to address the gaps and move the organization toward the Target Profile. An action\nplan may have an overall deadline or be ongoing.\nGiven the importance of continual improvement, an organization can repeat these steps as\noften as needed.\nThere are additional uses for Organizational Profiles. For example, a Current Profile can be used\nto document and communicate the organization\u2019s cybersecurity capabilities and known\nopportunities for improvement with external stakeholders, such as business partners or\nprospective customers. Also, a Target Profile can help express the organization\u2019s cybersecurity\nrisk management requirements and expectations to suppliers, partners, and other third parties\nas a target for those parties to achieve.\n3.2. CSF Tiers\nAn organization can choose to use the Tiers to inform its Current and Target Profiles. Tiers\ncharacterize the rigor of an organization\u2019s cybersecurity risk governance and management\n\n[2] (NIST.CSWP.29.pdf, page 11)\n6\n3. Introduction to CSF Profiles and Tiers\nThis section defines the concepts of CSF Profiles and Tiers.\n3.1. CSF Profiles\nA CSF Organizational Profile describes an organization\u2019s current and/or target cybersecurity\nposture in terms of the Core\u2019s outcomes. Organizational Profiles are used to understand, tailor,\nassess, prioritize, and communicate the Core\u2019s outcomes by considering an organization\u2019s\nmission objectives, stakeholder expectations, threat landscape, and requirements. An\norganization can then prioritize its actions to achieve specific outcomes and communicate that\ninformation to stakeholders.\nEvery Organizational Profile includes one or both of the following:\n1. A Current Profile specifies the Core outcomes that an organization is currently achieving\n(or attempting to achieve) and characterizes how or to what extent each outcome is\nbeing achieved.\n2. A Target Profile specifies the desired outcomes that an organization has selected and\n\n[3] (NIST.CSWP.29.pdf, page 16)\n11\nPreparing to create and use Organizational Profiles involves gathering information about\norganizational priorities, resources, and risk direction from executives. Managers then\ncollaborate with practitioners to communicate business needs and create risk-informed\nOrganizational Profiles. Actions to close any gaps identified between the Current and Target\nProfiles will be implemented by managers and practitioners and will provide key inputs into\nsystem-level plans. As the target state is achieved throughout the organization \u2014 including\nthrough controls and monitoring applied at the system level \u2014 the updated results can be\nshared through risk registers and progress reports. As part of ongoing assessment, managers\ngain insights to make adjustments that further reduce potential harms and increase potential\nbenefits.\nThe GOVERN Function supports organizational risk communication with executives. Executives\u2019\n\n[4] (NIST.CSWP.29.pdf, page 12)\nes and tools (e.g.,\nprocedures and safeguards), and work roles.\n3. Create the Organizational Profile. Determine what types of information the Profile\nshould include for the selected CSF outcomes, and document the needed information.\nConsider the risk implications of the Current Profile to inform Target Profile planning\nand prioritization. Also, consider using a Community Profile as the basis for the Target\nProfile.\n4. Analyze the gaps between the Current and Target Profiles, and create an action plan.\nConduct a gap analysis to identify and analyze the differences between the Current and\nTarget Profiles, and develop a prioritized action plan (e.g., risk register, risk detail report,\nPlan of Action and Milestones [POA&M]) to address those gaps.\n5. Implement the action plan, and update the Organizational Profile. Follow the action\nplan to address the gaps and move the organization toward the Target Profile. An action\nplan may have an overall deadline or be ongoing.\n\n[5] (NIST.CSWP.29.pdf, page 5)\nsmaller organizations as well as their larger counterparts.\nNIST now provides Implementation Examples and Informative References, which are available\nonline and updated regularly. Creating current and target state Organizational Profiles helps\norganizations to compare where they are versus where they want or need to be and allows\nthem to implement and assess security controls more quickly.\nCybersecurity risks are expanding constantly, and managing those risks must be a continuous\nprocess. This is true regardless of whether an organization is just beginning to confront its\ncybersecurity challenges or whether it has been active for many years with a sophisticated,\nwell-resourced cybersecurity team. The CSF is designed to be valuable for any type of\norganization and is expected to provide appropriate guidance over a long time.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.2745890617370605,
+      "cited_sources": [
+        "NIST.CSWP.29.pdf"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1249,
+      "output_tokens": 167,
+      "retrieval_seconds": 3.860256899999513,
+      "llm_seconds": 1.7833952999999383
+    },
+    {
+      "id": "q016",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "When is using a client TLS certificate useful for website access?",
+      "answer": "Using a client TLS certificate is useful when the site needs an extra layer of security and is typically limited to a controlled environment\u2014for example, an internal\u2011only (intranet) application or a service where users access it from a single, trusted computer or browser and can install a client certificate without difficulty. It is appropriate when the organization prefers or requires that users authenticate via a certificate rather than (or in addition to) a password, and when the user base is not the general public. [1][2]",
+      "context": "[1] (Authentication_Cheat_Sheet.md)\nicate is valid, the server can authenticate the user by receiving a certificate from the client and validating against a third-party CA or its own CA. To do this, the server must provide the user with a certificate generated specifically for him, assigning values to the subject so that these can be used to determine what user the certificate should validate. The user installs the certificate on a browser and now uses it for the website.\n\nThis approach is appropriate when:\n\n- It is acceptable (or even preferred) that the user has access to the website only from a single computer/browser.\n- The user is not easily scared by the process of installing TLS certificates on their browser, or there will be someone, probably from IT support, who will do this for the user.\n- The website requires an extra step of security.\n- It is also a good thing to use when the website is for an intranet of a company or organization.\n\n[2] (Authentication_Cheat_Sheet.md)\n- The website requires an extra step of security.\n- It is also a good thing to use when the website is for an intranet of a company or organization.\n\nIt is generally not a good idea to use this method for widely and publicly available websites that will have an average user. For example, it wouldn't be a good idea to implement this for a website like Facebook. While this technique can prevent the user from having to type a password (thus protecting against an average keylogger from stealing it), it is still considered a good idea to consider using both a password and TLS client authentication combined.\n\nAdditionally, if the client is behind an enterprise proxy that performs SSL/TLS decryption, this will break certificate authentication unless the site is allowed on the proxy.\n\nFor more information, see: Client-authenticated TLS handshake\n\n### Authentication and Error Messages\n\n[3] (Session_Management_Cheat_Sheet.md)\nthe identification of web clients without support for cookies or not accepting cookies due to user privacy concerns).\n\n### Transport Layer Security\n\nIn order to protect the session ID exchange from active eavesdropping and passive disclosure in the network traffic, it is essential to use an encrypted HTTPS (TLS) connection for the entire web session, not only for the authentication process where the user credentials are exchanged. This may be mitigated by HTTP Strict Transport Security (HSTS) for a client that supports it.\n\nAdditionally, the `Secure` cookie attribute must be used to ensure the session ID is only exchanged through an encrypted channel. The usage of an encrypted communication channel also protects the session against some session fixation attacks where the attacker is able to intercept and manipulate the web traffic to inject (or fix) the session ID on the victim's web browser.\n\n[4] (Authentication_Cheat_Sheet.md)\nation unless the site is allowed on the proxy.\n\nFor more information, see: Client-authenticated TLS handshake\n\n### Authentication and Error Messages\n\nIncorrectly implemented error messages in the case of authentication functionality can be used for the purposes of user ID and password enumeration. An application should respond (both HTTP and HTML) in a generic manner.\n\n#### Authentication Responses\n\nUsing any of the authentication mechanisms (login, password reset, or password recovery), an application must respond with a generic error message regardless of whether:\n\n- The user ID or password was incorrect.\n- The account does not exist.\n- The account is locked or disabled.\n\nThe account registration feature should also be taken into consideration, and the same approach of a generic error message can be applied regarding the case in which the user exists.\n\n[5] (Authentication_Cheat_Sheet.md)\nhe OWASP Session Management Cheat Sheet\n\n#### References\n\n- OWASP Session Management Cheat Sheet\n- OWASP ASVS \u2013 2.2.2: Re-authentication requirements\n- NIST 800-63B: Digital Identity Guidelines \u2013 Authentication Assurance Levels\n\n### Consider Strong Transaction Authentication\n\nSome applications should use a second factor to check whether a user may perform sensitive operations. For more information, see the Transaction Authorization Cheat Sheet.\n\n#### TLS Client Authentication\n\nTLS Client Authentication, also known as two-way TLS authentication, consists of both browser and server sending their respective TLS certificates during the TLS handshake process. Just as you can validate the authenticity of a server by using the certificate and asking a verifiably-valid Certificate Authority (CA) if the certificate is valid, the server can authenticate the user by receiving a certificate from the client and validating against a third-party CA or its own CA.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 4.94649600982666,
+      "cited_sources": [
+        "Authentication_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1222,
+      "output_tokens": 254,
+      "retrieval_seconds": 5.546950399999332,
+      "llm_seconds": 2.891770799999904
+    },
+    {
+      "id": "q017",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Which vulnerability ranked as the most concerning web security issue in OWASP's 2021 Top 10?",
+      "answer": "Broken Access Control was ranked as the most concerning web security vulnerability in OWASP\u2019s 2021 Top\u202f10\u202f[1][2]",
+      "context": "[1] (Authorization_Cheat_Sheet.md)\nd as the most concerning web security vulnerability in OWASP's 2021 Top 10 and asserted to have a \"High\" likelihood of exploit by MITRE's CWE program. Furthermore, according to Veracode's State of Software Vol. 10, Access Control was among the more common of OWASP's Top 10 risks to be involved in exploits and security incidents despite being among the least prevalent of those examined.\n\nThe potential impact resulting from exploitation of authorization flaws is highly variable, both in form and severity. Attackers may be able to read, create, modify, or delete resources that were meant to be protected (thus jeopardizing their confidentiality, integrity, and/or availability); however, the actual impact of such actions is necessarily linked to the criticality and sensitivity of the compromised resources. Thus, the business cost of a successfully exploited authorization flaw can range from very low to extremely high.\n\n[2] (Authorization_Cheat_Sheet.md)\ners and admins, with the admins being able to perform actions the average user is not privileged to perform, even though they have been authenticated. Additionally, authentication is not always required for accessing resources; an unauthenticated user may be authorized to access certain public resources, such as an image or login page, or even an entire web app.\n\nThe objective of this cheat sheet is to assist developers in implementing authorization logic that is robust, appropriate to the app's business context, maintainable, and scalable. The guidance provided in this cheat sheet should be applicable to all phases of the development lifecycle and flexible enough to meet the needs of diverse development environments.\n\nFlaws related to authorization logic are a notable concern for web apps. Broken Access Control was ranked as the most concerning web security vulnerability in OWASP's 2021 Top 10 and asserted to have a \"High\" likelihood of exploit by MITRE's CWE program.\n\n[3] (Authorization_Cheat_Sheet.md)\nontrols in application security; insufficient logging and monitoring is recognized as among  the most critical security risks in OWASP's Top Ten 2021. Appropriate logs can not only detect malicious activity, but are also invaluable resources in post-incident investigations, can be used to troubleshoot access control and other security related problems, and are useful in security auditing. Though easy to overlook during the initial design and requirements phase, logging is an important component of holistic application security and must be incorporated into all phases of the SDLC. Recommendations for logging include the following:\n\n- Log using consistent, well-defined formats that can be readily parsed for analysis. According to OWASP Top Ten Proactive Controls C9, Apache Logging Services is one example of a project that provides support for numerous languages and platforms\n- Carefully determine the amount of information to log.\n\n[4] (Authorization_Cheat_Sheet.md)\nall that is required.\n- Centralize the logic for handling failed access control checks.\n- Verify the handling of exception and authorization failures. Ensure that such failures, no matter how unlikely, do not put the software into an unstable state that could lead to authorization bypass.\n- Ensure sensitive information, such as system logs or debugging output, is not exposed in error messages. Misconfigured error messages can increase the attack surface of your application. (CWE-209: Generation of Error Message Containing Sensitive Information)\n\n### Implement Appropriate Logging\n\nLogging is one of the most important detective controls in application security; insufficient logging and monitoring is recognized as among  the most critical security risks in OWASP's Top Ten 2021.\n\n[5] (OWASP-Top-10-for-LLMs-v2025.pdf, page 5)\n1\nLetter from the Project Leads\nThe OWASP Top 10 for Large Language Model Applications started in 2023 as a community-driven\neffort to highlight and address security issues specific to AI applications. Since then, the\ntechnology has continued to spread across industries and applications, and so have the\nassociated risks. As LLMs are embedded more deeply in everything from customer interactions to\ninternal\noperations,\ndevelopers\nand\nsecurity\nprofessionals\nare\ndiscovering\nnew\nvulnerabilities\u2014and ways to counter them.\nThe 2023 list was a big success in raising awareness and building a foundation for secure LLM\nusage, but we've learned even more since then. In this new 2025 version, we\u2019ve worked with a\nlarger, more diverse group of contributors worldwide who have all helped shape this list. The\nprocess involved brainstorming sessions, voting, and real-world feedback from professionals in\nthe thick of LLM application security, whether by contributing or refining those entries through",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 9.074748039245605,
+      "cited_sources": [
+        "Authorization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1265,
+      "output_tokens": 116,
+      "retrieval_seconds": 8.158711799999764,
+      "llm_seconds": 7.4428184000007604
+    },
+    {
+      "id": "q018",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What method can be added to a Serializable class to prevent it from being deserialized?",
+      "answer": "Add a `private final void readObject(ObjectInputStream in) throws IOException` method that always throws an exception (e.g., `throw new IOException(\"Cannot be deserialized\");`) to block deserialization of the class.\u202f[2]",
+      "context": "[1] (Deserialization_Cheat_Sheet.md)\n= \"!!python/object/apply:os.system ['ipconfig']\"\nprint(yaml.load(document))\n```\n\n3. Uses of `jsonpickle` with `encode` or `store` methods.\n\n### Java\n\nThe following techniques are all good for preventing attacks against deserialization against Java's Serializable format.\n\nImplementation advice:\n\n- In your code, override the `ObjectInputStream#resolveClass()` method to prevent arbitrary classes from being deserialized. This safe behavior can be wrapped in a library like SerialKiller.\n- Use a safe replacement for the generic `readObject()` method as seen here. Note that this addresses \"billion laughs\" type attacks by checking input length and number of objects deserialized.\n\n#### Clear-box Review\n\nBe aware of the following Java API uses for potential serialization vulnerability.\n\n1. `XMLdecoder` with external user defined parameters\n\n2. `XStream` with `fromXML` method (xstream version <= v1.4.6 is vulnerable to the serialization issue)\n\n3. `ObjectInputStream` with `readObject`\n\n4.\n\n[2] (Deserialization_Cheat_Sheet.md)\nng Sensitive Information*).\n\nFor a class that defined as Serializable, the sensitive information variable should be declared as `private transient`.\n\nFor example, the class `myAccount`, the variables 'profit' and 'margin' were declared as transient to prevent them from being serialized.\n\n```java\npublic class myAccount implements Serializable\n{\nprivate transient double profit; // declared transient\n\nprivate transient double margin; // declared transient\n....\n```\n\n#### Prevent Deserialization of Domain Objects\n\nSome of your application objects may be forced to implement `Serializable` due to their hierarchy. To guarantee that your application objects can't be deserialized, a `readObject()` method should be declared (with a `final` modifier) which always throws an exception:\n\n```java\nprivate final void readObject(ObjectInputStream in) throws java.io.IOException {\nthrow new java.io.IOException(\"Cannot be deserialized\");\n}\n```\n\n#### Harden Your Own java.io.ObjectInputStream\n\n[3] (Deserialization_Cheat_Sheet.md)\nts\n\nWhile the advice above is focused on Java's Serializable format, there are a number of other libraries\nthat use other formats for deserialization. Many of these libraries may have similar security\nissues if not configured correctly. This section lists some of these libraries and\nrecommended configuration options to avoid security issues when deserializing untrusted data:\n\nCan be used safely with default configuration:\n\nThe following libraries can be used safely with default configuration:\n\n- fastjson2 (JSON) - can be used safely as long as\nthe autotype option is not turned on\n- jackson-databind (JSON) - can be used safely as long\nas polymorphism is not used (see blog post)\n- Kryo v5.0.0+ (custom format) - can be used safely\nas long as class registration is not turned off (see documentation\nand this issue)\n- YamlBeans v1.16+ (YAML) - can be used safely\nas long as the UnsafeYamlConfig class isn't used (see this commit)\n\n[4] (Deserialization_Cheat_Sheet.md)\nany class (see docs)\n\nCannot be used safely:\n\nThe following libraries are either no longer maintained or cannot be used safely with untrusted input:\n\n- Castor (XML) - appears to be abandoned with no commits since 2016\n- fastjson < v1.2.68 (JSON) - these versions allows deserialization of any class\n(see documentation)\n- XMLDecoder in the JDK (XML) - *\"close to impossible to securely deserialize Java objects in this format from untrusted inputs\"*\n(\"Red Hat Defensive Coding Guide\", end of section 2.6.5)\n- XStream < v1.4.17 (JSON and XML) - these versions allows deserialization of any class (see documentation)\n- YamlBeans < v1.16 (YAML) - these versions allows deserialization of any class\n(see this document)\n\n### .Net CSharp\n\n#### Clear-box Review\n\nSearch the source code for the following terms:\n\n1. `TypeNameHandling`\n2. `JavaScriptTypeResolver`\n\nLook for any serializers where the type is set by a user controlled variable.\n\n#### Opaque-box Review\n\n[5] (Deserialization_Cheat_Sheet.md)\nof type `Object`. if this type is the type allowed for deserialization then an attacker can set the `Value` property to any object type they choose.\n\nAttackers should be prevented from steering the type that will be instantiated. If this is possible then even `DataContractSerializer` or `XmlSerializer` can be subverted e.g.\n\n```csharp\n// Action below is dangerous if the attacker can change the data in the database\nvar typename = GetTransactionTypeFromDatabase();\n\nvar serializer = new DataContractJsonSerializer(Type.GetType(typename));\n\nvar obj = serializer.ReadObject(ms);\n```\n\nExecution can occur within certain .Net types during deserialization. Creating a control such as the one shown below is ineffective.\n\n```csharp\nvar suspectObject = myBinaryFormatter.Deserialize(untrustedData);\n\n//Check below is too late! Execution may have already occurred.\nif (suspectObject is SomeDangerousObjectType)\n{\n//generate warnings and dispose of suspectObject\n}\n```",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.384971618652344,
+      "cited_sources": [
+        "Deserialization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1426,
+      "output_tokens": 171,
+      "retrieval_seconds": 5.359048600000278,
+      "llm_seconds": 1.9684368999996877
+    },
+    {
+      "id": "q019",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Which versions of the fastjson library are considered unsafe for deserializing untrusted input?",
+      "answer": "Fastjson versions earlier than\u202f1.2.68 (i.e.,\u202ffastjson\u202f<\u202fv1.2.68) are considered unsafe for deserializing untrusted input[1][2].",
+      "context": "[1] (Deserialization_Cheat_Sheet.md)\nany class (see docs)\n\nCannot be used safely:\n\nThe following libraries are either no longer maintained or cannot be used safely with untrusted input:\n\n- Castor (XML) - appears to be abandoned with no commits since 2016\n- fastjson < v1.2.68 (JSON) - these versions allows deserialization of any class\n(see documentation)\n- XMLDecoder in the JDK (XML) - *\"close to impossible to securely deserialize Java objects in this format from untrusted inputs\"*\n(\"Red Hat Defensive Coding Guide\", end of section 2.6.5)\n- XStream < v1.4.17 (JSON and XML) - these versions allows deserialization of any class (see documentation)\n- YamlBeans < v1.16 (YAML) - these versions allows deserialization of any class\n(see this document)\n\n### .Net CSharp\n\n#### Clear-box Review\n\nSearch the source code for the following terms:\n\n1. `TypeNameHandling`\n2. `JavaScriptTypeResolver`\n\nLook for any serializers where the type is set by a user controlled variable.\n\n#### Opaque-box Review\n\n[2] (Deserialization_Cheat_Sheet.md)\nts\n\nWhile the advice above is focused on Java's Serializable format, there are a number of other libraries\nthat use other formats for deserialization. Many of these libraries may have similar security\nissues if not configured correctly. This section lists some of these libraries and\nrecommended configuration options to avoid security issues when deserializing untrusted data:\n\nCan be used safely with default configuration:\n\nThe following libraries can be used safely with default configuration:\n\n- fastjson2 (JSON) - can be used safely as long as\nthe autotype option is not turned on\n- jackson-databind (JSON) - can be used safely as long\nas polymorphism is not used (see blog post)\n- Kryo v5.0.0+ (custom format) - can be used safely\nas long as class registration is not turned off (see documentation\nand this issue)\n- YamlBeans v1.16+ (YAML) - can be used safely\nas long as the UnsafeYamlConfig class isn't used (see this commit)\n\n[3] (Deserialization_Cheat_Sheet.md)\n(see documentation\nand this issue)\n- YamlBeans v1.16+ (YAML) - can be used safely\nas long as the UnsafeYamlConfig class isn't used (see this commit)\n- *NOTE: because these versions are not available in Maven Central,\na fork exists that can be used instead.*\n- XStream v1.4.17+ (JSON and XML) - can be used safely\nas long as the allowlist and other security controls are not relaxed (see documentation)\n\nRequires configuration before can be used safely:\n\nThe following libraries require configuration options to be set before they can be used safely:\n\n- fastjson v1.2.68+ (JSON) - cannot be used safely unless\nthe safemode option is turned on, which disables\ndeserialization of any class (see documentation).\nPrevious versions are not safe.\n- json-io (JSON) - cannot be used safely since the use of @type property in\nJSON allows deserialization of any class. Can only be used safely in following situations:\n\n[4] (Deserialization_Cheat_Sheet.md)\nortunately, the features of these native deserialization mechanisms can sometimes be repurposed for malicious effect when operating on untrusted data. Attacks against deserializers have been found to allow denial-of-service, access control, or remote code execution (RCE) attacks.\n\n## Guidance on Deserializing Objects Safely\n\nThe following language-specific guidance attempts to enumerate safe methodologies for deserializing data that can't be trusted.\n\n### PHP\n\n#### Clear-box Review\n\nCheck the use of `unserialize()` function and review how the external parameters are accepted. Use a safe, standard data interchange format such as JSON (via `json_decode()` and `json_encode()`) if you need to pass serialized data to the user.\n\n### Python\n\n#### Opaque-box Review\n\nIf the traffic data contains the symbol dot `.` at the end, it's very likely that the data was sent in serialization. It will be only true if the data is not being encoded using Base64 or Hexadecimal schemas.\n\n[5] (Deserialization_Cheat_Sheet.md)\noit unsafe Java object deserialization.\n- Java De-serialization toolkits\n- Java de-serialization tool\n- .Net payload generator\n- Burp Suite extension\n- Java secure deserialization library\n- Serianalyzer is a static bytecode analyzer for deserialization\n- Payload generator\n- Android Java Deserialization Vulnerability Tester\n- Burp Suite Extension\n- JavaSerialKiller\n- Java Deserialization Scanner\n- Burp-ysoserial\n- SuperSerial\n- SuperSerial-Active\n\n## References\n\n- Java-Deserialization-Cheat-Sheet\n- Deserialization of untrusted data\n- Java Deserialization Attacks - German OWASP Day 2016\n- AppSecCali 2015 - Marshalling Pickles\n- FoxGlove Security - Vulnerability Announcement\n- Java deserialization cheat sheet aimed at pen testers\n- A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization.\n- Java De-serialization toolkits\n- Java de-serialization tool\n- Burp Suite extension\n- Java secure deserialization library",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.798874855041504,
+      "cited_sources": [
+        "Deserialization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1456,
+      "output_tokens": 268,
+      "retrieval_seconds": 4.443704999999682,
+      "llm_seconds": 2.502603199999612
+    },
+    {
+      "id": "q020",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What type of authentication model is recommended for high-risk actions such as changing payment details?",
+      "answer": "Adaptive Authentication\u202f\u2013 a risk\u2011based authentication model that adapts to the user\u2019s behavior and context is recommended for high\u2011risk actions such as changing payment details [1][2].",
+      "context": "[1] (Authentication_Cheat_Sheet.md)\ntions\nFor high-risk actions like changing payment details or adding new trusted devices\n\n#### Re-authentication Mechanisms\n\n- Adaptive Authentication\nUse risk-based authentication models that adapt to the user's behavior and context\n- Multi-Factor Authentication (MFA)\nRequire an additional layer of verification for sensitive actions or events\n- Challenge-Based Verification\nPrompt users to confirm their identity with a challenge question or secondary method\n\n#### Implementation Recommendations\n\n- Minimize User Friction\nEnsure that re-authentication does not disrupt the user experience unnecessarily\n- Context-Aware Decisions\nMake re-authentication decisions based on context (e.g., geolocation, device type, prior patterns)\n- Secure Session Management\nInvalidate sessions after re-authentication and rotate tokens\u2014see the OWASP Session Management Cheat Sheet\n\n#### References\n\n- OWASP Session Management Cheat Sheet\n- OWASP ASVS \u2013 2.2.2: Re-authentication requirements\n\n[2] (Authentication_Cheat_Sheet.md)\ndentials. Additionally, an attacker may get temporary physical access to a user's browser or steal their session ID to take over the user's session.\n\n### Re-authentication After Risk Events\n\nOverview:\nRe-authentication is critical when an account has experienced high-risk activity such as account recovery, password resets, or suspicious behavior patterns. This section outlines when and how to trigger re-authentication to protect users and prevent unauthorized access. For further details, see the Require Re-authentication for Sensitive Features section.\n\n#### When to Trigger Re-authentication\n\n- Suspicious Account Activity\nWhen unusual login patterns, IP address changes, or device enrollments occur\n- Account Recovery\nAfter users reset their passwords or change sensitive account details\n- Critical Actions\nFor high-risk actions like changing payment details or adding new trusted devices\n\n#### Re-authentication Mechanisms\n\n- Adaptive Authentication\n\n[3] (Session_Management_Cheat_Sheet.md)\nr's web browser instead of gathering the victim's session ID, as in most of the other session-based attacks, and independently of using HTTP or HTTPS. This protection mitigates the impact of other web-based vulnerabilities that can also be used to launch session fixation attacks, such as HTTP response splitting or XSS (see here and here).\n\nA complementary recommendation is to use a different session ID or token name (or set of session IDs) pre and post authentication, so that the web application can keep track of anonymous users and authenticated users without the risk of exposing or binding the user session between both states.\n\n### Reauthentication After Risk Events\n\nWeb applications should require reauthentication after high-risk events such as:\n\n- Changes to critical user information (e.g., password, email address)\n- Login attempts from new or suspicious IP addresses or devices\n- Account recovery flows (e.g., password reset or compromised-account detection)\n\n[4] (OWASP-Top-10-for-LLMs-v2025.pdf, page 9)\n5\n4. Enforce privilege control and least privilege access\nProvide the application with its own API tokens for extensible functionality, and handle these\nfunctions in code rather than providing them to the model. Restrict the model's access\nprivileges to the minimum necessary for its intended operations.\n5. Require human approval for high-risk actions\nImplement human-in-the-loop controls for privileged operations to prevent unauthorized\nactions.\n6. Segregate and identify external content\nSeparate and clearly denote untrusted content to limit its influence on user prompts.\n7. Conduct adversarial testing and attack simulations\nPerform regular penetration testing and breach simulations, treating the model as an\nuntrusted user to test the effectiveness of trust boundaries and access controls.\nExample Attack Scenarios\nScenario #1: Direct Injection\nAn attacker injects a prompt into a customer support chatbot, instructing it to ignore\n\n[5] (NIST.SP.800-218.pdf, page 20)\n1: Train the development team (security champions, in particular) or\ncollaborate with a risk modeling expert to create models and analyze how to use\na risk-based approach to communicate the risks and determine how to address\nthem, including implementing mitigations.\nExample 2: Perform more rigorous assessments for high-risk areas, such as\nprotecting sensitive data and safeguarding identification, authentication, and\naccess control, including credential management.\nExample 3: Review vulnerability reports and statistics for previous software to\ninform the security risk assessment.\nExample 4: Use data classification methods to identify and characterize each\ntype of data that the software will interact with.\nBSAFSS: SC.1\nBSIMM: AM1.2, AM1.3, AM1.5, AM2.1, AM2.2, AM2.5, AM2.6, AM2.7, SFD2.2, AA1.1,\nAA1.2, AA1.3, AA2.1\nEO14028: 4e(ix)\nIDASOAR: 1\nIEC62443: SM-4, SR-1, SR-2, SD-1\nIR8397: 2.1\nISO27034: 7.3.3\nMSSDL: 4\nNISTCSF: ID.RA",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.670926094055176,
+      "cited_sources": [
+        "Authentication_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1391,
+      "output_tokens": 321,
+      "retrieval_seconds": 5.792675099999542,
+      "llm_seconds": 2.560265099999924
+    },
+    {
+      "id": "q021",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What type of storage should be used to protect cryptographic keys?",
+      "answer": "Use a dedicated secure\u2011storage mechanism rather than hard\u2011coding keys or keeping them in configuration files.  Recommended options include the operating\u2011system or cloud provider\u2019s key\u2011vault services such as a physical or virtual Hardware Security Module (HSM), Amazon KMS, Azure Key Vault, an external secrets manager like Conjur or HashiCorp Vault, or platform APIs such as the .NET\u202fProtectedData class\u202f[1][4].",
+      "context": "[1] (Cryptographic_Storage_Cheat_Sheet.md)\nto allow the encryption algorithm or library to be changed, in case a new vulnerability is found in the algorithm or implementation.\n\n## Key Storage\n\nSecurely storing cryptographic keys is one of the hardest problems to solve, as the application always needs to have some level of access to the keys in order to decrypt the data. While it may not be possible to fully protect the keys from an attacker who has fully compromised the application, a number of steps can be taken to make it harder for them to obtain the keys.\n\nWhere available, the secure storage mechanisms provided by the operating system, framework or cloud service provider should be used. These include:\n\n- A physical Hardware Security Module (HSM).\n- A virtual HSM.\n- Key vaults such as Amazon KMS or Azure Key Vault.\n- An external secrets management service such as Conjur or HashiCorp Vault.\n- Secure storage APIs provided by the ProtectedData class in the .NET framework.\n\n[2] (Cryptographic_Storage_Cheat_Sheet.md)\n# Cryptographic Storage Cheat Sheet\n\n## Introduction\n\nThis article provides a simple model to follow when implementing solutions to protect data at rest.\n\nPasswords should not be stored using reversible encryption - secure password hashing algorithms should be used instead. The Password Storage Cheat Sheet contains further guidance on storing passwords.\n\n## Architectural Design\n\nThe first step in designing any application is to consider the overall architecture of the system, as this will have a huge impact on the technical implementation.\n\nThis process should begin with considering the threat model of the application (i.e, who you are trying to protect that data against).\n\nThe use of dedicated secret or key management systems can provide an additional layer of security protection, as well as making the management of secrets significantly easier - however it comes at the cost of additional complexity and administrative overhead - so may not be feasible for all applications.\n\n[3] (Cryptographic_Storage_Cheat_Sheet.md)\nserver, but will provide no protection if an attacker is able to compromise the server remotely.\n\n### Minimize the Storage of Sensitive Information\n\nThe best way to protect sensitive information is to not store it in the first place. Although this applies to all kinds of information, it is most often applicable to credit card details, as they are highly desirable for attackers, and PCI DSS has such stringent requirements for how they must be stored. Wherever possible, the storage of sensitive information should be avoided.\n\n## Algorithms\n\nFor symmetric encryption AES with a key that's at least 128 bits (ideally 256 bits) and a secure mode should be used as the preferred algorithm.\n\nFor asymmetric encryption, use elliptical curve cryptography (ECC) with a secure curve such as Curve25519 as a preferred algorithm. If ECC is not available and  RSA must be used, then ensure that the key is at least 2048 bits.\n\n### Post-Quantum Consideration\n\n[4] (Cryptographic_Storage_Cheat_Sheet.md)\nernal secrets management service such as Conjur or HashiCorp Vault.\n- Secure storage APIs provided by the ProtectedData class in the .NET framework.\n\nThere are many advantages to using these types of secure storage over simply putting keys in configuration files. The specifics of these will vary depending on the solution used, but they include:\n\n- Central management of keys, especially in containerised environments.\n- Easy key rotation and replacement.\n- Secure key generation.\n- Simplifying compliance with regulatory standards such as FIPS 140 or PCI DSS.\n- Making it harder for an attacker to export or steal keys.\n\nIn some cases none of these will be available, such as in a shared hosting environment, meaning that it is not possible to obtain a high degree of protection for any encryption keys. However, the following basic rules can still be followed:\n\n- Do not hard-code keys into the application source code.\n- Do not check keys into version control systems.\n\n[5] (Cryptographic_Storage_Cheat_Sheet.md)\nmestamp is to the nearest 100ns). Type 4 UUIDs are randomly generated, although whether this is done using a CSPRNG will depend on the implementation. Unless this is known to be secure in the specific language or framework, the randomness of UUIDs should not be relied upon.\n\n### Defense in Depth\n\nApplications should be designed to still be secure even if cryptographic controls fail. Any information that is stored in an encrypted form should also be protected by additional layers of security. Application should also not rely on the security of encrypted URL parameters, and should enforce strong access control to prevent unauthorized access to information.\n\n## Key Management\n\n### Processes\n\nFormal processes should be implemented (and tested) to cover all aspects of key management, including:\n\n- Generating and storing new keys.\n- Distributing keys to the required parties.\n- Deploying keys to application servers.\n- Rotating and decommissioning old keys\n\n### Key Generation",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.3067216873168945,
+      "cited_sources": [
+        "Cryptographic_Storage_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1308,
+      "output_tokens": 256,
+      "retrieval_seconds": 3.732814199999666,
+      "llm_seconds": 2.830020599999443
+    },
+    {
+      "id": "q022",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What happens to a session cookie when the browser is closed?",
+      "answer": "A non\u2011persistent (session) cookie is deleted when the browser instance is closed, causing the session to disappear from the client\u202f[1][4].",
+      "context": "[1] (Session_Management_Cheat_Sheet.md)\nauthentication make use of non-persistent cookies. This forces the session to disappear from the client if the current web browser instance is closed. Therefore, it is highly recommended to use non-persistent cookies for session management purposes, so that the session ID does not remain on the web client cache for long periods of time, from where an attacker can obtain it.\n\n- Ensure that sensitive information is not compromised by ensuring that it is not persistent, encrypting it, and storing it only for the duration of the need\n- Ensure that unauthorized activities cannot take place via cookie manipulation\n- Ensure secure flag is set to prevent accidental transmission over the wire in a non-secure manner\n- Determine if all state transitions in the application code properly check for the cookies and enforce their use\n- Ensure entire cookie should be encrypted if sensitive data is persisted in the cookie\n\n[2] (Session_Management_Cheat_Sheet.md)\nclosing the web browser, emulating that the user has manually closed the session via the logout button.\n\n### Disable Web Browser Cross-Tab Sessions\n\nWeb applications can use JavaScript code once the user has logged in and a session has been established to force the user to re-authenticate if a new web browser tab or window is opened against the same web application. The web application does not want to allow multiple web browser tabs or windows to share the same session. Therefore, the application tries to force the web browser to not share the same session ID simultaneously between them.\n\nNOTE: This mechanism cannot be implemented if the session ID is exchanged through cookies, as cookies are shared by all web browser tabs/windows.\n\n### Automatic Client Logout\n\n[3] (Session_Management_Cheat_Sheet.md)\n:\n\n### Secure Attribute\n\nThe `Secure` cookie attribute instructs web browsers to only send the cookie through an encrypted HTTPS (SSL/TLS) connection. This session protection mechanism is mandatory to prevent the disclosure of the session ID through MitM (Man-in-the-Middle) attacks. It ensures that an attacker cannot simply capture the session ID from web browser traffic.\n\nForcing the web application to only use HTTPS for its communication (even when port TCP/80, HTTP, is closed in the web application host) does not protect against session ID disclosure if the `Secure` cookie has not been set - the web browser can be deceived to disclose the session ID over an unencrypted HTTP connection. The attacker can intercept and manipulate the victim user traffic and inject an HTTP unencrypted reference to the web application that will force the web browser to submit the session ID in the clear.\n\nSee also: SecureFlag\n\n### HttpOnly Attribute\n\n[4] (Session_Management_Cheat_Sheet.md)\ne applications to access the session IDs, such as the `document.cookie` object. Also, any web application can set cookies for any path on that host.\n\nCookies are vulnerable to DNS spoofing/hijacking/poisoning attacks, where an attacker can manipulate the DNS resolution to force the web browser to disclose the session ID for a given host or domain.\n\n### Expire and Max-Age Attributes\n\nSession management mechanisms based on cookies can make use of two types of cookies, non-persistent (or session) cookies, and persistent cookies. If a cookie presents the `Max-Age` (that has preference over `Expires`) or `Expires` attributes, it will be considered a persistent cookie and will be stored on disk by the web browser based until the expiration time.\n\nTypically, session management capabilities to track users after authentication make use of non-persistent cookies. This forces the session to disappear from the client if the current web browser instance is closed.\n\n[5] (Session_Management_Cheat_Sheet.md)\nxation attacks where the attacker is able to intercept and manipulate the web traffic to inject (or fix) the session ID on the victim's web browser.\n\nThe following set of best practices are focused on protecting the session ID (specifically when cookies are used) and helping with the integration of HTTPS within the web application:\n\n- Do not switch a given session from HTTP to HTTPS, or vice-versa, as this will disclose the session ID in the clear through the network.\n- When redirecting to HTTPS, ensure that the cookie is set or regenerated after the redirect has occurred.\n- Do not mix encrypted and unencrypted contents (HTML pages, images, CSS, JavaScript files, etc) in the same page, or from the same domain.\n- Where possible, avoid offering public unencrypted contents and private encrypted contents from the same host. Where insecure content is required, consider hosting this on a separate insecure domain.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 5.367068290710449,
+      "cited_sources": [
+        "Session_Management_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1256,
+      "output_tokens": 283,
+      "retrieval_seconds": 3.74622939999972,
+      "llm_seconds": 1.607263700000658
+    },
+    {
+      "id": "q023",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How can you restrict which classes java.io.ObjectInputStream is allowed to deserialize?",
+      "answer": "You can limit deserialization by providing a custom\u202f`ObjectInputStream` that overrides\u202f`resolveClass()`. In the overridden method you compare the incoming class name to an allow\u2011list (or deny\u2011list) and throw an exception for any type you don\u2019t want to permit, ensuring that `readObject()` is never invoked for disallowed classes\u202f[1][3].  \n\nIf you cannot change the deserialization code directly, you can apply the same logic globally with a Java agent that weaves a hardening implementation into\u202f`java.io.ObjectInputStream`, effectively block\u2011listing known malicious types across the whole JVM\u202f[2].",
+      "context": "[1] (Deserialization_Cheat_Sheet.md)\nream in) throws java.io.IOException {\nthrow new java.io.IOException(\"Cannot be deserialized\");\n}\n```\n\n#### Harden Your Own java.io.ObjectInputStream\n\nThe `java.io.ObjectInputStream` class is used to deserialize objects. It's possible to harden its behavior by subclassing it. This is the best solution if:\n\n- you can change the code that does the deserialization;\n- you know what classes you expect to deserialize.\n\nThe general idea is to override `ObjectInputStream.html#resolveClass()` in order to restrict which classes are allowed to be deserialized.\n\nBecause this call happens before a `readObject()` is called, you can be sure that no deserialization activity will occur unless the type is one that you allow.\n\nA simple example is shown here, where the `LookAheadObjectInputStream` class is guaranteed to not deserialize any other type besides the `Bicycle` class:\n\n```java\npublic class LookAheadObjectInputStream extends ObjectInputStream {\n\n[2] (Deserialization_Cheat_Sheet.md)\nalized\n- IBM - the seminal protection, written years before the most devastating exploitation scenarios were envisioned.\n- Apache Commons IO classes\n\n#### Harden All java.io.ObjectInputStream Usage with an Agent\n\nAs mentioned above, the `java.io.ObjectInputStream` class is used to deserialize objects. It's possible to harden its behavior by subclassing it. However, if you don't own the code or can't wait for a patch, using an agent to weave in hardening to `java.io.ObjectInputStream` is the best solution.\n\nGlobally changing `ObjectInputStream` is only safe for block-listing known malicious types, because it's not possible to know for all applications what the expected classes to be deserialized are. Fortunately, there are very few classes needed in the denylist to be safe from all the known attack vectors, today.\n\nIt's inevitable that more \"gadget\" classes will be discovered that can be abused.\n\n[3] (Deserialization_Cheat_Sheet.md)\naranteed to not deserialize any other type besides the `Bicycle` class:\n\n```java\npublic class LookAheadObjectInputStream extends ObjectInputStream {\n\npublic LookAheadObjectInputStream(InputStream inputStream) throws IOException {\nsuper(inputStream);\n}\n\n/**\n* Only deserialize instances of our expected Bicycle class\n*/\n@Override\nprotected Class<?> resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {\nif (!desc.getName().equals(Bicycle.class.getName())) {\nthrow new InvalidClassException(\"Unauthorized deserialization attempt\", desc.getName());\n}\nreturn super.resolveClass(desc);\n}\n}\n```\n\nMore complete implementations of this approach have been proposed by various community members:\n\n- NibbleSec - a library that allows creating lists of classes that are allowed to be deserialized\n- IBM - the seminal protection, written years before the most devastating exploitation scenarios were envisioned.\n- Apache Commons IO classes\n\n[4] (Deserialization_Cheat_Sheet.md)\n```csharp\nTypeNameHandling = TypeNameHandling.None\n```\n\nIf `JavaScriptSerializer` is to be used then do not use it with a `JavaScriptTypeResolver`.\n\nIf you must deserialize data streams that define their own type, then restrict the types that are allowed to be deserialized. One should be aware that this is still risky as many native .Net types potentially dangerous in themselves. e.g.\n\n```csharp\nSystem.IO.FileInfo\n```\n\n`FileInfo` objects that reference files actually on the server can when deserialized, change the properties of those files e.g. to read-only, creating a potential denial of service attack.\n\nEven if you have limited the types that can be deserialized remember that some types have properties that are risky. `System.ComponentModel.DataAnnotations.ValidationException`, for example has a property `Value` of type `Object`. if this type is the type allowed for deserialization then an attacker can set the `Value` property to any object type they choose.\n\n[5] (Deserialization_Cheat_Sheet.md)\nany class (see docs)\n\nCannot be used safely:\n\nThe following libraries are either no longer maintained or cannot be used safely with untrusted input:\n\n- Castor (XML) - appears to be abandoned with no commits since 2016\n- fastjson < v1.2.68 (JSON) - these versions allows deserialization of any class\n(see documentation)\n- XMLDecoder in the JDK (XML) - *\"close to impossible to securely deserialize Java objects in this format from untrusted inputs\"*\n(\"Red Hat Defensive Coding Guide\", end of section 2.6.5)\n- XStream < v1.4.17 (JSON and XML) - these versions allows deserialization of any class (see documentation)\n- YamlBeans < v1.16 (YAML) - these versions allows deserialization of any class\n(see this document)\n\n### .Net CSharp\n\n#### Clear-box Review\n\nSearch the source code for the following terms:\n\n1. `TypeNameHandling`\n2. `JavaScriptTypeResolver`\n\nLook for any serializers where the type is set by a user controlled variable.\n\n#### Opaque-box Review",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.967174053192139,
+      "cited_sources": [
+        "Deserialization_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1379,
+      "output_tokens": 272,
+      "retrieval_seconds": 4.407668200000444,
+      "llm_seconds": 1.2891295999997965
+    },
+    {
+      "id": "q024",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What security problem can occur if a web application does not verify both pre-authentication and post-authentication cookies?",
+      "answer": "If the application fails to verify both the pre\u2011authentication (unencrypted/HTTP) cookie and the post\u2011authentication (secure) cookie, an attacker can exploit the unprotected pre\u2011auth cookie to gain access to the user\u2019s authenticated session\u2014effectively a session fixation/hijack attack [1][3].",
+      "context": "[1] (Session_Management_Cheat_Sheet.md)\nsion.\n\nIt is very common for web applications to set a user cookie pre-authentication over HTTP to keep track of unauthenticated (or anonymous) users. Once the user authenticates in the web application, a new post-authentication secure cookie is set over HTTPS, and a binding between both cookies and the user session is established. If the web application does not verify both cookies for authenticated sessions, an attacker can make use of the pre-authentication unprotected cookie to get access to the authenticated user session (see here and here).\n\nWeb applications should try to avoid the same cookie name for different paths or domain scopes within the same web application, as this increases the complexity of the solution and potentially introduces scoping issues.\n\n## Session Expiration\n\n[2] (Session_Management_Cheat_Sheet.md)\nn example would be maintaining the user language preference. Additionally, web applications will make use of sessions once the user has authenticated. This ensures the ability to identify the user on any subsequent requests as well as being able to apply security access controls, authorized access to the user private data, and to increase the usability of the application. Therefore, current web applications can provide session capabilities both pre and post authentication.\n\nOnce an authenticated session has been established, the session ID (or token) is temporarily equivalent to the strongest authentication method used by the application, such as username and password, passphrases, one-time passwords (OTP), client-based digital certificates, smartcards, or biometrics (such as fingerprint or eye retina). See the OWASP Authentication Cheat Sheet.\n\nHTTP is a stateless protocol (RFC2616 section 5), where each request and response pair is independent of other web interactions.\n\n[3] (Session_Management_Cheat_Sheet.md)\nss)\n- Login attempts from new or suspicious IP addresses or devices\n- Account recovery flows (e.g., password reset or compromised-account detection)\n\nFor best practices on implementing reauthentication after these events, see the Reauthentication After Risk Events section in the Authentication Cheat Sheet\n\n### Additional Resources\n\n- Why Frequent Reauthentication Can Be a UX Pitfall by Tailscale\n\n### Considerations When Using Multiple Cookies\n\nIf the web application uses cookies as the session ID exchange mechanism, and multiple cookies are set for a given session, the web application must verify all cookies (and enforce relationships between them) before allowing access to the user session.\n\nIt is very common for web applications to set a user cookie pre-authentication over HTTP to keep track of unauthenticated (or anonymous) users.\n\n[4] (Session_Management_Cheat_Sheet.md)\nr's web browser instead of gathering the victim's session ID, as in most of the other session-based attacks, and independently of using HTTP or HTTPS. This protection mitigates the impact of other web-based vulnerabilities that can also be used to launch session fixation attacks, such as HTTP response splitting or XSS (see here and here).\n\nA complementary recommendation is to use a different session ID or token name (or set of session IDs) pre and post authentication, so that the web application can keep track of anonymous users and authenticated users without the risk of exposing or binding the user session between both states.\n\n### Reauthentication After Risk Events\n\nWeb applications should require reauthentication after high-risk events such as:\n\n- Changes to critical user information (e.g., password, email address)\n- Login attempts from new or suspicious IP addresses or devices\n- Account recovery flows (e.g., password reset or compromised-account detection)\n\n[5] (Session_Management_Cheat_Sheet.md)\nauthentication make use of non-persistent cookies. This forces the session to disappear from the client if the current web browser instance is closed. Therefore, it is highly recommended to use non-persistent cookies for session management purposes, so that the session ID does not remain on the web client cache for long periods of time, from where an attacker can obtain it.\n\n- Ensure that sensitive information is not compromised by ensuring that it is not persistent, encrypting it, and storing it only for the duration of the need\n- Ensure that unauthorized activities cannot take place via cookie manipulation\n- Ensure secure flag is set to prevent accidental transmission over the wire in a non-secure manner\n- Determine if all state transitions in the application code properly check for the cookies and enforce their use\n- Ensure entire cookie should be encrypted if sensitive data is persisted in the cookie",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.806038856506348,
+      "cited_sources": [
+        "Session_Management_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1224,
+      "output_tokens": 278,
+      "retrieval_seconds": 3.6040862999998353,
+      "llm_seconds": 1.1965078000002904
+    },
+    {
+      "id": "q025",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How does the logging schema represent the severity of an event?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "[1] (Logging_Cheat_Sheet.md)\nambling or pseudonymization of direct and indirect identifiers where the individual's identity is not required, or the risk is considered too great.\n\nIn some systems, sanitization can be undertaken post log collection, and prior to log display.\n\n### Customizable logging\n\nIt may be desirable to be able to alter the level of logging (type of events based on severity or threat level, amount of detail recorded). If this is implemented, ensure that:\n\n- The default level must provide sufficient detail for business needs\n- It should not be possible to completely deactivate application logging or logging of events that are necessary for compliance requirements\n- Alterations to the level/extent of logging must be intrinsic to the application (e.g. undertaken automatically by the application based on an approved algorithm) or follow change management processes (e.g. changes to configuration data, modification of source code)\n- The logging level must be verified periodically\n\n[2] (Logging_Cheat_Sheet.md)\nevents\n\nThe logged event data needs to be available to review and there are processes in place for appropriate monitoring, alerting, and reporting:\n\n- Incorporate the application logging into any existing log management systems/infrastructure e.g. centralized logging and analysis systems\n- Ensure event information is available to appropriate teams\n- Enable alerting and signal the responsible teams about more serious events immediately\n- Share relevant event information with other detection systems, to related organizations and centralized intelligence gathering/sharing systems\n\n### Disposal of logs\n\nLog data, temporary debug logs, and backups/copies/extractions, must not be destroyed before the duration of the required data retention period, and must not be kept beyond this time.\n\nLegal, regulatory and contractual obligations may impact on these periods.\n\n## Attacks on Logs\n\nBecause of their usefulness as a defense, logs may be a target of attacks.\n\n[3] (Logging_Cheat_Sheet.md)\nmuch. The remainder of this cheat sheet primarily discusses security event logging.\n\n## Design, implementation, and testing\n\n### Event data sources\n\nThe application itself has access to a wide range of information events that should be used to generate log entries. Thus, the primary event data source is the application code itself.\n\nThe application has the most information about the user (e.g. identity, roles, permissions) and the context of the event (target, action, outcomes), and often this data is not available to either infrastructure devices, or even closely-related applications.\n\nOther sources of information about application usage that could also be considered are:\n\n- Client software e.g. actions on desktop software and mobile devices in local logs or using messaging technologies, JavaScript exception handler via AJAX, web browser such as using Content Security Policy (CSP) reporting mechanism\n- Embedded instrumentation code\n- Network firewalls\n\n[4] (NIST.SP.800-171r3.pdf, page 31)\ne environments in which those systems operate to meet specific and\nongoing auditing needs. Event types can include password changes, the execution of\nprivileged functions, failed logons or accesses related to systems, administrative\nprivilege usage, or third-party credential usage. In determining event types that\nrequire logging, organizations consider the system monitoring and auditing that are\nappropriate for each of the security requirements. When defining event types,\norganizations consider the logging necessary to cover related events, such as the\n\n[5] (NIST.SP.800-171r3.pdf, page 31)\ncarry out their responsibilities related to operations and supply chain\nsecurity within the context of organizational information security programs.\nSource Control: AT-03\nSupporting Publications: SP 800-161 [33], SP 800-181 [34]\n03.02.03    Withdrawn\nIncorporated into 03.02.01.\n3.3. Audit and Accountability\n03.03.01    Event Logging\na. Specify the following event types selected for logging within the system:\n[Assignment: organization-defined event types].\nb. Review and update the event types selected for logging [Assignment:\norganization-defined frequency].\nAn event is any observable occurrence in a system, including unlawful or\nunauthorized system activity. Organizations identify event types for which a logging\nfunctionality is needed. This includes events that are relevant to the security of\nsystems and the environments in which those systems operate to meet specific and\nongoing auditing needs. Event types can include password changes, the execution of",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "top_score": 0.7688164710998535,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1211,
+      "output_tokens": 133,
+      "retrieval_seconds": 3.4289201000001412,
+      "llm_seconds": 0.9599838000003729
+    },
+    {
+      "id": "q026",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Are users permitted to log in to the front end utilizing sensitive internal accounts?",
+      "answer": "No. Users should not be allowed to log in to the front end using sensitive internal accounts [1][3].",
+      "context": "[1] (Authentication_Cheat_Sheet.md)\nntial IDs, which could pose a security risk, especially in systems where User IDs might be exposed or inferred from external sources.\n\n### Usernames\n\nUsernames are easy-to-remember identifiers chosen by the user and used for identifying themselves when logging into a system or service. The terms User ID and username might be used interchangeably if the username chosen by the user also serves as their unique identifier within the system.\n\nUsers should be permitted to use their email address as a username, provided the email is verified during sign-up. Additionally, they should have the option to choose a username other than an email address. For information on validating email addresses, please visit the input validation cheat sheet email discussion.\n\n### Authentication Solution and Sensitive Accounts\n\n- Do NOT allow login with sensitive accounts (i.e. accounts that can be used internally within the solution such as to a backend / middleware / database) to any front-end user interface\n\n[2] (Authentication_Cheat_Sheet.md)\ntransport for the login page allows an attacker to modify the login form action, causing the user's credentials to be posted to an arbitrary location. Failure to utilize TLS or other strong transport for authenticated pages after login enables an attacker to view the unencrypted session ID and compromise the user's authenticated session.\n\n### Require Re-authentication for Sensitive Features\n\nIn order to mitigate CSRF and session hijacking, it's important to require the current credentials for an account before updating sensitive account information such as the user's password or email address -- or before sensitive transactions, such as shipping a purchase to a new address. Without this countermeasure, an attacker may be able to execute sensitive transactions through a CSRF or XSS attack without needing to know the user's current credentials. Additionally, an attacker may get temporary physical access to a user's browser or steal their session ID to take over the user's session.\n\n[3] (Authentication_Cheat_Sheet.md)\naccounts (i.e. accounts that can be used internally within the solution such as to a backend / middleware / database) to any front-end user interface\n- Do NOT use the same authentication solution (e.g. IDP / AD) used internally for unsecured access (e.g., public access / DMZ)\n\n### Implement Proper Password Strength Controls\n\nA key concern when using passwords for authentication is password strength. A \"strong\" password policy makes it difficult or even improbable for one to guess the password through either manual or automated means. The following characteristics define a strong password:\n\n- Password Length\n- Minimum length for passwords should be enforced by the application.\n- If MFA is enabled passwords shorter than 8 characters are considered to be weak (NIST SP800-63B).\n- If MFA is not enabled passwords shorter than 15 characters are considered to be weak (NIST SP800-63B).\n- Maximum password length should be at least 64 characters to allow passphrases (NIST SP800-63B).\n\n[4] (Authorization_Cheat_Sheet.md)\nion (i.e. being able to access another user's resources) is an especially common weakness that an authenticated user may be able to take advantage of. Faults related to authorization control can allow malicious insiders and outsiders alike to view, modify, or delete sensitive resources of all forms (databases records, static files, personally identifiable information (PII), etc.) or perform actions, such as creating a new account or initiating a costly order, that they should not be privileged to do. Furthermore, if logging related to access control is not properly set-up, such authorization violations may go undetected or at least remain unattributable to a particular individual or group.\n\n## Recommendations\n\n### Enforce Least Privileges\n\nAs a security concept, Least Privileges refers to the principle of assigning users only the minimum privileges necessary to complete their job.\n\n[5] (CISA_StopRansomware_Guide.html)\nor agents are installed on DCs because these can be leveraged to run arbitrary code on the system.\nRestrict access to DCs to the Administrators group. Users within this group should be limited and have separate accounts used for day-to-day operations with non-administrative permissions. For more information, refer to Microsoft\u2019s Securing Active Directory Administrative Groups and Accounts.\nThe designated admin accounts should only be used for admin purposes. Ensure that checking emails, web browsing, or other high-risk activities are not performed on DCs.\nConfigure DC host firewalls to prevent internet access. Usually, DCs do not need direct internet access. Servers with internet connectivity can be used to pull necessary updates in lieu of allowing internet access for DCs.\nImplement a privileged access management (PAM) solution on DCs to assist in managing and monitoring privileged access. PAM solutions can also log and alert usage to detect unusual activity.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 3.6107282638549805,
+      "cited_sources": [
+        "Authentication_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1286,
+      "output_tokens": 144,
+      "retrieval_seconds": 4.173653799999556,
+      "llm_seconds": 1.1735631999999896
+    },
+    {
+      "id": "q028",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Why are non-persistent cookies recommended for session management?",
+      "answer": "Non\u2011persistent (session) cookies are advised because they are removed when the browser instance is closed, causing the session ID to disappear from the client and preventing it from remaining in the web client\u2019s cache for long periods where an attacker could obtain it [1][2].",
+      "context": "[1] (Session_Management_Cheat_Sheet.md)\nauthentication make use of non-persistent cookies. This forces the session to disappear from the client if the current web browser instance is closed. Therefore, it is highly recommended to use non-persistent cookies for session management purposes, so that the session ID does not remain on the web client cache for long periods of time, from where an attacker can obtain it.\n\n- Ensure that sensitive information is not compromised by ensuring that it is not persistent, encrypting it, and storing it only for the duration of the need\n- Ensure that unauthorized activities cannot take place via cookie manipulation\n- Ensure secure flag is set to prevent accidental transmission over the wire in a non-secure manner\n- Determine if all state transitions in the application code properly check for the cookies and enforce their use\n- Ensure entire cookie should be encrypted if sensitive data is persisted in the cookie\n\n[2] (Session_Management_Cheat_Sheet.md)\ne applications to access the session IDs, such as the `document.cookie` object. Also, any web application can set cookies for any path on that host.\n\nCookies are vulnerable to DNS spoofing/hijacking/poisoning attacks, where an attacker can manipulate the DNS resolution to force the web browser to disclose the session ID for a given host or domain.\n\n### Expire and Max-Age Attributes\n\nSession management mechanisms based on cookies can make use of two types of cookies, non-persistent (or session) cookies, and persistent cookies. If a cookie presents the `Max-Age` (that has preference over `Expires`) or `Expires` attributes, it will be considered a persistent cookie and will be stored on disk by the web browser based until the expiration time.\n\nTypically, session management capabilities to track users after authentication make use of non-persistent cookies. This forces the session to disappear from the client if the current web browser instance is closed.\n\n[3] (Session_Management_Cheat_Sheet.md)\ncurity perspective.\n\nFor most session exchange mechanisms, client side actions to invalidate the session ID are based on clearing out the token value. For example, to invalidate a cookie it is recommended to provide an empty (or invalid) value for the session ID, and set the `Expires` (or `Max-Age`) attribute to a date from the past (in case a persistent cookie is being used): `Set-Cookie: id=; Expires=Friday, 17-May-03 18:45:00 GMT`\n\nIn order to close and invalidate the session on the server side, it is mandatory for the web application to take active actions when the session expires, or the user actively logs out, by using the functions and methods offered by the session management mechanisms, such as `HttpSession.invalidate()` (J2EE), `Session.Abandon()` (ASP .NET) or `session_destroy()/unset()` (PHP).\n\n### Automatic Session Expiration\n\n#### Idle Timeout\n\nAll sessions should implement an idle or inactivity timeout.\n\n[4] (Session_Management_Cheat_Sheet.md)\nties, as well as review and change the default configuration to enhance its security by following the recommendations described along this document.\n\nThe storage capabilities or repository used by the session management mechanism to temporarily save the session IDs must be secure, protecting the session IDs against local or remote accidental disclosure or unauthorized access.\n\n### Used vs. Accepted Session ID Exchange Mechanisms\n\nA web application should make use of cookies for session ID exchange management. If a user submits a session ID through a different exchange mechanism, such as a URL parameter, the web application should avoid accepting it as part of a defensive strategy to stop session fixation.\n\nNOTE:\n\n- Even if a web application makes use of cookies as its default session ID exchange mechanism, it might accept other exchange mechanisms too.\n\n[5] (Session_Management_Cheat_Sheet.md)\nata\n\nEven after the session has ended, private or sensitive data exchanged during the session may still be accessible through the web browser's cache. To mitigate this, web applications must use restrictive cache directives for all HTTP and HTTPS traffic. This includes the use of HTTP headers such as `Cache-Control` and `Pragma`, or equivalent `<meta>` tags on all pages\u2014especially those displaying sensitive content.\n\nSession identifiers must never be cached. To prevent this, it is highly recommended to include the `Cache-Control: no-store` directive in responses containing session IDs. Unlike `no-cache`, which allows caching but requires revalidation, `no-store` ensures that the response (including headers like `Set-Cookie`) is never stored in any cache.\n\nIn addition to preventing future caching, applications should ensure that previously stored sensitive data is removed when a session ends.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 8.380331039428711,
+      "cited_sources": [
+        "Session_Management_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1267,
+      "output_tokens": 236,
+      "retrieval_seconds": 4.083210599999802,
+      "llm_seconds": 1.2548452000000907
+    },
+    {
+      "id": "q029",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Why is a salt added when storing passwords?",
+      "answer": "A salt is a unique, randomly\u2011generated value added to each password before hashing so that every stored hash is different. This forces an attacker to crack each hash individually (rather than computing one hash and reusing it), defeats pre\u2011computed attacks such as rainbow tables, and prevents anyone from seeing whether two users share the same password\u202f[1][3].",
+      "context": "[1] (Password_Storage_Cheat_Sheet.md)\n# Password Storage Cheat Sheet\n\n## Introduction\n\nThis cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are stored, they must be protected from an attacker even if the application or database is compromised. Fortunately, a majority of modern languages and frameworks provide built-in functionality to help store passwords safely.\n\nPasswords should never be stored in plain text. Instead, they must be protected using strong, slow hashing algorithms such as Argon2id, bcrypt, or PBKDF2. A unique salt must be added to each password to prevent attackers from using precomputed lookup tables like rainbow tables. Fast hashing algorithms such as SHA\u2011256 are not suitable for password storage because they allow attackers to perform large numbers of guesses quickly. Using slow, memory\u2011hard algorithms makes brute\u2011force attacks significantly more difficult, expensive, and time\u2011consuming.\n\nTo sum up our recommendations:\n\n[2] (Password_Storage_Cheat_Sheet.md)\ns of passwords obtained from other compromised sites\n- Brute force (trying every possible candidate)\n- Dictionaries or wordlists of common passwords\n\nWhile the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is relatively small to do successful password cracking, especially when best practices for hashing are not followed.\n\n## Methods for Enhancing Password Storage\n\n### Salting\n\nA salt is a unique, randomly generated string that is added to each password as part of the hashing process. As the salt is unique for every user, an attacker has to crack hashes one at a time using the respective salt rather than calculating a hash once and comparing it against every stored hash. This makes cracking large numbers of hashes significantly harder, as the time required grows in direct proportion to the number of hashes.\n\n[3] (Password_Storage_Cheat_Sheet.md)\nred hash. This makes cracking large numbers of hashes significantly harder, as the time required grows in direct proportion to the number of hashes.\n\nSalting also protects against an attacker's pre-computing hashes using rainbow tables or database-based lookups. Finally, salting means that it is impossible to determine whether two users have the same password without cracking the hashes, as the different salts will result in different hashes even if the passwords are the same.\n\nAt the algorithm and specification level, modern password hashing functions such as Argon2id, bcrypt, and PBKDF2 require the caller to provide a salt.\nHowever, most widely used implementations and libraries automatically generate and manage salts internally, so application developers typically do not need to handle salt generation manually when using these libraries correctly.\n\n### Peppering\n\nPeppering is a class of strategies that can be used in addition to salting to provide an additional layer of protection.\n\n[4] (Password_Storage_Cheat_Sheet.md)\nes correctly.\n\n### Peppering\n\nPeppering is a class of strategies that can be used in addition to salting to provide an additional layer of protection. It prevents an attacker from being able to crack any of the hashes if they only have access to the database, for example, if they have exploited a SQL injection vulnerability or obtained a backup of the database.\n\n#### Common requirements for peppering strategies\n\n- A pepper is shared between stored passwords, rather than being *unique* to an individual password like a password salt.\n- Unlike a password salt, the pepper should not be public and should not be stored along with the generated hash. The pepper should be stored separately from the password database.\n- Peppers are secrets and should be stored in \"secrets vaults\" or HSMs (Hardware Security Modules). See the Secrets Management Cheat Sheet for more information on securely storing secrets.\n- In the event of a pepper's compromise, the pepper will have to be changed.\n\n[5] (Password_Storage_Cheat_Sheet.md)\norce a maximum password length of 72 bytes (or less if the bcrypt implementation in use has smaller limits).\n\n#### Pre-Hashing Passwords with bcrypt\n\nAn alternative approach is to pre-hash the user-supplied password with a fast algorithm such as SHA-2, HMAC, or BLAKE3 and then to hash the resulting hash value with bcrypt (i.e., `bcrypt(H($password)), $salt, $cost)`)..\nThis can be dangerous because of null bytes in the hash output value and because of password shucking.\n\nThe original bcrypt expects a null terminated password string, this means that the hash value will only be used to the first null byte in the hash value. (`bcrypt(H($password)), $salt, $cost) == bcrypt(\"\", $salt, $cost)` if `H($password)[0] == 0`)\nThis increases the chance of finding a collision when combining bcrypt with other hash functions and can be avoided by encoding the hash value to printable string with something like base64.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 5.13561487197876,
+      "cited_sources": [
+        "Password_Storage_Cheat_Sheet.md"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1312,
+      "output_tokens": 298,
+      "retrieval_seconds": 4.329163200000039,
+      "llm_seconds": 1.7887753000004523
+    },
+    {
+      "id": "q031",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Who must review and approve the incident response plan and communications plan in writing?",
+      "answer": "The organization\u2019s chief executive (the CEO or an equivalent authority) must review and approve the incident response plan and the communications plan in writing[1].",
+      "context": "[1] (CISA_StopRansomware_Guide.html)\nnce that their information will be misused. Provide the type of information exposed, recommend remediation actions, and relevant contact information.\nNotify businesses of a breach if PII stored on behalf of other businesses is stolen.\nEnsure the IRP and communications plan are reviewed and approved by the CEO, or equivalent, in writing and that both are reviewed and understood across the chain of command.\nReview available incident response guidance, such as the Ransomware Response Checklist in this guide and Public Power Cyber Incident Response Playbook to:\nHelp your organization better organize around cyber incident response.\nDraft cyber incident holding statements.\nDevelop a cyber IRP.\nInclude organizational communications procedures as well as templates for cyber incident holding statements in the communications plan. Reach a consensus on what level of detail is appropriate to share within the organization and with the public and how information will flow.\n\n[2] (NIST.SP.800-61r3.pdf, page 15)\nss the organization and that information is\nshared among teams.\n\u2022 Technology professionals. Cybersecurity, privacy, system, network, cloud, and other\ntechnology architects, engineers, and administrators, as well as software developers,\nmay be involved in incident response and recovery efforts.\n\u2022 Legal. Legal experts can review incident response plans, policies, and procedures to\nensure compliance with applicable laws and regulations, including the right to privacy.\nLegal experts can also review contracts with technology suppliers and other third parties\nwhen there are incident response implications. In addition, incident responders can seek\nguidance from their organization\u2019s legal department if a particular incident may have\nlegal ramifications, such as the prosecution of a suspect, lawsuits, or situations that\nrequire a memorandum of understanding (MOU) or other binding agreement.\n\u2022 Public affairs and media relations. Depending on the nature and impact of an incident,\n\n[3] (CISA_StopRansomware_Guide.html)\nsecurity team for awareness. This will help avoid alert fatigue and allow security personnel to focus on critical issues.\nReporting and Notification\nNote: Refer to the Contact Information section at the end of this guide for details on how to report and notify about ransomware incidents.\nFollow notification requirements as outlined in your cyber incident response and communications plan to engage internal and external teams and stakeholders with an understanding of what they can provide to help you mitigate, respond to, and recover from the incident.\nShare the information you have at your disposal to receive timely and relevant assistance. Keep management and senior leaders informed via regular updates as the situation develops. Relevant stakeholders may include your IT department, managed security service providers, cyber insurance company, and departmental or elected leaders [CPG 4.A].\n\n[4] (NIST.SP.800-171r3.pdf, page 51)\nute copies of the incident response plan to designated incident response\npersonnel (identified by name and/or by role) and organizational elements.\nc. Update the incident response plan to address system and organizational changes\nor problems encountered during plan implementation, execution, or testing.\nd. Protect the incident response plan from unauthorized disclosure.\nIt is important that organizations develop and implement a coordinated approach to\nincident response. Organizational mission and business functions determine the\n\n[5] (NIST.SP.800-61r3.pdf, page 35)\nch incident.\nR2: If appropriate, contact the\norganization\u2019s incident response service\nprovider to request assistance.\nR3: Initiate execution of other\ncybersecurity plans as needed (e.g.,\nbusiness continuity and disaster recovery\nplans) to support incident response.\nRS.MA-02\nIncident reports are triaged and\nvalidated\nR1: Perform a preliminary review of a new\nincident report to verify that a\ncybersecurity incident has occurred, then\nestimate the severity of the incident and\nthe level of urgency needed to respond to\nit.\nR2: Have mechanisms in place for third\nparties to report possible incidents that\ninvolve the organization. Reports should be\ncarefully monitored and taken seriously.\nFor example, the organization might be\ncontacted by a party claiming that its\nsystems are being attacked by a system at\nthe organization. External users may report\nother indicators, such as an unavailable\nservice. Other incident response teams\nmay also report incidents to the\norganization.\nRS.MA-03",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 6.41168737411499,
+      "cited_sources": [
+        "CISA_StopRansomware_Guide.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1201,
+      "output_tokens": 161,
+      "retrieval_seconds": 3.3596912000002703,
+      "llm_seconds": 1.1763848000000507
+    },
+    {
+      "id": "q032",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "How should Windows systems be configured to protect lateral SMB communications?",
+      "answer": "Configure Windows and Windows\u202fServer systems to require Kerberos\u2011based IPsec for any lateral SMB traffic and harden UNC paths with Kerberos authentication [1].\u202fRequire SMB\u202fv3.1.1 (or at least SMB\u202fv3) and enable its built\u2011in protections such as pre\u2011authentication integrity, AES encryption and signing [5][1].\u202fIf encryption cannot be used, enforce SMB signing on both client and server [3].\u202fConsider requiring SMB encryption (which is more efficient on SMB\u202f3.1.1) and disable the SMB\u202f1.0 server when doing so [3][1].\u202fDisable the \u201cServer\u201d (SMB Server) service on machines that do not need to share files or named\u2011pipe APIs [1].\u202fBlock unnecessary SMB ports (block TCP\u202f445 inbound/outbound at the internet perimeter and block ports\u202f137\u2011139) and limit internal SMB traffic to only those systems that require it, such as workstations communicating with domain controllers for Group Policy [2].\u202fOptionally use SMB over QUIC for highly secure transport and log/monitor SMB traffic for abnormal behavior [4].",
+      "context": "[1] (CISA_StopRansomware_Guide.html)\nneed SMB communications with domain controllers to get group policy, but most Windows workstations do not need to access other Windows workstations.\nConfigure Microsoft Windows and Windows Server systems to require Kerberos-based IP Security (IPsec) for lateral SMB communications to prevent malicious actors from accessing communications over SMB by detecting systems that are not members of an organization\u2019s Microsoft Active Directory domains.\nDisable the SMB Server service (\u201cServer\u201d) on Microsoft Windows and Windows Server devices in instances where there is no need to remotely access files or to name pipe application programming interfaces (APIs).\nFor more information guidance, see Microsoft\u2019s Secure SMB Traffic in Windows Server.\nConsider requiring SMB encryption.\n\n[2] (CISA_StopRansomware_Guide.html)\ndows 10 and Windows Server 2019, Windows 11 Preview Build 25951, and later, you can mandate SMBv 3.1.1 protections such as dialect client negotiation. For more information, see Microsoft\u2019s Protect SMB traffic from interception | Use SMB 3.1.1 and SMB dialect management now supported in Windows Insider.\nBlock unnecessary SMB communications:\nBlock external access of SMB to and from organization networks by blocking TCP port 445 inbound and outbound at internet perimeter firewalls. Block TCP ports 137, 138, 139. Note: SMBv2 and later does not use NetBIOS datagrams. Continuing to us SMBv2 does not have significant risks and can be used where needed. It is recommended to update it to SMBv3 where feasible.\nBlock or limit internal SMB traffic so that communications only occur between systems requiring it. For instance, Windows devices need SMB communications with domain controllers to get group policy, but most Windows workstations do not need to access other Windows workstations.\n\n[3] (CISA_StopRansomware_Guide.html)\nprogramming interfaces (APIs).\nFor more information guidance, see Microsoft\u2019s Secure SMB Traffic in Windows Server.\nConsider requiring SMB encryption. For systems running SMB 3.1 or later, SMB encryption will offer better performance than SMB signing (see bullet below) as well as increased security benefits (To guarantee that SMB 3.1.1 clients always use SMB Encryption, you must disable the SMB 1.0 server). For more information, refer to Microsoft\u2019s SMB security enhancements | Enable SMB Encryption and Reduced performance after SMB Encryption or SMB Signing is enabled\nIf SMB encryption is not enabled, require SMB signing for both SMB client and server on all systems. This will prevent certain adversary-in-the-middle and pass-the-hash attacks.  For more information on SMB signing, refer to Microsoft\u2019s Overview of Server Message Block Signing.\nRequire Kerberos authentication by hardening Universal Naming Convention (UNC).\n\n[4] (CISA_StopRansomware_Guide.html)\nion unless you also configure the use of Kerberos SPNs with IP addresses, refer to Microsoft\u2019s Configuring Kerberos for IP Address.\nUse SMB over QUIC. Microsoft Windows 11, Windows Server 2022 Datacenter: Azure Edition, and Android clients with a third-party SMB client support use of SMB over QUIC, an alternative for SMB over TCP. The QUIC protocol is always Transport Layer Security (TLS) 1.3 encrypted and uses certificate authentication to encapsulate all SMB traffic\u2014including SMB\u2019s own authentication\u2014inside a VPN-like transport. SMB over QUIC allows mobile users to safely connect over the public internet to edge SMB resources, such as servers at the edge of organizational networks not completely behind a firewall, but also works on internal networks that require the highest SMB transport security. For more information, refer to Microsoft\u2019s SMB over QUIC.\nLog and monitor SMB traffic [CPG 2.T] to help flag potentially abnormal, harmful behaviors.\n\n[5] (CISA_StopRansomware_Guide.html)\nsion 1 and upgrade to version 3 (SMBv3) after mitigating existing dependencies (on existing systems or applications), as they may break when disabled. SMBv3 was first released as part of updates to Microsoft Windows 8 and Windows Server 2012, Apple OS X 10.10, and Linux kernel 3.12.\nHarden SMBv3 by implementing the following guidance as malicious actors use SMB to propagate malware across organizations.\nRequire the use of SMBv 3.1.1. This version contains enhanced security protections, including pre-authentication integrity, enhanced AES encryption, and signing cryptography. SMBv 3.1.1 protocol is supported natively in Windows, Apple, and Linux kernel, as well as many other third-party storage systems. In Microsoft Windows 10 and Windows Server 2019, Windows 11 Preview Build 25951, and later, you can mandate SMBv 3.1.1 protections such as dialect client negotiation.",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 7.317628860473633,
+      "cited_sources": [
+        "CISA_StopRansomware_Guide.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1303,
+      "output_tokens": 587,
+      "retrieval_seconds": 3.6662821999998414,
+      "llm_seconds": 13.092416599999524
+    },
+    {
+      "id": "q033",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "What application-execution control is recommended to help prevent malware from running on devices?",
+      "answer": "Use application\u2011whitelisting\u2014e.g., centrally manage devices so only trusted applications can run, using controls such as AppLocker or trusted app stores\u202f[1].",
+      "context": "[1] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)\nspecially security-enforcing devices on the network boundary (such as firewalls and VPN products)\n\nAction 3: prevent malware from running on devices\n\nA 'defence in depth' approach assumes that malware will reach your devices. You should therefore take steps to prevent malware from running. The measures required will vary for each device type, OS and version, but in general you should look to use device-level security features. Organisations should:\ncentrally manage devices in order to only permit applications trusted by the enterprise to run on devices, using technologies including AppLocker, or from trusted app stores (or other trusted locations)\nconsider whether enterprise antivirus or anti-malware products are necessary, and keep the software (and its definition files) up to date\nprovide security education and awareness training to your people, for example NCSC's Top Tips for Staff\ndisable or constrain scripting environments and macros, by:\n\n[2] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)\nance on preventing lateral movement. You should also:\nuse MFA to authenticate users so that if malware steals credentials they can't easily be reused\nensure obsolete platforms (Operating Systems (OS) and apps) are properly segregated from the rest of the network - refer to NCSC guidance on Obsolete Platforms for further details\nregularly review and remove user permissions that are no longer required, to limit the malware's ability to spread\nensure system administrators avoid using their accounts for email and web browsing (to prevent malware being able to run with their high level of system privilege)\npractice good asset management, including keeping track of which versions of software are installed on your devices so that you can target security updates quickly\nkeep devices and infrastructure patched, especially security-enforcing devices on the network boundary (such as firewalls and VPN products)\n\nAction 3: prevent malware from running on devices\n\n[3] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)\nr individuals and families.\n\nIn this guidance\nWhat is malware?\nActions to take\nSteps to take if your organisation is already infected\nFurther advice\n\nWhat are malware and ransomware?\n\nMalware is malicious software, which - if able to run - can cause harm in many ways, including:\ncausing a device to become locked or unusable\nstealing, deleting or encrypting data\ntaking control of your devices to attack other organisations\nobtaining credentials which allow access to your organisation's systems or services that you use\n'mining' cryptocurrency\nusing services that may cost you money (e.g. premium rate phone calls).\nRansomware is a type of malware that prevents you from accessing your computer (or the data that is stored on it). The computer itself may become locked, or the data on it might be stolen, deleted or encrypted. Some ransomware will also try to spread to other machines on the network, such as the Wannacry malware that impacted the NHS in May 2017.\n\n[4] (Logging_Cheat_Sheet.md)\nsider alerting and not logging if there is an input validation failure)\n- Perform sanitization on all event data to prevent log injection attacks e.g. carriage return (CR), line feed (LF) and delimiter characters (and optionally to remove sensitive data)\n- Encode data correctly for the output (logged) format\n- If writing to databases, read, understand, and apply the SQL injection cheat sheet\n- Ensure failures in the logging processes/systems do not prevent the application from otherwise running or allow information leakage\n- Synchronize time across all servers and devices `Note C`\n\nNote C: This is not always possible where the application is running on a device under some other party's control (e.g. on an individual's mobile phone, on a remote customer's workstation which is on another corporate network). In these cases, attempt to measure the time offset, or record a confidence level in the event timestamp.\n\n[5] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)\nmight contain.\nThere have been cases where attackers have destroyed copied files or disrupted recovery processes before conducting ransomware attacks. Ideally, backup accounts and solutions should be protected using Privileged Access Workstations (PAW) and hardware firewalls to enforce IP allow listing. Multi-factor Authentication (MFA) should be enabled, and the MFA method should not be installed on the same device that is used for the administration of backups. Privileged Access Management (PAM) solutions remove the need for administrators to directly access high-value backup systems.\n\nAction 2: prevent malware from being delivered and spreading to devices\n\nYou can reduce the likelihood of malicious content reaching your devices through a combination of:\nfiltering to only allow file types you would expect to receive\nblocking websites that are known to be malicious\nactively inspecting content\nusing signatures to block known malicious code",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 4.9425554275512695,
+      "cited_sources": [
+        "Mitigating malware and ransomware attacks _ National Cyber Security Centre.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1307,
+      "output_tokens": 150,
+      "retrieval_seconds": 3.481951100000515,
+      "llm_seconds": 0.9108894999999393
+    },
+    {
+      "id": "q037",
+      "type": "answerable",
+      "tags": [
+        "llm_drafted"
+      ],
+      "question": "Which Active Directory group should be used to help protect privileged accounts from pass-the-hash attacks?",
+      "answer": "The\u202fProtected\u202fUsers\u202fActive\u202fDirectory group should be used to help protect privileged accounts from pass\u2011the\u2011hash attacks [1][2].",
+      "context": "[1] (CISA_StopRansomware_Guide.html)\nup memberships.\nMake use of the Protected Users AD group in Windows domains to further secure privileged user accounts against pass-the-hash attacks.\nAudit user and admin accounts for inactive or unauthorized accounts quarterly. Prioritize review of remote monitoring and management accounts that are publicly accessible\u2014this includes audits of third-party access given to MSPs.\nEnsure that all hypervisors and associated IT infrastructure, including network and storage components, are updated and hardened. Emerging ransomware strategies have begun targeting VMware ESXi servers, hypervisors, and other centralized tools and systems, which enables fast encryption of the infrastructure at scale. For more information about ransomware resilience and hardening of VMware and other virtualization infrastructure, see:\nNIST Special Publication (SP 800-125A Rev.1): Security Recommendations for Server-based Hypervisor Platforms\nVMware: Cloud Infrastructure Security Configuration & Hardening\n\n[2] (CISA_StopRansomware_Guide.html)\ny have the access they need to perform their jobs [CPG 2.E]. Malicious actors often leverage privileged accounts for network-wide ransomware attacks.\nRestrict user permissions to install and run software applications.\nRestrict user/role permissions to access or modify cloud-based resources.\nLimit actions that can be taken on customer-managed keys by certain users/roles.\nBlock local accounts from remote access by using group policy to restrict network sign-in by local accounts. For guidance, refer to Microsoft\u2019s Blocking Remote Use of Local Accounts and Security identifiers.\nUse Windows Defender Remote Credential Guard and restricted admin mode for RDP sessions.\nRemove unnecessary accounts and groups and restrict root access.\nControl and limit local administration.\nAudit Active Directory (AD) for excessive privileges on accounts and group memberships.\nMake use of the Protected Users AD group in Windows domains to further secure privileged user accounts against pass-the-hash attacks.\n\n[3] (CISA_StopRansomware_Guide.html)\nor agents are installed on DCs because these can be leveraged to run arbitrary code on the system.\nRestrict access to DCs to the Administrators group. Users within this group should be limited and have separate accounts used for day-to-day operations with non-administrative permissions. For more information, refer to Microsoft\u2019s Securing Active Directory Administrative Groups and Accounts.\nThe designated admin accounts should only be used for admin purposes. Ensure that checking emails, web browsing, or other high-risk activities are not performed on DCs.\nConfigure DC host firewalls to prevent internet access. Usually, DCs do not need direct internet access. Servers with internet connectivity can be used to pull necessary updates in lieu of allowing internet access for DCs.\nImplement a privileged access management (PAM) solution on DCs to assist in managing and monitoring privileged access. PAM solutions can also log and alert usage to detect unusual activity.\n\n[4] (CISA_StopRansomware_Guide.html)\n(PAM) solution on DCs to assist in managing and monitoring privileged access. PAM solutions can also log and alert usage to detect unusual activity.\nConsider disabling or limiting NTLM and WDigest Authentication, if possible. Include their use as criteria for prioritizing upgrading legacy systems or for segmenting the network. Instead use modern federation protocols (e.g., SAML, OIDC or Kerberos) for authentication with AES-256 bit encryption. If NTLM must be enabled:\nEnable Extended Protection for Authentication (EPA) to prevent some NTLM-relay attacks. For more information, refer to Microsoft Mitigating NTLM Relay Attacks on Active Directory Certificate Services (AD CS).\nEnable NTLM auditing to ensure that only NTLMv2 responses are sent across the network. Measures should be taken to ensure that LM and NTLM responses are refused, if possible.\nEnable additional protections for LSA Authentication to prevent code injection capable of acquiring credentials from the system.\n\n[5] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)\nmight contain.\nThere have been cases where attackers have destroyed copied files or disrupted recovery processes before conducting ransomware attacks. Ideally, backup accounts and solutions should be protected using Privileged Access Workstations (PAW) and hardware firewalls to enforce IP allow listing. Multi-factor Authentication (MFA) should be enabled, and the MFA method should not be installed on the same device that is used for the administration of backups. Privileged Access Management (PAM) solutions remove the need for administrators to directly access high-value backup systems.\n\nAction 2: prevent malware from being delivered and spreading to devices\n\nYou can reduce the likelihood of malicious content reaching your devices through a combination of:\nfiltering to only allow file types you would expect to receive\nblocking websites that are known to be malicious\nactively inspecting content\nusing signatures to block known malicious code",
+      "refused": false,
+      "refusal_reason": "",
+      "top_score": 4.99619197845459,
+      "cited_sources": [
+        "CISA_StopRansomware_Guide.html"
+      ],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1289,
+      "output_tokens": 158,
+      "retrieval_seconds": 4.372968800000308,
+      "llm_seconds": 1.5047000999993543
+    },
+    {
+      "id": "h001",
+      "type": "answerable",
+      "tags": [
+        "handwritten",
+        "table"
+      ],
+      "question": "In the NIST patching guide's mitigation table, what share of critical vulnerabilities on high-importance assets were fixed by the deadline?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "[1] (NIST.SP.800-40r4.pdf, page 24)\nnce of the assets (low, moderate, or high) and the\nvulnerabilities (low, medium, high, or critical), with the categories defined by the organization.\nThe metrics in each cell reflect the percentage of assets that were patched by the corresponding\nmaintenance plans\u2019 deadlines, as well as the average (mean) time and median time for patching.\nTable 1: Vulnerability Mitigation Time Summary Matrix\nVulnerability\nImportance\nAsset Importance\nLow\nModerate\nHigh\nLow\nBy deadline:\n64.7 %\nAverage time:  80.4 days\nMedian time:  75.2 days\nBy deadline:\n72.4 %\nAverage time:  34.7 days\nMedian time:  33.7 days\nBy deadline:\n85.0 %\nAverage time:  14.6 days\nMedian time:  8.1 days\nMedium\nBy deadline:\n66.5 %\nAverage time:  75.1 days\nMedian time:  70.7 days\nBy deadline:\n68.7 %\nAverage time:  33.2 days\nMedian time:  31.6 days\nBy deadline:\n71.4 %\nAverage time:  12.9 days\nMedian time:  10.5 days\nHigh\nBy deadline:\n68.6 %\nAverage time:  62.1 days\nMedian time:  58.0 days\nBy deadline:\n78.8 %\nAverage time:  26.8 days\n\n[2] (NIST.SP.800-40r4.pdf, page 24)\n17\nthen not patching them might be a major problem. If they are the least important assets, then not\npatching them might indicate reasonable prioritization of limited resources. To look at the assets\nanother way, what is the relative severity of the unpatched vulnerabilities versus the patched\nvulnerabilities?\nMetrics that are too simple are generally not actionable because they do not provide enough\ninformation. They do not offer the insights into the performance of vulnerability management\nthat are needed to identify the nature of problems and the improvements necessary to address\nthose problems and improve the organization\u2019s vulnerability management performance. Table 1\nshows a notional example of actionable performance metrics. Each cell provides mitigation\nmetrics based on the relative importance of the assets (low, moderate, or high) and the\nvulnerabilities (low, medium, high, or critical), with the categories defined by the organization.\n\n[3] (NIST.SP.800-40r4.pdf, page 16)\nt take years to put in place, but that does not mean that other practices cannot be\nimproved in the meantime.\n3.1\nReduce Patching-Related Disruptions\nOrganizations should strive to decrease the number of vulnerabilities introduced into their\nenvironments. This shrinks the attack surface and can lower the amount of patching that\norganizations need to do. Possible methods for decreasing the number of vulnerabilities include:\n\u2022 Harden software, such as enforcing the principles of least privilege and least functionality\n(e.g., deactivating or uninstalling software services, features, and other components that\nare not needed). For additional information on hardening assets, especially those\nconsidered critical, see the NIST publication Security Measures for \u201cEO-Critical\nSoftware\u201d Use Under Executive Order (EO) 14028 (July 9, 2021).\n\u2022 Acquire software that is likely to have fewer vulnerabilities over time compared to other\nsoftware.\n\n[4] (NIST.SP.800-40r4.pdf, page 22)\nh time may be lost, and vulnerable assets may be compromised.\nOrganizations should plan to replace emergency mitigations with permanent fixes. Once a\npermanent fix, such as a patch, is available, the patch will need to be deployed and the mitigation\nremoved. Schedules should be set and enforced for both patch deployment and mitigation\nremoval.\n3.5.4 Maintenance Plans for Scenario 4, Unpatchable Assets\nOrganizations should plan to implement multiple types of long-term risk mitigation\nmethods besides patching to protect vulnerable assets. There should be an approved set of\nmethods for each maintenance group, and these methods should have been reviewed and\nanalyzed in advance by security architects/engineers to determine their adequacy in mitigating\nrisk. For example, Section 3 of NIST SP 800-207 [6] describes the use of micro-segmentation,\nsoftware-defined perimeters, and other risk mitigation methods for isolating assets based on a\ndefined policy.\n\n[5] (NIST.SP.800-40r4.pdf, page 23)\nto capture patching performance. There is often a wealth\nof information already available from the inventories of software and assets, especially the\nassets\u2019 technical and mission/business characteristics. Similarly, organizations often have\ndetailed information about the vulnerabilities themselves, such as Common Vulnerability\nScoring System (CVSS) scores, threat intelligence about the vulnerabilities being exploited, and\nother metrics provided by vulnerability management tools that help indicate how important each\nvulnerability was to mitigate.\nOrganizations should utilize their existing low-level metrics to develop enterprise-level\nmetrics that reflect the relative importance of each vulnerability and patch. Overly\nsimplistic metrics, such as counting the number of vulnerabilities that the entire organization had\nand what percentage of them were patched, are not actionable. If you were told that 10 % of your",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "top_score": 4.03082799911499,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 1469,
+      "output_tokens": 180,
+      "retrieval_seconds": 5.23697059999995,
+      "llm_seconds": 1.0297827000003963
+    },
+    {
+      "id": "u001",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "What is the best pizza topping?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -10.974884033203125,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.607270999999855,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u002",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I configure AWS IAM roles?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -0.5891976952552795,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.6173853999998755,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u102",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "Who won the 2022 football World Cup?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -8.449503898620605,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 5.232776900000317,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u103",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "How do I bake sourdough bread at home?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -11.0759916305542,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.336375900000348,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u104",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "What is the capital city of Australia?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -10.975796699523926,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 3.454621899999438,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u105",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "out_of_corpus"
+      ],
+      "question": "Who wrote the play Hamlet?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -10.843388557434082,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.756419899999855,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u106",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I configure AWS IAM roles for an EC2 instance?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -4.463117599487305,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 5.010424599999169,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u107",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I write a Splunk query to detect failed logins?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -2.2691195011138916,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 3.795996500000001,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u109",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "How do I configure Kubernetes network policies?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -3.60040283203125,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 4.645211500000187,
+      "llm_seconds": 0.0
+    },
+    {
+      "id": "u110",
+      "type": "unanswerable",
+      "tags": [
+        "unanswerable",
+        "near_miss"
+      ],
+      "question": "What are the GDPR breach notification deadlines?",
+      "answer": "I don't have enough information in the provided documents to answer that.",
+      "context": "",
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold",
+      "top_score": -2.6427161693573,
+      "cited_sources": [],
+      "invalid_citations": [],
+      "uncited": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "retrieval_seconds": 3.6243733000001157,
+      "llm_seconds": 0.0
+    }
+  ]
+}

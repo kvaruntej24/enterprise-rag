@@ -1,7 +1,8 @@
 import numpy as np
-
+import pytest
 from app.retrieval.embeddings import embed_query, embed_texts
 
+pytestmark = pytest.mark.slow
 
 def test_embeddings_have_expected_shape_and_are_normalized():
     vectors = embed_texts(["hello world", "another sentence"])
