@@ -19,6 +19,7 @@ def pct(n: int, d: int) -> str:
 
 def main() -> None:
     label = sys.argv[1] if len(sys.argv) > 1 else "baseline"
+    k = int(sys.argv[2]) if len(sys.argv) > 2 else 5
     lines = QUESTIONS_PATH.read_text(encoding="utf-8").splitlines()
     rows = [json.loads(line) for line in lines if line.strip()]
     by_id = {r["id"]: r for r in rows}
@@ -26,7 +27,7 @@ def main() -> None:
     records = []
     for row in rows:
         try:
-            result = answer(row["question"])
+            result = answer(row["question"], k = k)
         except Exception as exc:
             print(f"ERROR {row['id']}: {type(exc).__name__}: {exc}")
             records.append({"id": row["id"], "type": row["type"], "error": str(exc)})
@@ -37,6 +38,7 @@ def main() -> None:
             "tags": row.get("tags") or ["llm_drafted"],
             "question": row["question"],
             "answer": result.text,
+            "context": result.context,
             "refused": result.refused,
             "refusal_reason": result.refusal_reason,
             "top_score": result.top_score,
@@ -118,7 +120,7 @@ def main() -> None:
             "relevance_threshold": settings.relevance_threshold,
             "llm_model": settings.llm_model,
             "chunk_size": settings.chunk_size,
-            "k": 5,
+            "k": k,
         },
         "summary": summary,
         "records": records,

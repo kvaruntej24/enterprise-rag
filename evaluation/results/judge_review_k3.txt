@@ -1,0 +1,510 @@
+=== q001 ===
+QUESTION: How should an organization make secure software component configurations available to developers?
+REFERENCE: Determine secure configurations for software components and make these available (e.g., as configuration-as-code) so developers can readily use the configurations.
+ANSWER: The organization should determine secure configurations for its software components and then make those configurations available—such as by providing them as configuration‑as‑code—so developers can readily use them [1][2].
+
+SOURCES SHOWN TO THE MODEL:
+[1] (NIST.SP.800-218.pdf, page 21)
+view and evaluate third-party software components in the context
+of their expected use. If a component is to be used in a substantially different way
+in the future, perform the review and evaluation again with that new context in
+mind.
+Example 2: Determine secure configurations for software components, and make
+these available (e.g., as configuration-as-code) so developers can readily use the
+configurations.
+Example 3: Obtain provenance information (e.g., SBOM, source composition
+analysis, binary software composition analysis) for each software component, and
+analyze that information to better assess the risk that the component may
+introduce.
+Example 4: Establish one or more software repositories to host sanctioned and
+vetted open-source components.
+Example 5: Maintain a list of organization-approved commercial software
+components and component versions along with their provenance data.
+Example 6: Designate which components must be included in software to be
+developed.
+
+[2] (NIST.SP.800-218.pdf, page 21)
+grity Controls
+SCTPC: MAINTAIN
+SP80053: SA-4, SA-5, SA-8(3), SA-10(6), SR-3, SR-4
+SP800161: SA-4, SA-5, SA-8(3), SA-10(6), SR-3, SR-4
+SP800181: K0039
+PW.4.2: Create and maintain well-secured software
+components in-house following SDLC processes to
+meet common internal software development needs
+that cannot be better met by third-party software
+components.
+Example 1: Follow organization-established security practices for secure
+software development when creating and maintaining the components.
+Example 2: Determine secure configurations for software components, and make
+these available (e.g., as configuration-as-code) so developers can readily use the
+configurations.
+Example 3: Maintain one or more software repositories for these components.
+Example 4: Designate which components must be included in software to be
+developed.
+Example 5: Implement processes to update deployed software components to
+newer versions, and maintain older versions of software components until all
+
+[3] (NIST.SP.800-218.pdf, page 8)
+vi
+Executive Summary
+This document describes a set of fundamental, sound practices for secure software development
+called the Secure Software Development Framework (SSDF). Organizations should integrate the
+SSDF throughout their existing software development practices, express their secure software
+development requirements to third-party suppliers using SSDF conventions, and acquire
+software that meets the practices described in the SSDF. Using the SSDF helps organizations to
+meet the following secure software development recommendations:
+• Organizations should ensure that their people, processes, and technology are prepared to
+perform secure software development.
+• Organizations should protect all components of their software from tampering and
+unauthorized access.
+• Organizations should produce well-secured software with minimal security
+vulnerabilities in its releases.
+• Organizations should identify residual vulnerabilities in their software releases and
+
+
+=== q005 ===
+QUESTION: What types of updates are considered security-relevant?
+REFERENCE: Patches, service packs, hot fixes, and anti-virus signatures.
+ANSWER: Security‑relevant updates include patches, service packs, hot fixes, and anti‑virus signatures [1].
+
+SOURCES SHOWN TO THE MODEL:
+[1] (NIST.SP.800-171r3.pdf, page 74)
+64
+responsibilities. Security-relevant updates include patches, service packs, hot fixes,
+and anti-virus signatures. Organizations address the flaws discovered during security
+assessments, continuous monitoring, incident response activities, and system error
+handling. Organizations can take advantage of available resources (e.g., CWE or CVE
+databases) when remediating system flaws. Organization-defined time periods for
+updating security-relevant software and firmware may vary based on a variety of
+factors, including the criticality of the update (i.e., severity of the vulnerability
+related to the discovered flaw). Some types of flaw remediation may require more
+testing than other types.
+Source Control: SI-02
+Supporting Publications: SP 800-39 [60], SP 800-40 [56], SP 800-128 [41]
+03.14.02    Malicious Code Protection
+a. Implement malicious code protection mechanisms at system entry and exit
+points to detect and eradicate malicious code.
+b.
+
+[2] (NIST.SP.800-171r3.pdf, page 73)
+rawn
+Incorporated into 03.13.08.
+3.14. System and Information Integrity
+03.14.01    Flaw Remediation
+a. Identify, report, and correct system flaws.
+b. Install security-relevant software and firmware updates within [Assignment:
+organization-defined time period] of the release of the updates.
+Organizations identify systems that are affected by announced software and
+firmware flaws, including potential vulnerabilities that result from those flaws, and
+report this information to designated personnel with information security
+
+[3] (NIST.SP.800-171r3.pdf, page 25)
+nformation. Security-relevant information is information that
+can potentially impact the operation of security functions or the provision of security
+services in a manner that could result in failure to enforce the system security policy
+or maintain isolation of code and data. Privileged commands give individuals the
+ability to execute sensitive, security-critical, or security-relevant system functions.
+Source Controls: AC-17, AC-17(03), AC-17(04)
+Supporting Publications: SP 800-46 [14], SP 800-77 [18], SP 800-113 [19], SP 800-114
+[20], SP 800-121 [21], IR 7966 [26]
+03.01.13    Withdrawn
+Addressed by 03.13.08.
+03.01.14    Withdrawn
+Incorporated into 03.01.12.
+03.01.15    Withdrawn
+Incorporated into 03.01.12.
+03.01.16    Wireless Access
+a. Establish usage restrictions, configuration requirements, and connection
+requirements for each type of wireless access to the system.
+b. Authorize each type of wireless access to the system prior to establishing such
+connections.
+c.
+
+
+=== q006 ===
+QUESTION: What type of cryptography is recommended for protecting Controlled Unclassified Information (CUI)?
+REFERENCE: FIPS-validated cryptography
+ANSWER: FIPS‑validated cryptography is recommended for protecting CUI [1][2]
+
+SOURCES SHOWN TO THE MODEL:
+[1] (NIST.SP.800-171r3.pdf, page 71)
+[73], SP 800-56B [74], SP 800-
+56C [75], SP 800-57-1 [15], SP 800-57-2 [16], SP 800-57-3 [17], SP 800-63-3 [27]
+03.13.11    Cryptographic Protection
+Implement the following types of cryptography to protect the confidentiality of CUI:
+[Assignment: organization-defined types of cryptography].
+Cryptography is implemented in accordance with applicable laws, Executive Orders,
+directives, regulations, policies, standards, and guidelines. FIPS-validated
+cryptography is recommended for the protection of CUI.
+Source Control: SC-13
+Supporting Publications: FIPS 140-3 [38]
+
+[2] (NIST.SP.800-171r3.pdf, page 15)
+5
+controls15
+15 With few exceptions, the security controls in SP 800-53 are policy-, technology-, and sector-neutral, meaning that the controls focus on the
+fundamental measures necessary to protect information across the information life cycle.
+from SP 800-53 and a list of NIST Special Publications with additional information on
+the topic described in the security requirement. The structure and content of a typical security
+requirement is provided in the example below.
+03.13.11      Cryptographic Protection
+Implement the following types of cryptography when used to protect the confidentiality of
+CUI: [Assignment: organization-defined types of cryptography].
+Cryptography is implemented in accordance with applicable laws, Executive Orders,
+directives, policies, regulations, standards, and guidelines. FIPS-validated cryptography is
+recommended for the protection of CUI.
+Source Control: SC-13
+Supporting Publications: FIPS 140-3 [38]
+
+[3] (NIST.SP.800-171r3.pdf, page 15)
+and guidelines. FIPS-validated cryptography is
+recommended for the protection of CUI.
+Source Control: SC-13
+Supporting Publications: FIPS 140-3 [38]
+The term organization is used in many security requirements, and its meaning depends on
+context. For example, in a security requirement with an ODP, an organization can refer to either
+the federal agency or the nonfederal organization establishing the parameter values for the
+requirement.
+Appendix C describes the security control tailoring criteria used to develop the security
+requirements and the results of the tailoring process. The appendix provides a list of controls
+from SP 800-53 that support the requirements and the controls that have been eliminated from
+the moderate baseline in accordance with the tailoring criteria.
+
+ASSESSING SECURITY REQUIREMENTS
+SP 800-171A [84] provides a set of procedures to assess the security requirements described in
+this publication.
+
+
+=== q007 ===
+QUESTION: What additional incident-response training may system administrators need?
+REFERENCE: They need additional training on how to handle incidents.
+ANSWER: System administrators may need additional incident‑response training focused on how to handle incidents [1].
+
+SOURCES SHOWN TO THE MODEL:
+[1] (NIST.SP.800-171r3.pdf, page 51)
+41
+Incident response training is associated with the assigned roles and responsibilities
+of organizational personnel to ensure that the appropriate content and level of
+detail are included in such training. For example, users may only need to know how
+to recognize an incident or whom to call; system administrators may require
+additional training on how to handle incidents; and incident responders may receive
+specific training on data collection techniques, forensics, reporting, system recovery,
+and system restoration. Incident response training includes user training in
+identifying and reporting suspicious activities from external and internal sources.
+Incident response training for users may be provided as part of 03.02.02. Events that
+may cause an update to incident response training content include incident
+response plan testing, response to an actual incident, audit or assessment findings,
+or changes in applicable laws, Executive Orders, policies, directives, regulations,
+
+[2] (NIST.SP.800-171r3.pdf, page 50)
+ts, walk-through or tabletop exercises, and simulations. Incident
+response testing can include a determination of the effects of incident response on
+organizational operations, organizational assets, and individuals. Qualitative and
+quantitative data can help determine the effectiveness of incident response
+processes.
+Source Control: IR-03
+Supporting Publications: SP 800-84 [48]
+03.06.04    Incident Response Training
+a. Provide incident response training to system users consistent with assigned roles
+and responsibilities:
+1. Within [Assignment: organization-defined time period] of assuming an
+incident response role or responsibility or acquiring system access,
+2. When required by system changes, and
+3. [Assignment: organization-defined frequency] thereafter.
+b. Review and update incident response training content [Assignment:
+organization-defined frequency] and following [Assignment: organization-defined
+events].
+
+[3] (NIST.SP.800-171r3.pdf, page 29)
+ns provide basic and advanced levels of security literacy training to
+system users (including managers, senior executives, system administrators, and
+contractors) and measures to test the knowledge level of users. Organizations
+determine the content of literacy training based on specific organizational
+requirements, the systems to which personnel have authorized access, and work
+environments (e.g., telework). The content includes an understanding of the need
+for security and the actions required of users to maintain security and respond to
+incidents. The content also addresses the need for operations security and the
+handling of CUI.
+Security awareness techniques include displaying posters, offering supplies inscribed
+with security reminders, generating email advisories or notices from organizational
+officials, displaying logon screen messages, and conducting awareness events using
+podcasts, videos, and webinars. Security literacy training is conducted at a frequency
+
+
+=== q014 ===
+QUESTION: What is one benefit of defining secure software development practices at a high level?
+REFERENCE: They can be used by organizations in any sector or community, regardless of size or cybersecurity sophistication.
+ANSWER: One benefit is that high‑level practices can be used by organizations in any sector or community, regardless of size or cybersecurity sophistication [1].
+
+SOURCES SHOWN TO THE MODEL:
+[1] (NIST.SP.800-218.pdf, page 11)
+2
+the tools, techniques, and mechanisms used to do so. Advantages of specifying the practices at a
+high level include the following:
+• Can be used by organizations in any sector or community, regardless of size or
+cybersecurity sophistication
+• Can be applied to software developed to support information technology (IT), industrial
+control systems (ICS), cyber-physical systems (CPS), or the Internet of Things (IoT)
+• Can be integrated into any existing software development workflow and automated
+toolchain; should not negatively affect organizations that already have robust secure
+software development practices in place
+• Makes the practices broadly applicable, not specific to particular technologies, platforms,
+programming languages, SDLC models, development environments, operating
+environments, tools, etc.
+• Can help an organization document its secure software development practices today and
+define its future target practices as part of its continuous improvement process
+
+[2] (NIST.SP.800-218.pdf, page 10)
+security and resiliency.
+There are many existing documents on secure software development practices, including those
+listed in the References section. This document does not introduce new practices or define new
+terminology. Instead, it describes a set of high-level practices based on established standards,
+guidance, and secure software development practice documents. These practices, collectively
+called the Secure Software Development Framework (SSDF), are intended to help the target
+audiences achieve secure software development objectives. Many of the practices directly
+involve the software itself, while others indirectly involve it (e.g., securing the development
+environment).
+Future work may expand on this publication and potentially cover topics such as how the SSDF
+may apply to and vary for particular software development methodologies and associated
+practices like DevOps, how an organization can transition from their current software
+
+[3] (NIST.SP.800-218.pdf, page 4)
+and outreach efforts in information system security, and its collaborative activities
+with industry, government, and academic organizations.
+Abstract
+Few software development life cycle (SDLC) models explicitly address software security in
+detail, so secure software development practices usually need to be added to each SDLC model
+to ensure that the software being developed is well-secured. This document recommends the
+Secure Software Development Framework (SSDF) – a core set of high-level secure software
+development practices that can be integrated into each SDLC implementation. Following such
+practices should help software producers reduce the number of vulnerabilities in released
+software, reduce the potential impact of the exploitation of undetected or unaddressed
+vulnerabilities, and address the root causes of vulnerabilities to prevent future recurrences.
+Because the framework provides a common vocabulary for secure software development,
+
+
+=== q015 ===
+QUESTION: How can an organization use its Current Profile with external stakeholders?
+REFERENCE: It can be used to document and communicate the organization’s cybersecurity capabilities and improvement opportunities.
+ANSWER: An organization can use its Current Profile to document and convey its cybersecurity capabilities and any known opportunities for improvement to external stakeholders such as business partners or prospective customers [1].
+
+SOURCES SHOWN TO THE MODEL:
+[1] (NIST.CSWP.29.pdf, page 12)
+w the action
+plan to address the gaps and move the organization toward the Target Profile. An action
+plan may have an overall deadline or be ongoing.
+Given the importance of continual improvement, an organization can repeat these steps as
+often as needed.
+There are additional uses for Organizational Profiles. For example, a Current Profile can be used
+to document and communicate the organization’s cybersecurity capabilities and known
+opportunities for improvement with external stakeholders, such as business partners or
+prospective customers. Also, a Target Profile can help express the organization’s cybersecurity
+risk management requirements and expectations to suppliers, partners, and other third parties
+as a target for those parties to achieve.
+3.2. CSF Tiers
+An organization can choose to use the Tiers to inform its Current and Target Profiles. Tiers
+characterize the rigor of an organization’s cybersecurity risk governance and management
+
+[2] (NIST.CSWP.29.pdf, page 11)
+6
+3. Introduction to CSF Profiles and Tiers
+This section defines the concepts of CSF Profiles and Tiers.
+3.1. CSF Profiles
+A CSF Organizational Profile describes an organization’s current and/or target cybersecurity
+posture in terms of the Core’s outcomes. Organizational Profiles are used to understand, tailor,
+assess, prioritize, and communicate the Core’s outcomes by considering an organization’s
+mission objectives, stakeholder expectations, threat landscape, and requirements. An
+organization can then prioritize its actions to achieve specific outcomes and communicate that
+information to stakeholders.
+Every Organizational Profile includes one or both of the following:
+1. A Current Profile specifies the Core outcomes that an organization is currently achieving
+(or attempting to achieve) and characterizes how or to what extent each outcome is
+being achieved.
+2. A Target Profile specifies the desired outcomes that an organization has selected and
+
+[3] (NIST.CSWP.29.pdf, page 16)
+11
+Preparing to create and use Organizational Profiles involves gathering information about
+organizational priorities, resources, and risk direction from executives. Managers then
+collaborate with practitioners to communicate business needs and create risk-informed
+Organizational Profiles. Actions to close any gaps identified between the Current and Target
+Profiles will be implemented by managers and practitioners and will provide key inputs into
+system-level plans. As the target state is achieved throughout the organization — including
+through controls and monitoring applied at the system level — the updated results can be
+shared through risk registers and progress reports. As part of ongoing assessment, managers
+gain insights to make adjustments that further reduce potential harms and increase potential
+benefits.
+The GOVERN Function supports organizational risk communication with executives. Executives’
+
+
+=== q024 ===
+QUESTION: What security problem can occur if a web application does not verify both pre-authentication and post-authentication cookies?
+REFERENCE: An attacker can use the unprotected pre-authentication cookie to gain access to the authenticated user session.
+ANSWER: If the application fails to verify both the pre‑authentication (HTTP) cookie and the post‑authentication (HTTPS) cookie, an attacker can reuse the unprotected pre‑auth cookie to gain access to the authenticated user’s session, effectively hijacking that session. [1]
+
+SOURCES SHOWN TO THE MODEL:
+[1] (Session_Management_Cheat_Sheet.md)
+sion.
+
+It is very common for web applications to set a user cookie pre-authentication over HTTP to keep track of unauthenticated (or anonymous) users. Once the user authenticates in the web application, a new post-authentication secure cookie is set over HTTPS, and a binding between both cookies and the user session is established. If the web application does not verify both cookies for authenticated sessions, an attacker can make use of the pre-authentication unprotected cookie to get access to the authenticated user session (see here and here).
+
+Web applications should try to avoid the same cookie name for different paths or domain scopes within the same web application, as this increases the complexity of the solution and potentially introduces scoping issues.
+
+## Session Expiration
+
+[2] (Session_Management_Cheat_Sheet.md)
+n example would be maintaining the user language preference. Additionally, web applications will make use of sessions once the user has authenticated. This ensures the ability to identify the user on any subsequent requests as well as being able to apply security access controls, authorized access to the user private data, and to increase the usability of the application. Therefore, current web applications can provide session capabilities both pre and post authentication.
+
+Once an authenticated session has been established, the session ID (or token) is temporarily equivalent to the strongest authentication method used by the application, such as username and password, passphrases, one-time passwords (OTP), client-based digital certificates, smartcards, or biometrics (such as fingerprint or eye retina). See the OWASP Authentication Cheat Sheet.
+
+HTTP is a stateless protocol (RFC2616 section 5), where each request and response pair is independent of other web interactions.
+
+[3] (Session_Management_Cheat_Sheet.md)
+ss)
+- Login attempts from new or suspicious IP addresses or devices
+- Account recovery flows (e.g., password reset or compromised-account detection)
+
+For best practices on implementing reauthentication after these events, see the Reauthentication After Risk Events section in the Authentication Cheat Sheet
+
+### Additional Resources
+
+- Why Frequent Reauthentication Can Be a UX Pitfall by Tailscale
+
+### Considerations When Using Multiple Cookies
+
+If the web application uses cookies as the session ID exchange mechanism, and multiple cookies are set for a given session, the web application must verify all cookies (and enforce relationships between them) before allowing access to the user session.
+
+It is very common for web applications to set a user cookie pre-authentication over HTTP to keep track of unauthenticated (or anonymous) users.
+
+
+=== q028 ===
+QUESTION: Why are non-persistent cookies recommended for session management?
+REFERENCE: Because they cause the session to disappear when the browser is closed, preventing the session ID from staying in the client cache where an attacker could obtain it.
+ANSWER: Non‑persistent (session) cookies are preferred because they are kept only in memory and are discarded when the browser instance is closed, so the session identifier does not remain on the client’s disk or cache for long periods where an attacker could retrieve it [1][2].
+
+SOURCES SHOWN TO THE MODEL:
+[1] (Session_Management_Cheat_Sheet.md)
+authentication make use of non-persistent cookies. This forces the session to disappear from the client if the current web browser instance is closed. Therefore, it is highly recommended to use non-persistent cookies for session management purposes, so that the session ID does not remain on the web client cache for long periods of time, from where an attacker can obtain it.
+
+- Ensure that sensitive information is not compromised by ensuring that it is not persistent, encrypting it, and storing it only for the duration of the need
+- Ensure that unauthorized activities cannot take place via cookie manipulation
+- Ensure secure flag is set to prevent accidental transmission over the wire in a non-secure manner
+- Determine if all state transitions in the application code properly check for the cookies and enforce their use
+- Ensure entire cookie should be encrypted if sensitive data is persisted in the cookie
+
+[2] (Session_Management_Cheat_Sheet.md)
+e applications to access the session IDs, such as the `document.cookie` object. Also, any web application can set cookies for any path on that host.
+
+Cookies are vulnerable to DNS spoofing/hijacking/poisoning attacks, where an attacker can manipulate the DNS resolution to force the web browser to disclose the session ID for a given host or domain.
+
+### Expire and Max-Age Attributes
+
+Session management mechanisms based on cookies can make use of two types of cookies, non-persistent (or session) cookies, and persistent cookies. If a cookie presents the `Max-Age` (that has preference over `Expires`) or `Expires` attributes, it will be considered a persistent cookie and will be stored on disk by the web browser based until the expiration time.
+
+Typically, session management capabilities to track users after authentication make use of non-persistent cookies. This forces the session to disappear from the client if the current web browser instance is closed.
+
+[3] (Session_Management_Cheat_Sheet.md)
+curity perspective.
+
+For most session exchange mechanisms, client side actions to invalidate the session ID are based on clearing out the token value. For example, to invalidate a cookie it is recommended to provide an empty (or invalid) value for the session ID, and set the `Expires` (or `Max-Age`) attribute to a date from the past (in case a persistent cookie is being used): `Set-Cookie: id=; Expires=Friday, 17-May-03 18:45:00 GMT`
+
+In order to close and invalidate the session on the server side, it is mandatory for the web application to take active actions when the session expires, or the user actively logs out, by using the functions and methods offered by the session management mechanisms, such as `HttpSession.invalidate()` (J2EE), `Session.Abandon()` (ASP .NET) or `session_destroy()/unset()` (PHP).
+
+### Automatic Session Expiration
+
+#### Idle Timeout
+
+All sessions should implement an idle or inactivity timeout.
+
+
+=== q029 ===
+QUESTION: Why is a salt added when storing passwords?
+REFERENCE: It protects against an attacker's pre-computed hashes using rainbow tables or database-based lookups.
+ANSWER: A salt is a unique, randomly generated string added to each password before hashing so that each stored hash is different even for identical passwords. This forces an attacker to crack hashes one‑by‑one, prevents the use of pre‑computed rainbow tables or database lookups, and makes it impossible to tell if two users share the same password without cracking the hashes [2][3].
+
+SOURCES SHOWN TO THE MODEL:
+[1] (Password_Storage_Cheat_Sheet.md)
+# Password Storage Cheat Sheet
+
+## Introduction
+
+This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are stored, they must be protected from an attacker even if the application or database is compromised. Fortunately, a majority of modern languages and frameworks provide built-in functionality to help store passwords safely.
+
+Passwords should never be stored in plain text. Instead, they must be protected using strong, slow hashing algorithms such as Argon2id, bcrypt, or PBKDF2. A unique salt must be added to each password to prevent attackers from using precomputed lookup tables like rainbow tables. Fast hashing algorithms such as SHA‑256 are not suitable for password storage because they allow attackers to perform large numbers of guesses quickly. Using slow, memory‑hard algorithms makes brute‑force attacks significantly more difficult, expensive, and time‑consuming.
+
+To sum up our recommendations:
+
+[2] (Password_Storage_Cheat_Sheet.md)
+s of passwords obtained from other compromised sites
+- Brute force (trying every possible candidate)
+- Dictionaries or wordlists of common passwords
+
+While the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is relatively small to do successful password cracking, especially when best practices for hashing are not followed.
+
+## Methods for Enhancing Password Storage
+
+### Salting
+
+A salt is a unique, randomly generated string that is added to each password as part of the hashing process. As the salt is unique for every user, an attacker has to crack hashes one at a time using the respective salt rather than calculating a hash once and comparing it against every stored hash. This makes cracking large numbers of hashes significantly harder, as the time required grows in direct proportion to the number of hashes.
+
+[3] (Password_Storage_Cheat_Sheet.md)
+red hash. This makes cracking large numbers of hashes significantly harder, as the time required grows in direct proportion to the number of hashes.
+
+Salting also protects against an attacker's pre-computing hashes using rainbow tables or database-based lookups. Finally, salting means that it is impossible to determine whether two users have the same password without cracking the hashes, as the different salts will result in different hashes even if the passwords are the same.
+
+At the algorithm and specification level, modern password hashing functions such as Argon2id, bcrypt, and PBKDF2 require the caller to provide a salt.
+However, most widely used implementations and libraries automatically generate and manage salts internally, so application developers typically do not need to handle salt generation manually when using these libraries correctly.
+
+### Peppering
+
+Peppering is a class of strategies that can be used in addition to salting to provide an additional layer of protection.
+
+
+=== q033 ===
+QUESTION: What application-execution control is recommended to help prevent malware from running on devices?
+REFERENCE: Centrally manage devices so that only applications trusted by the enterprise are permitted to run.
+ANSWER: Use application‑allowlisting (e.g., centrally manage devices so only trusted applications can run, using technologies such as AppLocker or trusted app stores) [1]
+
+SOURCES SHOWN TO THE MODEL:
+[1] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)
+specially security-enforcing devices on the network boundary (such as firewalls and VPN products)
+
+Action 3: prevent malware from running on devices
+
+A 'defence in depth' approach assumes that malware will reach your devices. You should therefore take steps to prevent malware from running. The measures required will vary for each device type, OS and version, but in general you should look to use device-level security features. Organisations should:
+centrally manage devices in order to only permit applications trusted by the enterprise to run on devices, using technologies including AppLocker, or from trusted app stores (or other trusted locations)
+consider whether enterprise antivirus or anti-malware products are necessary, and keep the software (and its definition files) up to date
+provide security education and awareness training to your people, for example NCSC's Top Tips for Staff
+disable or constrain scripting environments and macros, by:
+
+[2] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)
+ance on preventing lateral movement. You should also:
+use MFA to authenticate users so that if malware steals credentials they can't easily be reused
+ensure obsolete platforms (Operating Systems (OS) and apps) are properly segregated from the rest of the network - refer to NCSC guidance on Obsolete Platforms for further details
+regularly review and remove user permissions that are no longer required, to limit the malware's ability to spread
+ensure system administrators avoid using their accounts for email and web browsing (to prevent malware being able to run with their high level of system privilege)
+practice good asset management, including keeping track of which versions of software are installed on your devices so that you can target security updates quickly
+keep devices and infrastructure patched, especially security-enforcing devices on the network boundary (such as firewalls and VPN products)
+
+Action 3: prevent malware from running on devices
+
+[3] (Mitigating malware and ransomware attacks _ National Cyber Security Centre.html)
+r individuals and families.
+
+In this guidance
+What is malware?
+Actions to take
+Steps to take if your organisation is already infected
+Further advice
+
+What are malware and ransomware?
+
+Malware is malicious software, which - if able to run - can cause harm in many ways, including:
+causing a device to become locked or unusable
+stealing, deleting or encrypting data
+taking control of your devices to attack other organisations
+obtaining credentials which allow access to your organisation's systems or services that you use
+'mining' cryptocurrency
+using services that may cost you money (e.g. premium rate phone calls).
+Ransomware is a type of malware that prevents you from accessing your computer (or the data that is stored on it). The computer itself may become locked, or the data on it might be stolen, deleted or encrypted. Some ransomware will also try to spread to other machines on the network, such as the Wannacry malware that impacted the NHS in May 2017.
