@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
     relevance_threshold: float = 0.0
     judge_model: str = ""
+    llm_price_input_per_m: float = 0.0
+    llm_price_output_per_m: float = 0.0
+    trace_path: str = "logs/requests.jsonl"
 
 
 settings = Settings()

@@ -12,7 +12,7 @@ def fake_results(n: int = 3) -> list[SearchResult]:
 
 def test_below_threshold_refuses_without_calling_llm(monkeypatch):
     low = [SearchResult("a", "content", "d.pdf", "pdf", 1, -3.0)]
-    monkeypatch.setattr("app.generation.pipeline.retrieve", lambda q, k=5: low)
+    monkeypatch.setattr("app.generation.pipeline.retrieve_with_timings", lambda q, k=5: (low, {}))
 
     def fail(*args, **kwargs):
         raise AssertionError("LLM must not be called")
@@ -24,7 +24,7 @@ def test_below_threshold_refuses_without_calling_llm(monkeypatch):
 
     
 def patch_pipeline(monkeypatch, results, llm_text):
-    monkeypatch.setattr("app.generation.pipeline.retrieve", lambda q, k=5: results)
+    monkeypatch.setattr("app.generation.pipeline.retrieve_with_timings", lambda q, k=5: (results, {}))
     monkeypatch.setattr(
         "app.generation.pipeline.generate",
         lambda system, user: LLMResponse(llm_text, 10, 5, 0.1),
@@ -68,7 +68,7 @@ def test_refusal_is_detected(monkeypatch):
 
 
 def test_no_results_refuses_without_calling_llm(monkeypatch):
-    monkeypatch.setattr("app.generation.pipeline.retrieve", lambda q, k=5: [])
+    monkeypatch.setattr("app.generation.pipeline.retrieve_with_timings", lambda q, k=5: ([], {}))
 
     def fail(*args, **kwargs):
         raise AssertionError("LLM must not be called")

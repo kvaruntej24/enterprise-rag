@@ -5,3 +5,5 @@ __pycache__/
 .DS_Store
 data/raw/
 data/processed/
+day*_outputs.txt
+trace_path: str = "logs/requests.jsonl"

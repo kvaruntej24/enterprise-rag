@@ -7,7 +7,8 @@ import openai
 import psycopg
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
-
+from app.core.metrics import metrics
+from app.core.tracing import question_fingerprint, write_trace
 from app.api.schemas import AskRequest, AskResponse, SourceOut
 from app.core.config import settings
 from app.core.logging_config import setup_logging
@@ -58,29 +59,35 @@ def health():
         return JSONResponse(status_code=503, content={"status": "unavailable"})
     return {"status": "ok"}
 
+@app.get("/stats")
+def stats():
+    return metrics.snapshot()
 
 @app.post("/ask", response_model=AskResponse)
 def ask(body: AskRequest, request: Request) -> AskResponse:
     request_id = request.state.request_id
+    started = time.perf_counter()
     try:
         result = answer(body.question, k=body.k)
     except psycopg.Error:
+        metrics.record_error(503)
         log.exception("request_id=%s database error", request_id)
         raise HTTPException(
             status_code=503,
             detail=f"The knowledge base is temporarily unavailable. Reference: {request_id}",
         )
     except openai.OpenAIError:
+        metrics.record_error(502)
         log.exception("request_id=%s llm error", request_id)
         raise HTTPException(
             status_code=502,
             detail=f"The language model service is unavailable. Reference: {request_id}",
         )
     except Exception:
+        metrics.record_error(500)
         log.exception("request_id=%s unexpected error", request_id)
         raise HTTPException(
-            status_code=500,
-            detail=f"Internal error. Reference: {request_id}",
+            status_code=500, detail=f"Internal error. Reference: {request_id}"
         )
 
     warnings: list[str] = []
@@ -89,11 +96,36 @@ def ask(body: AskRequest, request: Request) -> AskResponse:
     if result.uncited:
         warnings.append("Answer has no valid citations")
 
+    total_seconds = time.perf_counter() - started
+    metrics.record(
+        total_seconds=total_seconds,
+        refusal_reason=result.refusal_reason,
+        input_tokens=result.input_tokens,
+        output_tokens=result.output_tokens,
+        cost_usd=result.estimated_cost_usd,
+    )
+    write_trace({
+        "ts": time.time(),
+        "request_id": request_id,
+        "question_chars": len(body.question),
+        "question_hash": question_fingerprint(body.question),
+        "refused": result.refused,
+        "refusal_reason": result.refusal_reason,
+        "top_score": round(result.top_score, 2),
+        "retrieved": result.retrieved,
+        "stage_seconds": {k: round(v, 3) for k, v in result.stage_seconds.items()},
+        "llm_seconds": round(result.llm_seconds, 3),
+        "total_seconds": round(total_seconds, 3),
+        "input_tokens": result.input_tokens,
+        "output_tokens": result.output_tokens,
+        "estimated_cost_usd": result.estimated_cost_usd,
+        "warnings": len(warnings),
+    })
     log.info(
-        "request_id=%s refused=%s reason=%s top_score=%.2f question_chars=%d "
-        "retrieval=%.2fs llm=%.2fs tokens=%d/%d warnings=%d",
+        "request_id=%s refused=%s reason=%s top_score=%.2f total=%.2fs rerank=%.2fs "
+        "llm=%.2fs tokens=%d/%d warnings=%d",
         request_id, result.refused, result.refusal_reason or "-", result.top_score,
-        len(body.question), result.retrieval_seconds, result.llm_seconds,
+        total_seconds, result.stage_seconds.get("rerank_s", 0.0), result.llm_seconds,
         result.input_tokens, result.output_tokens, len(warnings),
     )
 

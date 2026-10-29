@@ -1,5 +1,6 @@
 import openai
 import psycopg
+import pytest
 from fastapi.testclient import TestClient
 
 from app.api import main
@@ -8,7 +9,17 @@ from app.retrieval.semantic import SearchResult
 
 client = TestClient(main.app)
 
+@pytest.fixture(autouse=True)
+def no_trace_files(monkeypatch):
+    monkeypatch.setattr(main, "write_trace", lambda record: None)
 
+def test_stats_reflects_requests(monkeypatch):
+    monkeypatch.setattr(main, "answer", fake_answer)
+    main.metrics.reset()
+    client.post("/ask", json={"question": "How should passwords be stored?"})
+    assert client.get("/stats").json()["requests"] == 1
+
+    
 def fake_answer(question, k=5):
     chunk = SearchResult("id1", "Passwords should be hashed.", "doc.pdf", "pdf", 3, 5.0)
     return Answer(question, "Hash passwords [1].", False, cited={1: chunk}, top_score=5.0)
