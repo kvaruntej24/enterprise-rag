@@ -9,3 +9,4 @@ Re-judge only the failed questions.
 - Fixes: judge retries with backoff, larger max_tokens, errors excluded from rates and reported as judge_error_rate (also gated), and a retry-only-errors option.
 - After the fix: 0 of 25 judge errors; faithful 22/25 (0.88) vs baseline 23/25 (0.92); the gate passes at tolerance 0.10. The difference is one question (q016, answer wording changed between runs).
 - Tolerance was not changed. Failed attempt kept as judge_current_run1.json.
+- Questions 27 and 34 were removed coz they are directly refering to exact terminology in corpus, that results in clean retrival and generation but doesn't messure model performance.
