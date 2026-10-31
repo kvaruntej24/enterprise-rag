@@ -7,6 +7,7 @@ A retrieval-augmented generation (RAG) system that answers cybersecurity questio
 I wrote the pipeline in plain Python on purpose, so that every stage (parsing, chunking, retrieval, reranking, prompting, citation checking, evaluation) is something I can explain.
 
 ![An answered question with cited sources](docs/images/ask_answer1.png)
+![The same response, continued](docs/images/ask_answer2.png)
 ![A refused out-of-corpus question](docs/images/ask_refusal.png)
 
 ## What is implemented
@@ -66,7 +67,7 @@ All numbers below come from runs saved in `evaluation/results/`. The evaluation 
 
 ### Dataset (v1.1)
 
-27 answerable questions (each labeled with the gold source, page and an evidence sentence) and 10 unanswerable questions (6 out-of-corpus, 4 near-miss topics the documents do not cover). Most answerable questions were drafted by an LLM and then reviewed by hand; one is handwritten. LLM-drafted questions tend to reuse the passage's wording, which likely favors keyword search. Some questions were removed or rewritten after the first results; every change is recorded in [evaluation/CHANGELOG.md](evaluation/CHANGELOG.md), and the original v1 results are kept in `evaluation/results/retrieval_baseline.json`.
+27 answerable questions (each labeled with the gold source, page and an evidence sentence) and 10 unanswerable questions (5 clearly out-of-corpus and 5 near-miss topics the documents do not cover). Most answerable questions were drafted by an LLM and then reviewed by hand; one is handwritten. LLM-drafted questions tend to reuse the passage's wording, which likely favors keyword search. Some questions were removed or rewritten after the first results; every change is recorded in [evaluation/CHANGELOG.md](evaluation/CHANGELOG.md), and the original v1 results are kept in `evaluation/results/retrieval_baseline.json`.
 
 ### Retrieval (evidence-level: the retrieved chunk must contain the supporting sentence)
 
@@ -100,7 +101,9 @@ On v1.1, the gate threshold of 0.0 (reranker score) refuses 0 of 27 answerable a
 | Average input tokens per LLM call | about 1,300 |
 
 - **Judge validation:** the judge is the same model as the answerer (a self-preference risk). On 10 answers I labeled myself, it agreed with me on 9 of 10 for faithfulness and 9 of 10 for correctness. That is a rough check, not a statistic.
-- **What "partially faithful" looked like:** the model sometimes adds a small detail the sources do not state.
+- **What "partially faithful" looked like:** the model sometimes adds or blends a detail the sources do not state. For example, one answer attributed training on data-collection techniques and forensics to system administrators, while the source assigns that to incident responders.
+- **The two refused answerable questions** were `q025` (a logging-schema question whose supporting evidence was not among the retrieved chunks) and `h001` (the NIST table question). Both were refused by the model itself, not by the gate.
+- **All 10 unanswerable questions were stopped by the relevance gate** before any LLM call (zero tokens), so this question set does not exercise the model's own refusal on unanswerable questions.
 - **Regression gate:** `python -m evaluation.compare_runs baseline current --check` fails when a rate gets worse by more than 0.10 (about 2-3 questions at this sample size). It once failed because the judge was failing intermittently and the metric counted failures as unfaithful answers. I measured the judge's own noise, fixed it (retries, excluding errors from rates, gating on the judge error rate) and did not loosen the tolerance. Details in the CHANGELOG.
 
 ## Quickstart (Windows)
@@ -189,7 +192,7 @@ docs/           architecture, retrieval and generation notes
 
 - **Small evaluation set:** 27 answerable and 10 unanswerable questions, mostly LLM-drafted. Results are indicative, not proof.
 - **Judge:** same model as the answerer, validated on only 10 hand labels.
-- **Tables** are extracted as flat text, so row and column headers can be separated from their values. A question that depends on the NIST SP 800-40r4 table was missed by hybrid + rerank, and was refused in my earlier manual runs, even though retrieval found the right page.
+- **Tables** are extracted as flat text, and a long table can be split across chunks. For the NIST SP 800-40r4 mitigation table, the chunk holding the row one question needs (critical vulnerabilities on high-importance assets) was not among the five retrieved chunks, even though retrieval found the table's first part on the right page. The model refused instead of guessing, so the root cause is chunking, not generation.
 - **No OCR** (scanned PDFs would be invisible) and no support for JavaScript-rendered pages.
 - **Reranker latency** is about 5 seconds per query on a CPU-only laptop (not profiled beyond stage timings).
 - **Single process:** the BM25 index lives in memory, there is no connection pooling, authentication, or rate limiting, and the `/stats` counters reset on restart.
